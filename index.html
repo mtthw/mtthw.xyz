@@ -103,21 +103,22 @@
         
     </div><!-- End of Header-->
     
+    <div class="width">
     <div id="carousel">
         <script type="text/javascript"> 
-            $(document).ready(function() {
-               carouselHeight();
-            });
-            $(window).resize(function() {
-                fixHeight();
-            });
+//            $(document).ready(function() {
+//               carouselHeight();
+//            });
+//            $(window).resize(function() {
+//                fixHeight();
+//            });
 
             function carouselHeight() {
                 $("#carousel").css("height", $("body").height() - $("#header").height());
             }
             
             function cPrev(){
-                $(".cRight").removeClass("cRight");
+        //        $(".cRight").removeClass("cRight");
                 
                 $(".cActive").addClass("cRight"); 
                 $(".cActive").removeClass("cActive");
@@ -162,10 +163,10 @@
             <div id="cPlay"></div>
             <div id="cNext" onClick="cNext();"></div>
         </div>
-        <div class="clear">&#160;</div>
-
-
     </div>
+    <div class="clear">&#160;</div>
+    </div>
+
 <!--    Start of Content       -->
     
     

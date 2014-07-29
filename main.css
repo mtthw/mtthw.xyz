@@ -66,23 +66,32 @@ a:hover { text-decoration:underline;}
 #logo img {height:100%;}
 #hwrap {float:left;}
 
-#carousel {background-color: rgba(240,240,240,0.5); width: 100%; overflow-x:hidden}
-#cContainer {width: 100% /* 300% */; height: inherit; overflow:hidden; position: relative;/* margin-left: -100%;*/}
+#carousel {background-color: rgba(240,240,240,0.5); width: 100%; width:640px; height: 360px; overflow-x:hidden; position: relative; float:right;margin:20px 0;}
+#cContainer {width: 400% /* 400% */; height: inherit; overflow:hidden; position: relative; margin-left: -100%;}
+#cContainer > div {width:25%; height: inherit; display:none;}
+
 
 .cLeft { display:block !important; position:absolute; left:0px; z-index: 010;}
-.cActive {display:block  !important; position:absolute; left:33.3333%; z-index: 020;}
-.cRight {display:block  !important; position:absolute; right:0px; z-index: 010;}
+.cRight {display:block  !important; position:absolute; left:50%; z-index: 010;}
+.cActive {display:block  !important; position:absolute; left:25%; z-index: 020;}
 
-.cLeft, .cActive, .cRight {transition-duration: 0.75s; transition-timing-function: linear;}
-.cLeft, .cActive, .cRight {transition-property: all;}
+#cContainer > div {transition-duration: 0.5s; transition-property: left;}
 
 /*.cLeft { transition-property: right;}*/
 /*.cActive {transition-property: left, right;}*/
 /*.cRight {transition-property: left;}*/
 
 
-#cControl {background-color: rgba(40,40,40,0.75); width: 200px; height: 50px; display:block; position:absolute; right:0px; bottom:0px;margin-bottom: 10px; z-index: 030;}
-#cControl>div{display:block; height: 24px; width: 24px; margin: 14px 4px;; float:left; background-size: contain;}
+#cControl {background-color: rgba(40,40,40,0.75); width: 200px; height: 50px; display:block; position:absolute; right:0px; bottom:0px;margin-bottom: 10px; z-index: 030; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+#cControl>div{display:block; height: 24px; width: 24px; margin: 14px 4px;; float:left; background-size: contain;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
 #cPrev:hover {background-image: url("/images/next1.png");transform: scaleX(-1); }
 #cPrev {background-image: url("/images/next0.png"); transform: scaleX(-1);}
 #cPlay:hover {background-image: url("/images/play1.png"); }
@@ -96,7 +105,6 @@ a:hover { text-decoration:underline;}
 #cRight {float:right; display:block  !important;}
 */
 
-#cContainer > div {width: /*100%*/33.333333%; height: inherit; display:none;}
 
 /*#nav {position: relative; top: -20px;}*/
 .navbar ul {display:block; font-weight: bold; color:#303030; padding: 0; list-style-type: none; text-align: center; }
@@ -143,7 +151,6 @@ a:hover { text-decoration:underline;}
 
 /* Up to Mobile Landscape Size */
 @media only screen and (max-width: 479px ){
-	body {background-size:100% 100%;}
 	.width{width:100%;}
     #title {display: none;}
 	#content div{padding:1.5em 30px;}
