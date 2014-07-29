@@ -104,6 +104,7 @@
     </div><!-- End of Header-->
     
     <div class="width">
+    <div style="margin-bottom:36px;"class="hheight"> </div>
     <div id="carousel">
         <script type="text/javascript"> 
 //            $(document).ready(function() {
@@ -118,12 +119,12 @@
             }
             
             function cPrev(){
-        //        $(".cRight").removeClass("cRight");
+                $(".cRight").removeClass("cRight");
                 
                 $(".cActive").addClass("cRight"); 
                 $(".cActive").removeClass("cActive");
                 
-                $(".cLeft").addClass("cActive");    // nm: is animated
+                $(".cLeft").addClass("cActive");
                 $(".cLeft").removeClass("cLeft");
                 
                 if ($(".cActive").index() > 0 ){
@@ -135,9 +136,9 @@
             }
             
             function cNext(){
-                $(".cLeft").removeClass("cLeft");   // nm: commenting this line is confusing, but neat
+                $(".cLeft").removeClass("cLeft");     //nm: fun to comment out
                 
-                $(".cActive").addClass("cLeft");    // nm: is animated
+                $(".cActive").addClass("cLeft");
                 $(".cActive").removeClass("cActive");
                 
                 $(".cRight").addClass("cActive");

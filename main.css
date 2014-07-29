@@ -30,7 +30,6 @@ a {text-decoration:none;}
 a:hover { text-decoration:underline;}
 
 #header a:link, #header a:visited{ color: #444;}
-#header 
 #body a:link {color:#6FD4FF}
 #body a:visited{color:#B0E9FF}
 /*.subnav {float: left; width: 100%; display: none}*/
@@ -38,7 +37,7 @@ a:hover { text-decoration:underline;}
 .width {width:960px; margin:0 auto;}
 .height {height:inherit}
 
-#header {background-color:#202020;}
+#header {background-color:#202020;position: fixed; width:100%; z-index: 9998;}
 #footer {height:2em; line-height: 2em;}
 
 #content {width:75%; float:right; min-height: inherit; background-color:#303030; background-color:rgba(48,48,48,0.95);}
@@ -151,20 +150,19 @@ a:hover { text-decoration:underline;}
 
 /* Up to Mobile Landscape Size */
 @media only screen and (max-width: 479px ){
+    #carousel {width:100%; height:270px;}
 	.width{width:100%;}
     #title {display: none;}
 	#content div{padding:1.5em 30px;}
-    
     #nav li, #subnav li {width: 100%;}
     #sidebar, #content {float:none; width: 100%}
 }
 
 /* Upwards of Mobile Landscape Size  */
 @media only screen and (min-width: 480px) and (max-width: 649px) {
+    #carousel {width:100%; height:259px;}
 	.width {width:460px;}
-/*	#header {height:77px; }*/
 	#content div{padding:0px 50px;}
-/*	#logo {float:none; margin:0 auto;}*/
     #title {width:250px;}
 	#nav {text-align:center; width:100%; float:none; margin:0;}
     .subnav li {width:50%;}
@@ -172,6 +170,7 @@ a:hover { text-decoration:underline;}
 		
 /* Beyond All Mobile Sizes, Tablet Portrait etc. */
 @media only screen and (min-width: 650px) and (max-width: 979px) {
+    #carousel {width:100%; height: 354px;}
 	.width {width:630px;}
 	#content div {padding:0px 70px;}
 }
@@ -186,6 +185,7 @@ a:hover { text-decoration:underline;}
 /* go on then, one last query.. */
 @media only screen and (min-width: 1420px) {
 	.width {width:1220px;}
+     #carousel {width:864px; height:486px;}
 	#content div{padding:0px 100px;}
     .subnav li {width: 20%; }
 }
