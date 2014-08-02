@@ -32,7 +32,6 @@
 	<div id="header" class="texture">
 		<div class="width hheight">
             <a href="/" id="logo" class="sidew"></a>
-            <div class="debug"> This is a debut message for yokes</div>
 			<div id="hwrap">
                 <div id="title">
 					<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 683.20009 125.60017" version="1.1"><path d="M4.98 120.62v-50c0-44 62-44 62 0v50m33 0v-88m100.92 24.92c-10-19.92-34.92-19.92-34.92-19.92s-39 0-39 39 39 39 39 39 24.92 0 34.92-19.92m198.08-19.08c0 39-38 39-38 39s-38 0-38-39 38-39 38-39 38 0 38 39zm30 44v-115m-197 115v-115m0 115v-50c0-44 62-44 62 0v50m166 0v-50c0-44 56-44 56 0v50m124-5s-38 0-38-39 38-39 38-39 38 0 38 39-38 39-38	39zm38 5v-88 M515.99 120.595v-50c0-44 56-44 56 0v50"/></svg>
@@ -102,72 +101,74 @@
         </div> <!-- End of Navbar -->
         
     </div><!-- End of Header-->
-    
-    <div class="width">
     <div style="margin-bottom:36px;"class="hheight"> </div>
-    <div id="carousel">
-        <script type="text/javascript"> 
-//            $(document).ready(function() {
-//               carouselHeight();
-//            });
-//            $(window).resize(function() {
-//                fixHeight();
-//            });
 
-            function carouselHeight() {
-                $("#carousel").css("height", $("body").height() - $("#header").height());
-            }
-            
-            function cPrev(){
-                $(".cRight").removeClass("cRight");
-                
-                $(".cActive").addClass("cRight"); 
-                $(".cActive").removeClass("cActive");
-                
-                $(".cLeft").addClass("cActive");
-                $(".cLeft").removeClass("cLeft");
-                
-                if ($(".cActive").index() > 0 ){
-                    $("#cContainer").find("div").eq(($(".cActive").index() - 1)).addClass("cLeft");
-                } else {
-                    $("#cContainer").find("div").eq( $("#cContainer").children().length - 1 ).addClass("cLeft");
-                }  
-            
-            }
-            
-            function cNext(){
-                $(".cLeft").removeClass("cLeft");     //nm: fun to comment out
-                
-                $(".cActive").addClass("cLeft");
-                $(".cActive").removeClass("cActive");
-                
-                $(".cRight").addClass("cActive");
-                $(".cRight").removeClass("cRight");
-                
-                if ($(".cActive").index() + 1 < $("#cContainer").children().length){
-                    $("#cContainer").find("div").eq(($(".cActive").index() + 1)).addClass("cRight");
-                } else {
-                      $("#cContainer").find("div").eq(0).addClass("cRight");
-                }                                  
-            }
-        </script>
-        <div id="cContainer">
-            <div class="cRight"  style="background-color: rgba(51, 77, 92, 0.5);"></div>
-            <div style="background-color: rgba(69, 178, 157, 0.5);"></div>
-            <div style="background-color: rgba(239, 201, 76, 0.5);"></div>
-            <div class="cLeft" style="background-color: rgba(226, 122, 63, 0.5);"></div>
-            <div  class="cActive" style="background-color: rgba(223, 73, 73, 0.5);"></div>
+    <div class="width">
+        <div id="vCarousel">
+            <div id="cTitle">
+                <div class="cActive" style="background-color: rgba(51, 77, 92, 0.5);">Sample Text</div>
+                <div class="cRight"  style="background-color: rgba(69, 178, 157, 0.5);">Sample Text</div>
+                <div                 style="background-color: rgba(239, 201, 76, 0.5);">Sample Text with more words so that I can see what it does......</div>
+                <div                 style="background-color: rgba(226, 122, 63, 0.5);">Sample Text</div>
+                <div class="cLeft"   style="background-color: rgba(223, 73, 73, 0.5);">Sample Text</div>
+            </div>
         </div>
+        <div id="carousel">
+            <div id="cContainer">
+                <div class="cActive" style="background-color: rgba(51, 77, 92, 0.5);"></div>
+                <div class="cRight"  style="background-color: rgba(69, 178, 157, 0.5);"></div>
+                <div                 style="background-color: rgba(239, 201, 76, 0.5);"></div>
+                <div                 style="background-color: rgba(226, 122, 63, 0.5);"></div>
+                <div class="cLeft"   style="background-color: rgba(223, 73, 73, 0.5);"></div>
+            </div>
 
-        <div id="cControl">
-            <div id="cPrev" onClick="cPrev();"></div>
-            <div id="cPlay"></div>
-            <div id="cNext" onClick="cNext();"></div>
+            <div id="cControl">
+                <div id="cPrev" onClick="cPrev();"></div>
+                <div id="cPlay"></div>
+                <div id="cNext" onClick="cNext();"></div>
+            </div>
         </div>
-    </div>
-    <div class="clear">&#160;</div>
+        <div class="clear">&#160;</div>
     </div>
 
+     <script type="text/javascript"> 
+        function cPrev(){
+            $(".cRight").removeClass("cRight");
+
+            $(".cActive").addClass("cRight"); 
+            $(".cActive").removeClass("cActive");
+
+            $(".cLeft").addClass("cActive");
+            $(".cLeft").removeClass("cLeft");
+
+            if ($(".cActive").index() > 0 ){
+                $("#cContainer").find("div").eq(($(".cActive").index() - 1)).addClass("cLeft");
+                $("#cTitle")    .find("div").eq(($(".cActive").index() - 1)).addClass("cLeft");
+            } else {
+                $("#cContainer").find("div").eq( $("#cContainer").children().length - 1 ).addClass("cLeft");
+                $("#cTitle")    .find("div").eq( $("#cContainer").children().length - 1 ).addClass("cLeft");
+            }
+        }
+
+        function cNext(){
+            $(".cLeft").removeClass("cLeft");     //nm: fun to comment out
+
+            $(".cActive").addClass("cLeft");
+            $(".cActive").removeClass("cActive");
+
+            $(".cRight").addClass("cActive");
+            $(".cRight").removeClass("cRight");
+
+            if ($(".cActive").index() + 1 < $("#cContainer").children().length){
+                $("#cContainer").find("div").eq(($(".cActive").index() + 1)).addClass("cRight");
+                $("#cTitle")    .find("div").eq(($(".cActive").index() + 1)).addClass("cRight");
+            } else {
+                  $("#cContainer")  .find("div").eq(0).addClass("cRight");
+                  $("#cTitle")       .find("div").eq(0).addClass("cRight");
+            }                                  
+        }
+    </script>
+    
 <!--    Start of Content       -->
     
     
@@ -202,7 +203,7 @@
         <div class="clear">&#160;</div>
 	</div> <!-- End of Body-->
 	<div id="footer" class=" width texture">
-		words here
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</div>
 </body>
 </html>

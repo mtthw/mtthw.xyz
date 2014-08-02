@@ -35,10 +35,15 @@ a:hover { text-decoration:underline;}
 /*.subnav {float: left; width: 100%; display: none}*/
 
 .width {width:960px; margin:0 auto;}
-.height {height:inherit}
+.hheight {height:155px;}
+.white {background-color:#f0f0f0;}
+
+/*---------------------------------------
+            Parts of the page
+ ----------------------------------------*/
 
 #header {background-color:#202020;position: fixed; width:100%; z-index: 9998;}
-#footer {height:2em; line-height: 2em;}
+#footer {line-height: 2em;}
 
 #content {width:75%; float:right; min-height: inherit; background-color:#303030; background-color:rgba(48,48,48,0.95);}
 #content div {padding:0px 90px;}
@@ -50,10 +55,9 @@ a:hover { text-decoration:underline;}
 
 #sidebar, #footer, #header {background-color:#202020; background-color:rgba(32,32,32,0.9);}
 
-.hheight {height:155px;}
-.white {background-color:#f0f0f0;}
-
-/*  #title {width:340px; height: 127px;}    #logo {height:100%;margin-top: -50px; margin-left:20px;float:left; background-image: url("/images/nm_b.png"); background-size:cover; width: 160px}  #title {width:180px; height:50px; margin:25px 0 0 7px}    */
+/*---------------------------------------
+            Header Stuff
+ ----------------------------------------*/
 
 #title {width:340px;  margin-left:-50px; padding: 32px 0 0 0;}
 #title a {height:inherit; display:block; padding: 0 10px;}
@@ -65,20 +69,27 @@ a:hover { text-decoration:underline;}
 #logo img {height:100%;}
 #hwrap {float:left;}
 
-#carousel {background-color: rgba(240,240,240,0.5); width: 100%; width:640px; height: 360px; overflow-x:hidden; position: relative; float:right;margin:20px 0;}
-#cContainer {width: 400% /* 400% */; height: inherit; overflow:hidden; position: relative; margin-left: -100%;}
-#cContainer > div {width:25%; height: inherit; display:none;}
+/*---------------------------------------
+            Carousel Stuff
+ ----------------------------------------*/
 
+#carousel {background-color: width: 100%; width:640px; height: 360px; overflow-x:hidden; position: relative; float:right; margin:20px 0;}
 
-.cLeft { display:block !important; position:absolute; left:0px; z-index: 010;}
-.cRight {display:block  !important; position:absolute; left:50%; z-index: 010;}
-.cActive {display:block  !important; position:absolute; left:25%; z-index: 020;}
+#vCarousel { height:360px; width: 300px; background-color: overflow-y:hidden; margin:20px 20px 20px 0; float:left;}
 
-#cContainer > div {transition-duration: 0.5s; transition-property: left;}
+#cTitle {  height:100%; position: relative;}
+#cTitle > div { width:90%; padding: 2px 5%; text-align: center;}
 
-/*.cLeft { transition-property: right;}*/
-/*.cActive {transition-property: left, right;}*/
-/*.cRight {transition-property: left;}*/
+/*#cTitle .cLeft {display:block  !important; position:absolute; bottom:0px; z-index: 010; height:28%; width: 80%; margin-left: 0%;} */
+/*#cTitle .cRight { display:block !important; position:absolute; top:0px; z-index: 010; height:28%; width: 80%; margin-left: 20%;}*/
+#cTitle .cActive {display:block  !important; position:absolute; /*top:32.5%;*/ bottom:0px;  z-index: 020; height:30%;}
+
+#cContainer {width: 400%; height: inherit; position: relative; margin-left: -100%;}
+#cContainer > div {width:25%; height: inherit; display:none; transition-duration: 0.5s; transition-property: left;}
+
+#cContainer .cLeft { display:block !important; position:absolute; left:0px; z-index: 010;}
+#cContainer .cRight {display:block  !important; position:absolute; left:50%; z-index: 010;}
+#cContainer .cActive {display:block  !important; position:absolute; left:25%; z-index: 020;}
 
 
 #cControl {background-color: rgba(40,40,40,0.75); width: 200px; height: 50px; display:block; position:absolute; right:0px; bottom:0px;margin-bottom: 10px; z-index: 030; 
@@ -91,6 +102,7 @@ a:hover { text-decoration:underline;}
     -moz-user-select: none;
     user-select: none;
 }
+
 #cPrev:hover {background-image: url("/images/next1.png");transform: scaleX(-1); }
 #cPrev {background-image: url("/images/next0.png"); transform: scaleX(-1);}
 #cPlay:hover {background-image: url("/images/play1.png"); }
@@ -98,19 +110,17 @@ a:hover { text-decoration:underline;}
 #cNext:hover {background-image: url("/images/next1.png");}
 #cNext {background-image: url("/images/next0.png");}
 
-/*
-#cLeft {float:left; display:block  !important;}
-#cActive {float:left; display:block  !important;}
-#cRight {float:right; display:block  !important;}
-*/
+
+/*---------------------------------------
+            Nav Bar Stuff
+ ----------------------------------------*/
 
 
-/*#nav {position: relative; top: -20px;}*/
 .navbar ul {display:block; font-weight: bold; color:#303030; padding: 0; list-style-type: none; text-align: center; }
 .navbar li {display:block; float: left; padding: 8px 0;} 
 .navbar li a {width: 100%; height: 100%; display: block;}
 
-.navbar>ul>li:hover>a {text-decoration:none; color: #f0f0f0; /*text-shadow: 0 0 4px #202020*/} /* important is need, could be done by refeering to ids instead, but it is longer and no why I hagve the class. */
+.navbar>ul>li:hover>a {text-decoration:none; color: #f0f0f0;}
 .navbar li:hover {background-image: url("images/w.png");}
 
 #nav{font-size:1.7em;}
@@ -148,6 +158,11 @@ a:hover { text-decoration:underline;}
 
 .rainbow {width:100%; background:url("images/rainbow.png");background-size: 100% 100%; height:2px;position:relative; top:-2px;}
 
+/*---------------------------------------
+            Responsive Stuff
+ ----------------------------------------*/
+
+
 /* Up to Mobile Landscape Size */
 @media only screen and (max-width: 479px ){
     #carousel {width:100%; height:270px;}
@@ -162,7 +177,7 @@ a:hover { text-decoration:underline;}
 @media only screen and (min-width: 480px) and (max-width: 649px) {
     #carousel {width:100%; height:259px;}
 	.width {width:460px;}
-	#content div{padding:0px 50px;}
+	#content div{padding:0px 50px;}Nav Bar
     #title {width:250px;}
 	#nav {text-align:center; width:100%; float:none; margin:0;}
     .subnav li {width:50%;}
