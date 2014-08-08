@@ -14,7 +14,7 @@ body {
     text-rendering: optimizeLegibility;
     padding: 0;
     overflow-x: hidden;
-    background: url(images/IMG_5578.JPG) no-repeat center center fixed; 
+    background: url(images/stone.jpg) no-repeat center center fixed; 
     background-color: #333; 
     background-size: 100% 100%;
     background-size: cover;
@@ -212,7 +212,7 @@ a:hover { text-decoration:underline;}
 @media only screen and (min-width: 1420px) {
 	.width {width:1220px;}
     #carousel {width:864px; height:486px;}
-/*    #vCarousel { height:486px; width: 336px;}*/
+    #cTitle { width: 336px;}
     #cTitle > div {height: 70px; line-height:70px }
     #cTitle .cActive {height: 166px; line-height:166px ;}
 	#content div{padding:0px 100px;}
