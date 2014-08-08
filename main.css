@@ -42,7 +42,7 @@ a:hover { text-decoration:underline;}
             Parts of the page
  ----------------------------------------*/
 
-#header {background-color:#202020;position: fixed; width:100%; z-index: 9998;}
+#header {position: fixed; width:100%; z-index: 9998;}
 #footer {line-height: 2em;}
 
 #content {width:75%; float:right; min-height: inherit; background-color:#303030; background-color:rgba(48,48,48,0.95);}
@@ -73,19 +73,19 @@ a:hover { text-decoration:underline;}
             Carousel Stuff
  ----------------------------------------*/
 
-#carousel {background-color: width: 100%; width:640px; height: 360px; overflow-x:hidden; position: relative; float:right; margin:20px 0;}
+#carousel {width: 100%; width:640px; height: 360px; overflow:hidden; position: relative; float:right; margin:20px 0;}
 
-#vCarousel { height:360px; width: 300px; background-color: overflow-y:hidden; margin:20px 20px 20px 0; float:left;}
+#vCarousel { height:360px; width: 300px; background-color: overflow:hidden; margin:20px 20px 20px 0; float:left;}
 
 #cTitle {  height:100%; position: relative;}
-#cTitle > div { width:90%; padding: 2px 5%; text-align: center;}
+#cTitle > div {font-size: 1.5em; text-shadow: 0px 0px 1px rgba(20, 20, 20, 0.6); width:90%; margin-left: 5%; height: 45px; line-height: 45px; text-align: center; margin-bottom: 10px; transition-duration: 0.5s;}
+#cTitle > div:last-child {margin-bottom: 0;}
+#cTitle > div > span { display: inline-block; vertical-align: middle; line-height: normal;} /* This line makes title that are over multiple lines work better, not perfectly.*/
 
-/*#cTitle .cLeft {display:block  !important; position:absolute; bottom:0px; z-index: 010; height:28%; width: 80%; margin-left: 0%;} */
-/*#cTitle .cRight { display:block !important; position:absolute; top:0px; z-index: 010; height:28%; width: 80%; margin-left: 20%;}*/
-#cTitle .cActive {display:block  !important; position:absolute; /*top:32.5%;*/ bottom:0px;  z-index: 020; height:30%;}
+#cTitle .cActive {height:140px; line-height: 140px; width:100%; margin-left: 0%;}
 
 #cContainer {width: 400%; height: inherit; position: relative; margin-left: -100%;}
-#cContainer > div {width:25%; height: inherit; display:none; transition-duration: 0.5s; transition-property: left;}
+#cContainer > div {width:25%; height: inherit; display:none; transition-duration: 0.5s; transition-property: all; background-size: cover;}
 
 #cContainer .cLeft { display:block !important; position:absolute; left:0px; z-index: 010;}
 #cContainer .cRight {display:block  !important; position:absolute; left:50%; z-index: 010;}
@@ -166,6 +166,10 @@ a:hover { text-decoration:underline;}
 /* Up to Mobile Landscape Size */
 @media only screen and (max-width: 479px ){
     #carousel {width:100%; height:270px;}
+      #vCarousel {width:100%; height: auto; margin: 20px 0 0;}
+    #cTitle > div {display:none;}
+    #cTitle .cActive {height: 45px; line-height: 45px; display: block; margin: 0 0 0 1%; width: 98%;}
+    
 	.width{width:100%;}
     #title {display: none;}
 	#content div{padding:1.5em 30px;}
@@ -176,17 +180,26 @@ a:hover { text-decoration:underline;}
 /* Upwards of Mobile Landscape Size  */
 @media only screen and (min-width: 480px) and (max-width: 649px) {
     #carousel {width:100%; height:259px;}
-	.width {width:460px;}
-	#content div{padding:0px 50px;}Nav Bar
+    #vCarousel {width:100%; height: auto; margin: 20px 0 0;}
+    #cTitle > div {width:47%; float:left; margin-left: 2%; }
+    #cTitle .cActive {height: 45px; line-height: 45px;}
+    
+    .width {width:460px;}
+	#content div{padding:0px 50px;}
     #title {width:250px;}
-	#nav {text-align:center; width:100%; float:none; margin:0;}
+	
+    #nav {text-align:center; width:100%; float:none; margin:0;}
     .subnav li {width:50%;}
 }
 		
 /* Beyond All Mobile Sizes, Tablet Portrait etc. */
 @media only screen and (min-width: 650px) and (max-width: 979px) {
     #carousel {width:100%; height: 354px;}
-	.width {width:630px;}
+    #vCarousel {width:100%; height: auto; margin: 20px 0 0;}
+    #cTitle > div {width:47%; float:left; margin-left: 2%; }
+    #cTitle .cActive {height: 45px; line-height: 45px;}
+
+    .width {width:630px;}
 	#content div {padding:0px 70px;}
 }
 	
@@ -200,7 +213,10 @@ a:hover { text-decoration:underline;}
 /* go on then, one last query.. */
 @media only screen and (min-width: 1420px) {
 	.width {width:1220px;}
-     #carousel {width:864px; height:486px;}
+    #carousel {width:864px; height:486px;}
+    #vCarousel { height:486px; width: 336px;}
+    #cTitle > div {height: 70px; line-height:70px }
+    #cTitle .cActive {height: 166px; line-height:166px ;}
 	#content div{padding:0px 100px;}
     .subnav li {width: 20%; }
 }
