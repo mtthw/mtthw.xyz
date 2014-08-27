@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charfset="utf-8" />
     <title>nicholma.com</title>
     <link rel="icon" href="/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
@@ -19,10 +19,10 @@
     });
 
     function fixHeight() {
-        $(".bheight").css("min-height", "0px");     //  Setting min-height to "unset" does not work in Chromium
-        if($("body").width() >= 480 ){
-            $("#body").css("min-height", $("body").height() -( $("#header").height() + $("#footer").height()));
-            $(".bheight").css("min-height",  $("#body").height());
+//      $(".bheight").css("min-height", "0px");     //  Setting min-height to "unset" does not work in Chromium
+//      if($("body").width() >= 480 ){
+		$("#body").css("min-height", $("body").height() -( $("#header").height() + $("#footer").height()));
+//			$(".bheight").css("min-height",  $("#body").height());
         }
     }
     </script>
@@ -39,8 +39,7 @@
             </div><!-- End of hwrap-->
             <div class="clear">&#160;</div>
 		</div><!-- End of Width-->
-<!--		<div class="rainbow"></div>-->
-        <div id="nav" class="navbar texture">
+        <div class="nav navbar texture">
             <ul class="width" >
                 <li>
                     <a href="/">Home</a>
@@ -99,9 +98,8 @@
             </ul>
             <div class="clear">&#160;</div>
         </div> <!-- End of Navbar -->
-        
     </div><!-- End of Header-->
-    <div style="margin-bottom:36px;"class="hheight"> </div>
+
     <div class="width">
 <!--        <div id="vCarousel">-->
         <div id="cTitle">
@@ -121,7 +119,7 @@
                 <div class="cLeft"   style="background-color: rgba(223, 73, 73, 0.75); background-image:url(images/IMG_5819.JPG);"></div>
             </div>
 
-            <div id="cControl">
+            <div id="cControl" class="texture">
                 <div id="cPrev" onClick="cPrev();"></div>
                 <div id="cPlay"></div>
                 <div id="cNext" onClick="cNext();"></div>
@@ -170,11 +168,19 @@
     </script>
     
 <!--    Start of Content       -->
-    
-    
     <div id="body" class="width">
-		<div id="content" class="bheight">
-            <h1>Home</h1>
+		<div id="heading" class="black">
+			<div id="crumbs">
+				<a href="/">Home</a>
+				<a href="#">foo</a>
+				<a href="#">bar</a>				
+			</div>
+			<div class="clear">&#160;</div>
+
+			<h1>Home</h1>
+			<h4>Just a simple intro page.<h4>
+		</div>
+		<div id="content">
             <div>
                 <p>This is a project to create a website for myself. Someone happening across this website may wonder what content they will find, that is something I would like to know too. This website may be slightly content light. In the past it has gone through various facelifts and had a few different shapes and forms. but to this point has had nothing to see.</p>
                 <p>The web site has formed more of a test place for me to try different things as design and ux design are interests of mine.</p>
@@ -195,7 +201,7 @@
                 </ol>
             </div>
         </div>
-        <div id="sidebar" class="bheight">
+        <div id="sidebar">
             <div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
@@ -205,6 +211,69 @@
 	<div id="footer" class=" width texture">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</div>
+	
+	<div id="fh" class="width">
+		<div class="nav navbar texture">
+				<ul class="width" class="texture" >
+					<li>
+						<a href="/">Home</a>
+						<div class="subnav navbar">
+							<ul class="width" >
+								<li><a href="#">A</a></li>
+								<li><a href="#">B</a></li>
+								<li><a href="#">C</a></li>
+								<li><a href="#">D</a></li>
+								<li><a href="#">E</a></li>
+							</ul>
+							<div class="clear">&#160;</div> 
+						</div>
+					</li>
+					<li>
+						<a href="/code">Code</a>
+						<div class="subnav navbar">
+							<ul class="width" >
+								<li><a href="#">F</a></li>
+								<li><a href="#">G</a></li>
+								<li><a href="#">H</a></li>
+								<li><a href="#">I</a></li>
+								<li><a href="#">J</a></li>
+								<li><a href="#">K</a></li>
+							</ul>
+							<div class="clear">&#160;</div>
+						</div>
+					</li>
+					<li>
+						<a href="/photography">Arts</a>
+						<div class="subnav navbar">
+							<ul class="width" >
+								<li><a href="#">L</a></li>
+								<li><a href="#">M</a></li>
+								<li><a href="#">N</a></li>
+								<li><a href="#">O</a></li>
+							</ul>
+							<div class="clear">&#160;</div>
+						</div>
+					</li>
+					<li>
+						<a href="/blog">Blog</a>
+		<!--
+						<div class="subnav navbar">
+							<ul class="width" >
+								<li><a href="#">P</a></li>
+								<li><a href="#">Q</a></li>
+								<li><a href="#">R</a></li>
+								<li><a href="#">S</a></li>
+								<li><a h1ef="#">T</a></li>
+							</ul>
+							<div class="clear">&#160;</div>
+						</div>
+		-->
+					</li>
+				</ul>
+			<div class="clear">&#160;</div>
+		</div> <!-- End of Navbar -->
+	</div> <!-- End of fixed header (fh) -->
+
 </body>
 </html>
 
