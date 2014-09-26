@@ -34,7 +34,6 @@ a:hover { text-decoration:underline;}
 #body a:visited{color:#B0E9FF}
 
 .width {width:960px; margin:0 auto;}
-.hheight {height:155px;}
 .white {background-color:#f0f0f0;}
 
 /*---------------------------------------
@@ -47,9 +46,10 @@ a:hover { text-decoration:underline;}
 
 #heading {background-color: #3289AD; margin-bottom:20px; min-height:120px;}
 #heading > h1, #heading > h4  {padding:10px 90px; }
-#crumbs a {float:left; margin:5px 0}
-#crumbs a:first-child:before { content: '\2302';}
-#crumbs a:before { content: ">"; margin: 0 5px 0 15px;}
+#crumbs a {margin-left: 5px;}
+#crumbs span {float:left; display:block; margin: 5px 5px 0;}
+#crumbs span:first-child:before { content: '\2302';}
+#crumbs span:before { content: ">";}
 
 #content { margin-right:20px; width:700px; float:left; min-height: inherit; background-color:#303030; background-color:rgba(48,48,48,0.95);}
 #content > div {padding:0px 90px; }
@@ -64,13 +64,14 @@ a:hover { text-decoration:underline;}
 /*---------------------------------------
             Header Stuff
  ----------------------------------------*/
+.hheight {height:100px;}
 
-#title {width:340px;  margin-left:-50px; padding: 32px 0 0 0;}
+#title {width:320px;  margin-left:-30px; padding: 16px 0 0 0;}
 #title a {height:inherit; display:block; padding: 0 10px;}
 #title svg { display: block;  fill:none;stroke-width:10; stroke:#e0e0e0;}
 #title:hover svg { stroke:#f0f0f0;}
 
-#logo {height:100%; margin-left:10px; float:left; background-image: url("/images/nm_gbg.png"); background-size:cover; background-position: 0px -50px; background-repeat:no-repeat; width: 250px; transition:background-image 1s linear;}
+#logo {height:100%; margin-left:10px; float:left; background-image: url("/images/nm_gbg.png"); background-size:cover; background-position: 0px -32px; background-repeat:no-repeat; width: 160px; }
 #logo:hover {background-image: url("/images/nm_gbg2.png")}
 #logo img {height:100%;}
 #hwrap {float:left;}
@@ -96,7 +97,7 @@ a:hover { text-decoration:underline;}
 #cContainer .cActive {display:block  !important; position:absolute; left:25%; z-index: 020;}
 
 
-#cControl {background-color: rgba(40,40,40,0.75); width: 200px; height: 50px; display:block; position:absolute; right:0px; bottom:0px;margin-bottom: 10px; z-index: 030; 
+#cControl {background-color: rgba(40,40,40,0.90); width: 200px; height: 50px; display:block; position:absolute; right:0px; bottom:0px;margin-bottom: 10px; z-index: 030; 
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -161,6 +162,36 @@ a:hover { text-decoration:underline;}
 .nav>ul>li:nth-child(4) {background-color: #FC5B3F }
 
 .rainbow {width:100%; background:url("images/rainbow.png");background-size: 100% 100%; height:2px;position:relative; top:-2px;}
+
+
+.load { position: absolute;left: 0;top: 0;width: 0;height: 0;}
+.load::after, .load::before, .load {content: '';position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #FFF;animation-duration: 1s;animation-iteration-count: infinite;}
+.load {animation-name: dot1;}
+.load::before {animation-name: dot2;}
+.load::after {animation-name: dot3;}
+
+@keyframes dot1 {
+    0% {top: 0px;left: 0px;}
+    25% {top: 20px;left: 0px;}
+    75% {top: 20px;left: 0px;}
+    100% {top: 20px;left: 20px;}
+}
+
+@keyframes dot2 {
+    0% {top: 0px;left: 20px;}
+    25% {top: -20px;left: 20px;}
+    50% {top: -20px;left: 0px;}
+    75% {top: -20px;left: 0px;}
+    100% {top: -20px;left: -20px;}
+}
+
+@keyframes dot3 {
+    0% {top: 20px;left: 20px;}
+    25% {top: 0px;left: 20px;}
+    50% {top: 0px;left: 20px;}
+    75% {top: -20px;left: 20px;}
+    100% {top: -20px;left: 0px;}
+}
 
 /*---------------------------------------
             Responsive Stuff
