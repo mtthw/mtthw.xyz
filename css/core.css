@@ -1,0 +1,110 @@
+* { margin: 0; }
+
+body {
+    background-color: #202020;
+    color: #AAAAAA;
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-display: -webkit-box;
+    -webkit-display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.clear { clear: both; display: block; float: none !important; font-size: 0; height: 0; line-height: 0; text-indent: -4000px; }
+::selection {background:#ED9AC5;}
+::-moz-selection {background:rgba(255,102,0,0.7);}
+hr {height: 1px; margin: 8px 0 0; border: 0px none;background-color: #f0f0f0;}
+
+a {text-decoration:none;}
+
+footer {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+footer > div {
+  background-color: #AAAAAA;
+  color: #202020;
+}
+.width {width:960px; margin:0 auto;}
+
+#headerBottom {justify-content: flex-end; margin-bottom: 40px;}
+.page_header > h2 {letter-spacing: 1em; font-size: 4em; text-align: center; margin: 30px -1em 30px 0; font-weight: 300;}
+.soundWave {background: url("/images/sw.svg") no-repeat scroll 50% 0% / cover transparent; height: 180px;display: block; margin: 10px 0;}
+.ello_link img {width: 1em; margin-bottom: -4px;}
+.ello_link a:link, .ello_link a:visited { color: #202020;}
+.ello_link a:hover, .ello_link a:active { color: #101010;}
+
+.social{}
+#me{border-radius: 200px; margin: -80px 0 0 80px;}
+.page_element {padding:0px 90px; }
+.page_element p {text-indent: 30px; padding: 12px 0 0 0; line-height: 200%;}
+.page_element > h2 { letter-spacing: .5em; font-size: 2em; font-weight: 300; text-align: center;}
+
+
+.container {
+  -webkit-display: -webkit-box;
+  -webkit-display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content {
+    -webkit-flex-grow: 1;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+/* Up to Mobile Landscape Size */
+@media only screen and (max-width: 479px ){
+	.width{width:100%;}
+}
+
+/* Upwards of Mobile Landscape Size  */
+@media only screen and (min-width: 480px) and (max-width: 649px) {
+    .width {width:460px;}
+}
+
+/* Beyond All Mobile Sizes, Tablet Portrait etc. */
+@media only screen and (min-width: 650px) and (max-width: 979px) {
+    .width {width:630px;}
+}
+
+/* Beyond standard 980 */
+@media only screen and (min-width: 980px) and (max-width: 1419px) {
+	.width {width:960px;}
+}
+
+/* go on then, one last query.. */
+@media only screen and (min-width: 1420px) {
+	.width {width:1220px;}
+}
+
+.shadow-0 {
+    border: 1px solid #eee;
+}
+.shadow-1 {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.shadow-2 {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+.shadow-3 {
+    box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19), 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+}
+.shadow-4 {
+    box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.21), 0 16px 28px 0 rgba(0, 0, 0, 0.22);
+}
+.shadow-5 {
+    box-shadow: 0 40px 77px 0 rgba(0, 0, 0, 0.22), 0 27px 24px 0 rgba(0, 0, 0, 0.2);
+}

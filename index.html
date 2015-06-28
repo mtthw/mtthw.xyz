@@ -1,281 +1,201 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charfset="utf-8" />
-    <title>nicholma.com</title>
-    <link rel="icon" href="/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/main.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Playball|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript"> 
-    Boolean 
-    $(document).ready(function() {
-	   fixHeight();
-    });
-    $(window).resize(function() {
-	   fixHeight();
-    });
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-    function fixHeight() {
-//      $(".bheight").css("min-height", "0px");     //  Setting min-height to "unset" does not work in Chromium
-//      if($("body").width() >= 480 ){
-		$("#body").css("min-height", $("body").height() -( $("#header").height() + $("#footer").height()));
-//			$(".bheight").css("min-height",  $("#body").height());
-        }
-    }
-    </script>
+  <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
 
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+
+
+  <title>n i c h o l m a</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-	<div id="header" class="texture">
-		<div class="width hheight">
-            <a href="/" id="logo" class="sidew"></a>
-			<div id="hwrap">
-                <div id="title">
-					<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 683.20009 125.60017" version="1.1"><path d="M4.98 120.62v-50c0-44 62-44 62 0v50m33 0v-88m100.92 24.92c-10-19.92-34.92-19.92-34.92-19.92s-39 0-39 39 39 39 39 39 24.92 0 34.92-19.92m198.08-19.08c0 39-38 39-38 39s-38 0-38-39 38-39 38-39 38 0 38 39zm30 44v-115m-197 115v-115m0 115v-50c0-44 62-44 62 0v50m166 0v-50c0-44 56-44 56 0v50m124-5s-38 0-38-39 38-39 38-39 38 0 38 39-38 39-38	39zm38 5v-88 M515.99 120.595v-50c0-44 56-44 56 0v50"/></svg>
-				</div> <!-- End of title-->
-            </div><!-- End of hwrap-->
-            <div class="clear">&#160;</div>
-		</div><!-- End of Width-->
-        <div class="nav navbar">
-            <ul class="width" >
-                <li>
-                    <a href="/">Home</a>
-                    <div class="subnav navbar">
-                        <ul class="width" >
-                            <li><a href="#">A</a></li>
-                            <li><a href="#">B</a></li>
-                            <li><a href="#">C</a></li>
-                            <li><a href="#">D</a></li>
-                            <li><a href="#">E</a></li>
-                        </ul>
-                        <div class="clear">&#160;</div> 
-                    </div>
-                </li>
-                <li>
-                    <a href="/code">Code</a>
-                    <div class="subnav navbar">
-                        <ul class="width" >
-                            <li><a href="#">F</a></li>
-                            <li><a href="#">G</a></li>
-                            <li><a href="#">H</a></li>
-                            <li><a href="#">I</a></li>
-                            <li><a href="#">J</a></li>
-                            <li><a href="#">K</a></li>
-                        </ul>
-                        <div class="clear">&#160;</div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/photography">Arts</a>
-                    <div class="subnav navbar">
-                        <ul class="width" >
-                            <li><a href="#">L</a></li>
-                            <li><a href="#">M</a></li>
-                            <li><a href="#">N</a></li>
-                            <li><a href="#">O</a></li>
-                        </ul>
-                        <div class="clear">&#160;</div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/blog">Blog</a>
-<!--
-                    <div class="subnav navbar">
-                        <ul class="width" >
-                            <li><a href="#">P</a></li>
-                            <li><a href="#">Q</a></li>
-                            <li><a href="#">R</a></li>
-                            <li><a href="#">S</a></li>
-                            <li><a h1ef="#">T</a></li>
-                        </ul>
-                        <div class="clear">&#160;</div>
-                    </div>
--->
-                </li>
-            </ul>
-            <div class="clear">&#160;</div>
-        </div> <!-- End of Navbar -->
-    </div><!-- End of Header-->
+  <nav class="cyan lighten-3" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><img id="logo" src="/images/nm.png"></img></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://blog.nicholma.com">Blog</a></li>
+      </ul>
 
-    <div class="width">
-<!--        <div id="vCarousel">-->
-        <div id="cTitle">
-            <div class="cActive" style="background-color: rgba(51, 77, 92, 0.95);"><span>Elephant Eye</span></div>
-            <div class="cRight"  style="background-color: rgba(69, 178, 157, 0.95);"><span>Sun Rise</span></div>
-            <div                 style="background-color: rgba(239, 201, 76, 0.95);"><span>Sun Rise and Boat</span></div>
-            <div                 style="background-color: rgba(226, 122, 63, 0.95);"><span>Different Boat</span></div>
-            <div class="cLeft"   style="background-color: rgba(223, 73, 73, 0.95);"><span>Moon rise</span></div>
-        </div>
-<!--        </div>-->
-        <div id="carousel">
-            <div id="cContainer">
-                <div class="cActive" style="background-color: rgba(51, 77, 92, 0.95); background-image:url(images/IMG_4242.JPG);"></div>
-                <div class="cRight"  style="background-color: rgba(69, 178, 157, 0.95); background-image:url(images/IMG_5578.JPG);"></div>
-                <div                 style="background-color: rgba(239, 201, 76, 0.95); background-image:url(images/IMG_5616.JPG);"></div>
-                <div                 style="background-color: rgba(226, 122, 63, 0.95); background-image:url(images/IMG_5731.JPG);"></div>
-                <div class="cLeft"   style="background-color: rgba(223, 73, 73, 0.95); background-image:url(images/IMG_5819.JPG);"></div>
-            </div>
-
-            <div id="cControl" class="texture">
-                <div id="cPrev" onClick="cPrev();"></div>
-                <div id="cPlay"></div>
-                <div id="cNext" onClick="cNext();"></div>
-            </div>
-        </div>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="http://blog.nicholma.com">Blog</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
-    <div class="clear">&#160;</div>
-
-
-     <script type="text/javascript"> 
-        function cPrev(){
-            $(".cRight").removeClass("cRight");
-
-            $(".cActive").addClass("cRight"); 
-            $(".cActive").removeClass("cActive");
-
-            $(".cLeft").addClass("cActive");
-            $(".cLeft").removeClass("cLeft");
-
-            if ($(".cActive").index() > 0 ){
-                $("#cContainer").find("div").eq(($(".cActive").index() - 1)).addClass("cLeft");
-                $("#cTitle")    .find("div").eq(($(".cActive").index() - 1)).addClass("cLeft");
-            } else {
-                $("#cContainer").find("div").eq( $("#cContainer").children().length - 1 ).addClass("cLeft");
-                $("#cTitle")    .find("div").eq( $("#cContainer").children().length - 1 ).addClass("cLeft");
-            }
-        }
-
-        function cNext(){
-            $(".cLeft").removeClass("cLeft");     //nm: fun to comment out
-
-            $(".cActive").addClass("cLeft");
-            $(".cActive").removeClass("cActive");
-
-            $(".cRight").addClass("cActive");
-            $(".cRight").removeClass("cRight");
-
-            if ($(".cActive").index() + 1 < $("#cContainer").children().length){
-                $("#cContainer").find("div").eq(($(".cActive").index() + 1)).addClass("cRight");
-                $("#cTitle")    .find("div").eq(($(".cActive").index() + 1)).addClass("cRight");
-            } else {
-                  $("#cContainer")  .find("div").eq(0).addClass("cRight");
-                  $("#cTitle")       .find("div").eq(0).addClass("cRight");
-            }                                  
-        }
-    </script>
-    
-<!--    Start of Content       -->
-    <div id="body" class="width">
-		<div id="heading" class="black">
-			<div id="crumbs">
-				<span><a href="/">Home</a></span>
-				<span><a href="#">foo</a></span>
-				<span><a href="#">bar</a></span>		
-			</div>
-			<div class="clear">&#160;</div>
-
-			<h1>Home</h1>
-			<h4>Just a simple intro page.</h4>
-		</div>
-		<div id="content">
-            <div>
-                <p>This is a project to create a website for myself. Someone happening across this website may wonder what content they will find, that is something I would like to know too. This website may be slightly content light. In the past it has gone through various facelifts and had a few different shapes and forms. but to this point has had nothing to see.</p>
-                <p>The web site has formed more of a test place for me to try different things as design and ux design are interests of mine.</p>
-                <p>I do not know what I content I would like to have on this website. I college I study computer engineering, so it would be sensible to have some of the projects I have worked on visible, in some sort portfolio. &nbsp;I should get on that.</p>
-                <p>I also like photography and painting, so having some of my hobbies presented in someway would also be neat.</p>
-                <p>Should I feel the need to have opinions I could have a blog, I doubt I would have any or at least for long enough to write them down. But having wordpress blog so I can learn to write a theme would be nice.</p>
-                <p>This site will only use my images and artwork. I will code it myself, I'm familiar with php but would like to use ruby (again to learn it). Now the blog will be wordpress so that is an exception and I will use some resources like jQuery and maybe rails.</p>
-                <p>&nbsp;</p>
-                <h2>Ideas/To Do:</h2>
-                <ol>
-                    <li>Make a carousel thing</li>
-                    <li>Make a colour yoke (contrasting/complementary generator)</li>
-                    <li>make a back-end</li>
-                    <li>make a wordpress blog theme</li>
-                    <li>vertical spit image preview yoke.</li>
-                    <li>...</li>
-                    <li>profit?</li>
-                </ol>
-            </div>
+  </nav>
+    <div id="index-banner" class="full-heigth parallax-container">
+      <div  id="index-content" class="section no-pad-bot">
+        <div class="container lower">
+          <h1 class="page_header cyan-text text-lighten-3 header center">nicholma</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">Matthew Nicholson</h5>
+          </div>
         </div>
-        <div id="sidebar">
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+      </div>
+      <div class="parallax"><img src="/images/background1.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center cyan-text text-lighten-3"><i class="mdi-action-info"></i></h2>
+          <h5 class="center">About Me</h5>
+
+          <p class="light">
+            I have completed a Bachelor of Engineering at Trinity College Dublin, the University of Dublin.
+            I have specialised into computer engineering, mainly interested in information systems and knowledge engineering.
+            I'm currently finishing up my masters.
+          </p>
         </div>
-        <div class="clear">&#160;</div>
-	</div> <!-- End of Body-->
-	<div id="footer" class=" width texture">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</div>
-	
-	<div id="fh" class="width">
-		<div class="nav navbar texture">
-				<ul class="width" class="texture" >
-					<li>
-						<a href="/">Home</a>
-						<div class="subnav navbar">
-							<ul class="width" >
-								<li><a href="#">A</a></li>
-								<li><a href="#">B</a></li>
-								<li><a href="#">C</a></li>
-								<li><a href="#">D</a></li>
-								<li><a href="#">E</a></li>
-							</ul>
-							<div class="clear">&#160;</div> 
-						</div>
-					</li>
-					<li>
-						<a href="/code">Code</a>
-						<div class="subnav navbar">
-							<ul class="width" >
-								<li><a href="#">F</a></li>
-								<li><a href="#">G</a></li>
-								<li><a href="#">H</a></li>
-								<li><a href="#">I</a></li>
-								<li><a href="#">J</a></li>
-								<li><a href="#">K</a></li>
-							</ul>
-							<div class="clear">&#160;</div>
-						</div>
-					</li>
-					<li>
-						<a href="/photography">Arts</a>
-						<div class="subnav navbar">
-							<ul class="width" >
-								<li><a href="#">L</a></li>
-								<li><a href="#">M</a></li>
-								<li><a href="#">N</a></li>
-								<li><a href="#">O</a></li>
-							</ul>
-							<div class="clear">&#160;</div>
-						</div>
-					</li>
-					<li>
-						<a href="/blog">Blog</a>
-		<!--
-						<div class="subnav navbar">
-							<ul class="width" >
-								<li><a href="#">P</a></li>
-								<li><a href="#">Q</a></li>
-								<li><a href="#">R</a></li>
-								<li><a href="#">S</a></li>
-								<li><a h1ef="#">T</a></li>
-							</ul>
-							<div class="clear">&#160;</div>
-						</div>
-		-->
-					</li>
-				</ul>
-			<div class="clear">&#160;</div>
-		</div> <!-- End of Navbar -->
-	</div> <!-- End of fixed header (fh) -->
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center cyan-text text-lighten-3"><i class="mdi-av-my-library-books"></i></h2>
+          <h5 class="center">Blog</h5>
+
+          <p class="light">
+            I have a blog, I dont know if I will ever update it or anything but it's there:
+            <a href="http://blog.nicholma.com" class="collection-item">blog.nicholma.com</a>.
+            Should I ever write anything on I'd execpt it to be about my fumblings with a camera or computer.
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center cyan-text text-lighten-3"><i class="mdi-social-public"></i></h2>
+          <h5 class="center">Social</h5>
+
+          <div class="collection">
+            <a href="https://twitter.com/nicholma_" class="collection-item tooltipped" data-position="top" data-delay="50" data-tooltip="I wouldn't expect me to tweet much but it is there much like my blog">
+              twitter<span class="right s-icon" id="s-twitter"></span>
+            </a>
+            <a href="https://ello.co/nicholma" class="collection-item tooltipped" data-position="top" data-delay="50" data-tooltip="ello seems like an interesting concept and watching it as it developes is neat">
+              ello<span class="right s-icon" id="s-ello"></span>
+            </a>
+            <a href="https://github.com/nicholma" class="collection-item tooltipped" data-position="top" data-delay="50" data-tooltip="I expect to release stuff on github">
+              github<span class="right s-icon" id="s-git"></span>
+            </a>
+            <a href="https://bitbucket.org/nicholma" class="collection-item tooltipped" data-position="top" data-delay="50" data-tooltip="I do more private stuff and small stuff on bitbucket">
+              bitbucket<span class="right s-icon" id="s-bit"></span>
+            </a>
+            <a href="http://blog.nicholma.com" class="collection-item">
+              blog<span class="right s-icon" id="s-blog"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="/images/background3.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h4>About The Site</h4>
+        <p class="left-align light">
+          Since you scrolled down, I guess you might be interested in knowing a bit more.
+        </p>
+        <p class="left-align light">
+          All the photos on the site were taken by me, I think they look neat.
+          I'd like to make a photo album type site, to show off a few more.
+          If I ever write anything on my blog, I could write about photos.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="/images/background2.jpg" alt="Unsplashed background img 3"></div>
+</div>
+
+<footer class="page-footer cyan darken-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">About Me</h5>
+        <p class="grey-text text-lighten-4">
+          Just another computer engineer with a camera.
+        </p>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Pages</h5>
+        <ul>
+          <li><a class="white-text" href="/#/about">About</a></li>
+          <li><a class="white-text" href="/#/contact">Contact</a></li>
+          <li><a class="white-text" href="/#/welcome">Welcome</a></li>
+          <li><a class="white-text" href="http://blog.nicholma.com">blog</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Social Networks</h5>
+        <ul>
+          <li><a class="white-text" href="https://twitter.com/nicholma_">twitter<a></li>
+          <li><a class="white-text" href="https://ello.co/nicholma">ello</a></li>
+          <li><a class="white-text" href="https://github.com/nicholma">github</a></li>
+          <li><a class="white-text" href="https://bitbucket.org/nicholma">bitbucket</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Built with: <a class="orange-text text-lighten-4" href="http://materializecss.com">Materialize</a>
+      Built by: <a class="orange-text text-lighten-4" href="http://nicholma.com">Matthew</a>
+      <a class="grey-text text-lighten-4 right tooltipped" href="#!" data-position="top" data-delay="50" data-tooltip="I should add a page with all the links to the other parts of the internet I use.">More Links</a>
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
 
 </body>
 </html>
-
-
-

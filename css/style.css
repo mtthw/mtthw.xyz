@@ -1,0 +1,80 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+* { margin: 0; }
+
+body {
+    background-color: #202020;
+    color: #AAAAAA;
+    font-size: 1.1em;
+    -webkit-display: -webkit-box;
+    -webkit-display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.clear { clear: both; display: block; float: none !important; font-size: 0; height: 0; line-height: 0; text-indent: -4000px; }
+::selection {color:rgb(128,222,234);background:rgba(240,83,165,0.3);}
+::-moz-selection {color:rgb(128,222,234);background:rgba(240,83,165,0.3);}
+
+hr {height: 1px; margin: 8px 0 0; border: 0px none;background-color: #f0f0f0;}
+a {text-decoration:none; color:#80DEEA;}
+nav ul a, nav .brand-logo {  color: #444;}
+p {line-height: 2rem;}
+
+.collection .collection-item {background-color: unset;}
+.collection a.collection-item:hover:not(.active) {background-color: #303030}
+.collection a.collection-item { color:#80DEEA;}
+
+.button-collapse {color: #26a69a;}
+nav {position: absolute;}
+.parallax-container {min-height: 420px; line-height: 0; height: auto; color: rgba(255,255,255,.9);}
+.parallax-container .section { width: 100%;}
+.full-heigth{min-height: 100vh;}
+
+.page_header {letter-spacing: 0.75em; font-size: 4em; text-align: center; font-weight: 300;}
+
+#index-content {height: 100vh; display: flex; flex-direction: column-reverse; padding: 0;}
+#logo{width:65px;}
+
+.s-icon{display:block;width:16px;height:16px;margin-top: 4px;}
+#s-twitter{background:url("/images/social.png") 0 0}
+#s-ello{background:url("/images/social.png") 0 -16px}
+#s-git{background:url("/images/social.png") 0 -32px}
+#s-bit{background:url("/images/social.png") 0 -48px}
+#s-blog{background:url("/images/social.png") 0 -64px}
+
+.icon-block {padding: 0 15px;}
+footer.page-footer{ margin: 0;}
+
+@media only screen and (max-width: 479px ){
+  .page_header {letter-spacing: 0.1em; font-size: 1.5em;}
+}
+
+/* Upwards of Mobile Landscape Size  */
+@media only screen and (min-width: 480px) and (max-width: 649px) {
+  .page_header {letter-spacing: 0.4em; font-size: 3.25em;}
+
+}
+
+/* Beyond All Mobile Sizes, Tablet Portrait etc. */
+@media only screen and (min-width: 650px) and (max-width: 979px) {
+  .page_header {letter-spacing: 0.5em; font-size: 3.5em;}
+
+}
+
+/* go on then, one last query.. */
+@media only screen and (min-width: 1420px) {
+  .page_header {letter-spacing: 1.0em; font-size: 5em;}
+}
