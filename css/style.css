@@ -45,7 +45,16 @@ nav {position: absolute;}
 
 .page_header {letter-spacing: 0.75em; font-size: 4em; text-align: center; font-weight: 300;}
 
-#index-content {height: 100vh; display: flex; flex-direction: column-reverse; padding: 0;}
+#index-content {
+	height: 100vh; 
+-webkit-display: -webkit-box;
+    -webkit-display: -webkit-flex;
+   display: -webkit-box;
+		      display: -ms-flexbox;
+			    display: flex;
+	flex-direction: column-reverse; 
+	padding: 0;
+}
 #logo{width:65px;}
 
 .s-icon{display:block;width:16px;height:16px;margin-top: 4px;}
