@@ -24,58 +24,7 @@ $sidebar-width: 240px;
   .sidebar--checkbox {
     display: none;
   }
-  .sidebar--toggle {
-    cursor: pointer;
-    user-select: none;
 
-    position: absolute;
-    left: -$sidebar-toggle-size;
-
-    width: $sidebar-toggle-size;
-    height: $sidebar-toggle-size;
-
-    display: flex;
-    transition: .3s;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:hover .sidebar--icon {
-        @include background-opacity($burger-color, 0.9);
-    }
-
-    .sidebar--icon {
-      @include line;
-      @include background-opacity($burger-color, 0.6);
-      margin: auto 18px;
-      position: relative;
-      &:before, &:after {
-        @include line;
-        position: absolute;
-        content: '';
-      }
-      &:before {
-        top: -6px;
-      }
-      &:after {
-        top: 6px;
-      }
-    }
-  }
-  .sidebar--content {
-    margin-top: $sidebar-toggle-size;
-  }
-
-  .sidebar--wrapper {
-    position: absolute;
-    top: 0;
-    right: -$sidebar-width;
-    background: white;
-    width: $sidebar-width;
-    height: 100%;
-    transition: left 0.35s, right 0.35s;
-  }
   .sidebar--checkbox:checked + .sidebar--wrapper {
     right: 0px;
     .sidebar--toggle {
@@ -83,6 +32,58 @@ $sidebar-width: 240px;
     }
   }
 
+  .sidebar--wrapper {
+    position: absolute;
+    top: 0;
+    right: -$sidebar-width;
+    width: $sidebar-width;
+    height: 100%;
+    transition: left 0.35s, right 0.35s;
+    background: white;
+
+    .sidebar--toggle {
+      cursor: pointer;
+      user-select: none;
+      position: absolute;
+      left: -$sidebar-toggle-size;
+      width: $sidebar-toggle-size;
+      height: $sidebar-toggle-size;
+      display: flex;
+      transition: .3s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover .sidebar--icon {
+        @include background-opacity($burger-color, 0.9);
+      }
+
+      .sidebar--icon {
+        @include line;
+        @include background-opacity($burger-color, 0.6);
+        margin: auto 18px;
+        position: relative;
+        &:before, &:after {
+          @include line;
+          position: absolute;
+          content: '';
+        }
+        &:before {
+          top: -6px;
+        }
+        &:after {
+          top: 6px;
+        }
+      }
+    }
+
+    .sidebar--content {
+      margin-top: $sidebar-toggle-size;
+    }
+  }
+
+  // modify position to display to the left if div.class="sidebar sidebar--left"
   &.sidebar--left {
     right: auto;
     left: 0;

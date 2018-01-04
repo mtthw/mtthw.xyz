@@ -8,13 +8,12 @@
     <link href="/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
   <body>
-    {{ partial "nav/side-nav.html" }}
     {{ block "header" . }}
-      nichomla.xyz
     {{ end}}
     {{ block "main" . }}
     {{ end }}
     {{ block "footer" . }}
     {{ end }}
+    {{ partial "sidebar/sidebar.html" }}
   </body>
 </html>
