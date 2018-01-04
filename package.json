@@ -1,0 +1,20 @@
+{
+  "name": "nicholma.xyz",
+  "version": "1.0.0",
+  "description": "hugo sass personal website",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node-sass --source-map true -w sass/main.scss static/css/main.css & hugo server -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/nicholma/nicholma.xyz.git"
+  },
+  "author": "Matthew Nicholson",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nicholma/nicholma.xyz#readme"
+}
