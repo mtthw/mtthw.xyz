@@ -5,6 +5,9 @@
       <div class="sidebar--icon"></div>
     </label>
     <div class="sidebar--content">
+      {{ block "sidebar" . }}
+        Default sidebar markdown
+      {{ end }}
     </div>
   </div>
 </div>
