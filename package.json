@@ -4,9 +4,12 @@
   "description": "hugo sass personal website",
   "main": "index.js",
   "dependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "susy": "^3.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sass-lint": "^1.12.1"
+  },
   "scripts": {
     "dev": "node-sass --source-map true -w sass/main.scss static/css/main.css & hugo server -w"
   },

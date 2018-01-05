@@ -3,7 +3,7 @@
   width: 24px;
   height: 3px;
   background-color: inherit;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 @mixin background-opacity($color, $opacity: 0.5) {
@@ -11,74 +11,86 @@
   background: rgba($color, $opacity);
 }
 
-$burger-color: #0097A7;
-$sidebar-toggle-size: 60px;
-$sidebar-width: 240px;
+$burger-color: #0097a7;
+$sidebar-toggle-size: 60;
+$sidebar-width: 400;
 
 .sidebar {
-  position: fixed;
   height: 100%;
+  position: fixed;
   top: 0;
   right: 0;
 
-  .sidebar--checkbox {
+  .sidebar__checkbox {
     display: none;
   }
 
-  .sidebar--checkbox:checked + .sidebar--wrapper {
-    right: 0px;
-    .sidebar--toggle {
-      left:0px;
+  .sidebar__checkbox:checked + .sidebar__wrapper {
+    right: 0;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.5);
+
+    .sidebar__toggle {
+      left: 0;
     }
   }
 
-  .sidebar--wrapper {
+  .sidebar__wrapper {
     position: absolute;
     top: 0;
     right: -$sidebar-width;
     width: $sidebar-width;
+    max-width: 100vw;
     height: 100%;
-    transition: left 0.35s, right 0.35s;
-    background: white;
+    transition: left 0.3s, right 0.3s;
+    background: #fff;
+    color: #303030;
 
-    .sidebar--toggle {
+    .sidebar__toggle {
       cursor: pointer;
       user-select: none;
       position: absolute;
       left: -$sidebar-toggle-size;
-      width: $sidebar-toggle-size;
       height: $sidebar-toggle-size;
+      width: 100%;
       display: flex;
-      transition: .3s;
+      transition: 0.3s;
 
       &:focus {
         outline: none;
       }
 
-      &:hover .sidebar--icon {
-        @include background-opacity($burger-color, 0.9);
+      &:hover {
+        @include background-opacity($burger-color, 0.1);
+
+        .sidebar__icon {
+          @include background-opacity($burger-color, 0.9);
+        }
       }
 
-      .sidebar--icon {
+      .sidebar__icon {
         @include line;
         @include background-opacity($burger-color, 0.6);
         margin: auto 18px;
         position: relative;
-        &:before, &:after {
+
+        &:before,
+        &:after {
           @include line;
           position: absolute;
           content: '';
         }
+
         &:before {
           top: -6px;
         }
+
         &:after {
           top: 6px;
         }
       }
     }
 
-    .sidebar--content {
+    .sidebar__content {
       margin-top: $sidebar-toggle-size;
     }
   }
@@ -87,20 +99,25 @@ $sidebar-width: 240px;
   &.sidebar--left {
     right: auto;
     left: 0;
-    .sidebar--wrapper {
+
+    .sidebar__wrapper {
       right: auto;
       left: -$sidebar-width;
-      .sidebar--toggle {
+
+      .sidebar__toggle {
         right: -$sidebar-toggle-size;
         left: auto;
+        flex-direction: row-reverse;
       }
     }
-    .sidebar--checkbox:checked + .sidebar--wrapper {
+
+    .sidebar__checkbox:checked + .sidebar__wrapper {
       right: auto;
-      left: 0px;
-      .sidebar--toggle{
-        left:auto;
-        right:0px;
+      left: 0;
+
+      .sidebar__toggle {
+        left: auto;
+        right: 0;
       }
     }
   }

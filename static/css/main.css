@@ -403,79 +403,83 @@ template {
   display: none; }
 
 .sidebar {
-  position: fixed;
   height: 100%;
+  position: fixed;
   top: 0;
   right: 0; }
-  .sidebar .sidebar--checkbox {
+  .sidebar .sidebar__checkbox {
     display: none; }
-  .sidebar .sidebar--checkbox:checked + .sidebar--wrapper {
-    right: 0px; }
-    .sidebar .sidebar--checkbox:checked + .sidebar--wrapper .sidebar--toggle {
-      left: 0px; }
-  .sidebar .sidebar--wrapper {
+  .sidebar .sidebar__checkbox:checked + .sidebar__wrapper {
+    right: 0;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.5); }
+    .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle {
+      left: 0; }
+  .sidebar .sidebar__wrapper {
     position: absolute;
     top: 0;
-    right: -240px;
-    width: 240px;
+    right: -400;
+    width: 400;
+    max-width: 100vw;
     height: 100%;
-    transition: left 0.35s, right 0.35s;
-    background: white; }
-    .sidebar .sidebar--wrapper .sidebar--toggle {
+    transition: left 0.3s, right 0.3s;
+    background: #fff;
+    color: #303030; }
+    .sidebar .sidebar__wrapper .sidebar__toggle {
       cursor: pointer;
       user-select: none;
       position: absolute;
-      left: -60px;
-      width: 60px;
-      height: 60px;
+      left: -60;
+      height: 60;
+      width: 100%;
       display: flex;
-      transition: .3s; }
-      .sidebar .sidebar--wrapper .sidebar--toggle:focus {
+      transition: 0.3s; }
+      .sidebar .sidebar__wrapper .sidebar__toggle:focus {
         outline: none; }
-      .sidebar .sidebar--wrapper .sidebar--toggle:hover .sidebar--icon {
-        background: #0097A7;
-        background: rgba(0, 151, 167, 0.9); }
-      .sidebar .sidebar--wrapper .sidebar--toggle .sidebar--icon {
+      .sidebar .sidebar__wrapper .sidebar__toggle:hover {
+        background: #0097a7;
+        background: rgba(0, 151, 167, 0.1); }
+        .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon {
+          background: #0097a7;
+          background: rgba(0, 151, 167, 0.9); }
+      .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon {
         display: inline-block;
         width: 24px;
         height: 3px;
         background-color: inherit;
-        transition: .3s;
-        background: #0097A7;
+        transition: 0.3s;
+        background: #0097a7;
         background: rgba(0, 151, 167, 0.6);
         margin: auto 18px;
         position: relative; }
-        .sidebar .sidebar--wrapper .sidebar--toggle .sidebar--icon:before, .sidebar .sidebar--wrapper .sidebar--toggle .sidebar--icon:after {
+        .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon:before, .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon:after {
           display: inline-block;
           width: 24px;
           height: 3px;
           background-color: inherit;
-          transition: .3s;
+          transition: 0.3s;
           position: absolute;
           content: ''; }
-        .sidebar .sidebar--wrapper .sidebar--toggle .sidebar--icon:before {
+        .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon:before {
           top: -6px; }
-        .sidebar .sidebar--wrapper .sidebar--toggle .sidebar--icon:after {
+        .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon:after {
           top: 6px; }
-    .sidebar .sidebar--wrapper .sidebar--content {
-      margin-top: 60px; }
+    .sidebar .sidebar__wrapper .sidebar__content {
+      margin-top: 60; }
   .sidebar.sidebar--left {
     right: auto;
     left: 0; }
-    .sidebar.sidebar--left .sidebar--wrapper {
+    .sidebar.sidebar--left .sidebar__wrapper {
       right: auto;
-      left: -240px; }
-      .sidebar.sidebar--left .sidebar--wrapper .sidebar--toggle {
-        right: -60px;
-        left: auto; }
-    .sidebar.sidebar--left .sidebar--checkbox:checked + .sidebar--wrapper {
-      right: auto;
-      left: 0px; }
-      .sidebar.sidebar--left .sidebar--checkbox:checked + .sidebar--wrapper .sidebar--toggle {
+      left: -400; }
+      .sidebar.sidebar--left .sidebar__wrapper .sidebar__toggle {
+        right: -60;
         left: auto;
-        right: 0px; }
-
-body {
-  background: #F0F0F0; }
+        flex-direction: row-reverse; }
+    .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper {
+      right: auto;
+      left: 0; }
+      .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle {
+        left: auto;
+        right: 0; }
 
 /*# sourceMappingURL=main.css.map */

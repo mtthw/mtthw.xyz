@@ -1,7 +1,4 @@
-@import "normalize-scss/sass/normalize/_import-now.scss";
+@import 'normalize-scss/sass/normalize/import-now';
 
-@import "partials/sidebar";
+@import 'partials/sidebar';
 
-body {
-  background: #F0F0F0;
-}
