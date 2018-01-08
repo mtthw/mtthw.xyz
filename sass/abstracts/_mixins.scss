@@ -1,0 +1,6 @@
+@mixin background-gradient ($color1, $color2) {
+    background: -webkit-radial-gradient(bottom right, $color1, $color2); /*Safari 5.1-6*/
+    background: -o-radial-gradient(bottom right, $color1, $color2); /*Opera 11.1-12*/
+    background: -moz-radial-gradient(bottom right, $color1, $color2); /*Fx 3.6-15*/
+    background: radial-gradient(bottom right, $color1, $color2); /*Standard*/
+}

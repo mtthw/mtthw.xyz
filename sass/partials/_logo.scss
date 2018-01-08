@@ -1,0 +1,24 @@
+.logo--inverted {
+  transition: all 0.5s;
+  @include background-gradient($blue, $cyan);
+  &:hover {
+    @include background-gradient($cyan, $blue);
+  }
+  .logo__nm {
+    fill: $light;
+  }
+}
+
+.logo {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  &:hover {
+    .logo__nm {
+      fill: url(#fill--hover);
+    }
+  }
+  .logo__nm {
+    fill: url(#fill);
+  }
+}

@@ -82,8 +82,8 @@ $sidebar-width: 400px;
     max-width: 100vw;
     height: 100%;
     transition: left 0.5s, right 0.5s, box-shadow 1s;
-    background: #fff;
-    color: #303030;
+    background: $light-lighter;
+    color: $dark-darker;
 
     .sidebar__toggle {
       cursor: pointer;
@@ -100,17 +100,17 @@ $sidebar-width: 400px;
       }
 
       &:hover {
-        @include background-opacity($blue, 0.1);
+        @include background-opacity($primary, 0.1);
 
         .sidebar__icon {
           @include arrow--left;
-          background: $blue;
+          background: $primary;
         }
       }
 
       .sidebar__icon {
         @include line;
-        @include background-opacity($blue, 0.6);
+        @include background-opacity($primary, 0.8);
         margin: auto 18px;
         position: relative;
 
