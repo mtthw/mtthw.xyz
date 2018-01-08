@@ -482,28 +482,6 @@ pre > code {
 p {
   margin-top: 0; }
 
-.logo--inverted {
-  transition: all 0.5s;
-  background: -webkit-radial-gradient(bottom right, #2581f8, #04c6cd);
-  /*Safari 5.1-6*/
-  background: -o-radial-gradient(bottom right, #2581f8, #04c6cd);
-  /*Opera 11.1-12*/
-  background: -moz-radial-gradient(bottom right, #2581f8, #04c6cd);
-  /*Fx 3.6-15*/
-  background: radial-gradient(bottom right, #2581f8, #04c6cd);
-  /*Standard*/ }
-  .logo--inverted:hover {
-    background: -webkit-radial-gradient(bottom right, #04c6cd, #2581f8);
-    /*Safari 5.1-6*/
-    background: -o-radial-gradient(bottom right, #04c6cd, #2581f8);
-    /*Opera 11.1-12*/
-    background: -moz-radial-gradient(bottom right, #04c6cd, #2581f8);
-    /*Fx 3.6-15*/
-    background: radial-gradient(bottom right, #04c6cd, #2581f8);
-    /*Standard*/ }
-  .logo--inverted .logo__nm {
-    fill: #fbfbfc; }
-
 .logo {
   display: block;
   width: 50%;
