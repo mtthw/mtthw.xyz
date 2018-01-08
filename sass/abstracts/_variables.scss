@@ -1,0 +1,16 @@
+$blue: hsl(185.7, 100%, 32.7%);
+$blue-lighter: tint($blue, 30%);
+$blue-darker: shade($blue, 30%);
+
+
+$dark: hsl(221.3, 14.5%, 21.6%);
+$dark-lighter: tint($dark, 30%);
+$dark-darker: shade($dark, 30%);
+
+$light: hsl(240, 14.3%, 98.6%);
+$light-lighter: tint($light, 30%);
+$light-darker: shade($light, 30%);
+
+$primary: $blue;
+$primary-lighter: $blue-lighter;
+$primary-darker: $blue-darker;

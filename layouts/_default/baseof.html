@@ -2,12 +2,15 @@
 <html>
   {{ partial "head/head.html" . }}
    <body>
-    {{ block "header" . }}
-    {{ end}}
-    {{ block "main" . }}
-    {{ end }}
-    {{ block "footer" . }}
-    {{ end }}
-    {{ partial "sidebar/sidebar.html" . }}
+    <input type="checkbox" id="theme__checkbox" name="theme__checkbox" class="theme__checkbox"/>
+    <div class="body">
+      {{ block "header" . }}
+      {{ end}}
+      {{ block "main" . }}
+      {{ end }}
+      {{ block "footer" . }}
+      {{ end }}
+     {{ partial "sidebar/sidebar.html" . }}
+    </div>
   </body>
 </html>

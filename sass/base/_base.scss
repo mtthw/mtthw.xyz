@@ -1,0 +1,91 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Interface", sans-serif;
+}
+
+html,
+body,
+.body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.body {
+  color: $dark;
+  background: $light;
+}
+
+.theme__checkbox {
+  display: none;
+}
+
+.theme__checkbox:checked + .body {
+  color: $light;
+  background: $dark;
+}
+
+
+ul {
+  list-style: circle inside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+ol,
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $blue;
+  border-bottom: 2px solid $blue;
+  text-decoration: none;
+  &:hover {
+    color: $blue-lighter;
+    border-color: $blue-lighter;
+  }
+}
+
+
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: $light;
+  border: 1px solid $light-lighter;
+  border-radius: 4px;
+}
+
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+.content {
+  width: 600px;
+  margin: 0 auto;
+}
