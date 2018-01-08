@@ -410,7 +410,6 @@ body {
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Clear Sans", sans-serif;
   font-family: "Inter UI", sans-serif; }
 
 html,
