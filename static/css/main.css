@@ -489,6 +489,15 @@ pre > code {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
     .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle {
       left: 0; }
+      .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before, .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+        left: 14px;
+        width: 14px; }
+      .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before {
+        top: -4px;
+        transform: rotate(45deg); }
+      .sidebar .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+        top: 4px;
+        transform: rotate(-45deg); }
   .sidebar .sidebar__wrapper {
     position: absolute;
     top: 0;
@@ -514,14 +523,23 @@ pre > code {
         background: #0097a7;
         background: rgba(0, 151, 167, 0.1); }
         .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon {
-          background: #0097a7;
-          background: rgba(0, 151, 167, 0.9); }
+          background: #0097a7; }
+          .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before, .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+            left: -4px;
+            width: 14px; }
+          .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before {
+            top: -4px;
+            transform: rotate(-45deg); }
+          .sidebar .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+            top: 4px;
+            transform: rotate(45deg); }
       .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon {
         display: inline-block;
         width: 24px;
         height: 3px;
         background-color: inherit;
-        transition: background-color 0.5s;
+        left: 0;
+        transition: left 0.5s, right 0.5s, width 0.5s, transform 0.5s, background 0.5s;
         background: #0097a7;
         background: rgba(0, 151, 167, 0.6);
         margin: auto 18px;
@@ -531,7 +549,8 @@ pre > code {
           width: 24px;
           height: 3px;
           background-color: inherit;
-          transition: background-color 0.5s;
+          left: 0;
+          transition: left 0.5s, right 0.5s, width 0.5s, transform 0.5s, background 0.5s;
           position: absolute;
           content: ''; }
         .sidebar .sidebar__wrapper .sidebar__toggle .sidebar__icon:before {
@@ -550,11 +569,29 @@ pre > code {
         right: -60px;
         left: auto;
         flex-direction: row-reverse; }
+        .sidebar.sidebar--left .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before, .sidebar.sidebar--left .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+          left: 14px;
+          width: 14px; }
+        .sidebar.sidebar--left .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before {
+          top: -4px;
+          transform: rotate(45deg); }
+        .sidebar.sidebar--left .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+          top: 4px;
+          transform: rotate(-45deg); }
     .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper {
       right: auto;
       left: 0; }
       .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle {
         left: auto;
         right: 0; }
+        .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before, .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+          left: -4px;
+          width: 14px; }
+        .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:before {
+          top: -4px;
+          transform: rotate(-45deg); }
+        .sidebar.sidebar--left .sidebar__checkbox:checked + .sidebar__wrapper .sidebar__toggle:hover .sidebar__icon:after {
+          top: 4px;
+          transform: rotate(45deg); }
 
 /*# sourceMappingURL=main.css.map */

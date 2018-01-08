@@ -3,7 +3,42 @@
   width: 24px;
   height: 3px;
   background-color: inherit;
-  transition: background-color 0.5s;
+  left: 0;
+  transition: left 0.5s, right 0.5s, width 0.5s, transform 0.5s, background 0.5s;
+}
+
+@mixin arrow--right {
+  &:before, &:after {
+    left: 14px;
+    width: 14px;
+  }
+
+  &:before {
+    top: -4px;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    top: 4px;
+    transform: rotate(-45deg);
+  }
+}
+
+@mixin arrow--left {
+  &:before, &:after {
+    left: -4px;
+    width: 14px;
+  }
+
+  &:before {
+    top: -4px;
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    top: 4px;
+    transform: rotate(45deg);
+  }
 }
 
 @mixin background-opacity($color, $opacity: 0.5) {
@@ -30,6 +65,12 @@ $sidebar-width: 400px;
 
     .sidebar__toggle {
       left: 0;
+
+      &:hover {
+        .sidebar__icon {
+          @include arrow--right;
+        }
+      }
     }
   }
 
@@ -62,7 +103,8 @@ $sidebar-width: 400px;
         @include background-opacity($blue, 0.1);
 
         .sidebar__icon {
-          @include background-opacity($blue, 0.9);
+          @include arrow--left;
+          background: $blue;
         }
       }
 
@@ -107,6 +149,12 @@ $sidebar-width: 400px;
         right: -$sidebar-toggle-size;
         left: auto;
         flex-direction: row-reverse;
+
+        &:hover {
+          .sidebar__icon {
+            @include arrow--right;
+          }
+        }
       }
     }
 
@@ -117,6 +165,12 @@ $sidebar-width: 400px;
       .sidebar__toggle {
         left: auto;
         right: 0;
+
+        &:hover {
+          .sidebar__icon {
+            @include arrow--left;
+          }
+        }
       }
     }
   }
