@@ -1,0 +1,4 @@
+[
+  {{- $clean := apply $links "chomp" "." -}}
+  {{ delimit $clean "," }}
+]
