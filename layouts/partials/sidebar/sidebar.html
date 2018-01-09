@@ -5,7 +5,8 @@
       <div class="sidebar__icon"></div>
     </label>
     <div class="sidebar__content">
-      {{ partial "logo/logo.html" . }}
+      {{ $logoID := "logo__sidebar" }}
+      {{ partial "logo/logo.html" (dict "id" $logoID) }}
     </div>
   </div>
 </div>
