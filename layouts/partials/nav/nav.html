@@ -1,7 +1,9 @@
 <nav class="nav">
-{{ range .Site.Sections }}
-  <div class="nav__item">
-    <a class="nav__link" href="{{ .Permalink }}">{{ .Title }}</a>
-  </div>
+{{ $home :=  .Site.GetPage "home" }}
+{{ $context :=  . }}
+
+{{ partial "nav/navItem" ( dict "page" $home "context" $context ) }}
+{{ range $section := .Site.Sections }}
+  {{ partial "nav/navItem" ( dict "page" $section "context" $context ) }}
 {{ end }}
 </nav>

@@ -1,0 +1,14 @@
+
+<div class="nav__item">
+  {{if eq .page.Permalink .context.Permalink }}
+    <span class="nav__current">
+      {{ .page.Title }}
+    </span>
+  {{ else }}
+    <a class="nav__link" href="{{ .page.Permalink }}">
+      {{ .page.Title }}
+    </a>
+  {{end}}
+    
+</div>
+
