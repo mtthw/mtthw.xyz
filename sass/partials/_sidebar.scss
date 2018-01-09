@@ -51,6 +51,68 @@
     display: none;
   }
 
+  .sidebar__wrapper {
+    position: absolute;
+    top: 0;
+    right: -$sidebar-width;
+    width: $sidebar-width;
+    max-width: 100vw;
+    height: 100%;
+    transition: left 0.5s, right 0.5s, box-shadow 1s;
+    background: $light-lighter;
+    color: $dark-darker;
+  }
+
+  .sidebar__toggle {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    left: -$nav-size;
+    height: $nav-size;
+    width: 100%;
+    display: flex;
+    transition: left 0.5s, right 0.5s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      @include background-opacity($primary, 0.1);
+
+      .sidebar__icon {
+        @include arrow--left;
+        background: $primary;
+      }
+    }
+  }
+
+  .sidebar__icon {
+    @include line;
+    @include background-opacity($primary, 0.8);
+    margin: auto 18px;
+    position: relative;
+
+    &:before,
+    &:after {
+      @include line;
+      position: absolute;
+      content: '';
+    }
+
+    &:before {
+      top: -6px;
+    }
+
+    &:after {
+      top: 6px;
+    }
+  }
+
+  .sidebar__content {
+    margin-top: $nav-size;
+  }
+
   .sidebar__checkbox:checked + .sidebar__wrapper {
     right: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -65,105 +127,44 @@
       }
     }
   }
+}
+
+// modify position to display to the left if div.class="sidebar sidebar--left"
+.sidebar.sidebar--left {
+  right: auto;
+  left: 0;
 
   .sidebar__wrapper {
-    position: absolute;
-    top: 0;
-    right: -$sidebar-width;
-    width: $sidebar-width;
-    max-width: 100vw;
-    height: 100%;
-    transition: left 0.5s, right 0.5s, box-shadow 1s;
-    background: $light-lighter;
-    color: $dark-darker;
+    right: auto;
+    left: -$sidebar-width;
+  }
 
-    .sidebar__toggle {
-      cursor: pointer;
-      user-select: none;
-      position: absolute;
-      left: -$nav-size;
-      height: $nav-size;
-      width: 100%;
-      display: flex;
-      transition: left 0.5s, right 0.5s;
+  .sidebar__toggle {
+    right: -$nav-size;
+    left: auto;
+    flex-direction: row-reverse;
 
-      &:focus {
-        outline: none;
-      }
-
-      &:hover {
-        @include background-opacity($primary, 0.1);
-
-        .sidebar__icon {
-          @include arrow--left;
-          background: $primary;
-        }
-      }
-
+    &:hover {
       .sidebar__icon {
-        @include line;
-        @include background-opacity($primary, 0.8);
-        margin: auto 18px;
-        position: relative;
-
-        &:before,
-        &:after {
-          @include line;
-          position: absolute;
-          content: '';
-        }
-
-        &:before {
-          top: -6px;
-        }
-
-        &:after {
-          top: 6px;
-        }
+        @include arrow--right;
       }
-    }
-
-    .sidebar__content {
-      margin-top: $nav-size;
     }
   }
 
-  // modify position to display to the left if div.class="sidebar sidebar--left"
-  &.sidebar--left {
+  .sidebar__checkbox:checked + .sidebar__wrapper {
     right: auto;
     left: 0;
 
-    .sidebar__wrapper {
-      right: auto;
-      left: -$sidebar-width;
+    .sidebar__toggle {
+      left: auto;
+      right: 0;
 
-      .sidebar__toggle {
-        right: -$nav-size;
-        left: auto;
-        flex-direction: row-reverse;
-
-        &:hover {
-          .sidebar__icon {
-            @include arrow--right;
-          }
-        }
-      }
-    }
-
-    .sidebar__checkbox:checked + .sidebar__wrapper {
-      right: auto;
-      left: 0;
-
-      .sidebar__toggle {
-        left: auto;
-        right: 0;
-
-        &:hover {
-          .sidebar__icon {
-            @include arrow--left;
-          }
+      &:hover {
+        .sidebar__icon {
+          @include arrow--left;
         }
       }
     }
   }
 }
+
