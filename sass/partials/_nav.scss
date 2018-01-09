@@ -1,0 +1,20 @@
+.header .nav {
+  height: $nav-size;
+  display: flex;
+  .nav__item {
+    margin: auto 10px;
+  }
+  .nav__link {
+    padding: 2px;
+    padding-bottom: 0px;
+    margin: 10px 8px;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    transition: margin 0.5s, border-bottom 0.5s;
+
+    &:hover {
+      margin: 9px 8px 11px;
+      border-bottom: 2px solid $blue-lighter;
+    }
+  }
+}

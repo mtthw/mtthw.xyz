@@ -4,3 +4,8 @@
     background: -moz-radial-gradient(bottom right, $color1, $color2); /*Fx 3.6-15*/
     background: radial-gradient(bottom right, $color1, $color2); /*Standard*/
 }
+
+@mixin background-opacity($color, $opacity: 0.5) {
+  background: $color;
+  background: rgba($color, $opacity);
+}

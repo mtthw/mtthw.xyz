@@ -491,6 +491,22 @@ p {
   .logo .logo__nm {
     fill: url(#fill); }
 
+.header .nav {
+  height: 60px;
+  display: flex; }
+  .header .nav .nav__item {
+    margin: auto 10px; }
+  .header .nav .nav__link {
+    padding: 2px;
+    padding-bottom: 0px;
+    margin: 10px 8px;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    transition: margin 0.5s, border-bottom 0.5s; }
+    .header .nav .nav__link:hover {
+      margin: 9px 8px 11px;
+      border-bottom: 2px solid #519afa; }
+
 .sidebar {
   height: 100%;
   position: fixed;

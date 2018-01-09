@@ -1,5 +1,5 @@
 +++
-title = "About Hugo"
+title = "About"
 date = "2014-04-09"
 menu = "main"
 +++
@@ -15,4 +15,3 @@ It makes use of a variety of open source projects including:
 * [Cast](https://github.com/spf13/cast)
 
 Learn more and contribute on [GitHub](https://github.com/gohugoio).
-
