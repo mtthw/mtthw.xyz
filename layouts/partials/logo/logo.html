@@ -6,8 +6,28 @@
       <animate attributeName="cx" begin="{{ .id }}.mouseover" end="{{ .id }}.mouseout" dur="1s" from="0" to="0" values="0; 1; 1; 0; 0" fill="freeze" repeatCount="indefinite"/>
       <animate attributeName="cy" begin="{{ .id }}.mouseover" end="{{ .id }}.mouseout" dur="1s" from="0" to="0" values="0; 0; 1; 1; 0;"fill="freeze" repeatCount="indefinite"/>
     </radialGradient>
+
+    <style type="text/css"><![CDATA[
+      .{{ .id }}__nm {
+        fill: url(#{{ .id}}--fill);
+        stroke: url(#{{ .id}}--fill);
+        animation: {{ .id }}--dash 5s linear forwards;
+      }
+      @keyframes {{ .id }}--dash {
+        to {
+          50% {
+            fill-opacity: 0;
+            stroke-dashoffset: 0;
+          }
+          100% {
+            fill-opacity: 1;
+            stroke-dashoffset: 0;
+          }
+        }
+      }
+     ]]></style>
   </defs>
-  <path class="logo__nm" fill="url(#{{ .id}}--fill)"
+  <path class="{{ .id }}__nm logo__nm"
         d="M 570.00,800.00
            C 570.00,800.00 570.00,297.00 570.00,297.00
              570.00,250.00 640.00,250.00 640.00,297.00

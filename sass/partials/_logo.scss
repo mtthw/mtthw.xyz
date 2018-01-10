@@ -2,4 +2,32 @@
   display: block;
   width: 50%;
   margin: 0 auto;
+
+  .logo__nm {
+    fill-opacity: 0;
+    stroke-width: 1px;
+    $magic-number: 6000; // 6600
+    stroke-dasharray: $magic-number;
+    stroke-dashoffset: $magic-number;
+    animation: dash 10s linear forwards;
+  }
 }
+
+@keyframes dash {
+  50% {
+    fill-opacity: 0;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+  75% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+  100% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+  }
+}
+
