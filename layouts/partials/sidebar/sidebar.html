@@ -7,6 +7,11 @@
     <div class="sidebar__content">
       {{ $logoID := "logo__sidebar" }}
       {{ partial "logo/logo.html" (dict "id" $logoID) }}
+      {{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+        <div class="toc">
+        {{ .TableOfContents }}
+        </div>
+      {{end}}
     </div>
   </div>
 </div>
