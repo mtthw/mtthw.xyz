@@ -3,13 +3,22 @@
   width: 50%;
   margin: 0 auto;
 
-  .logo__nm {
+  .logo__n {
+    fill-opacity: 0;
+    stroke-width: 1px;
+    $magic-number: 1800; // 6600
+    stroke-dasharray: $magic-number;
+    stroke-dashoffset: -$magic-number;
+    animation: dash 30s linear forwards;
+  }
+
+  .logo__m {
     fill-opacity: 0;
     stroke-width: 1px;
     $magic-number: 3300; // 6600
     stroke-dasharray: $magic-number;
     stroke-dashoffset: -$magic-number;
-    animation: dash 10s linear forwards;
+    animation: dash 30s linear forwards;
   }
 }
 
@@ -30,4 +39,3 @@
     stroke-opacity: 0;
   }
 }
-
