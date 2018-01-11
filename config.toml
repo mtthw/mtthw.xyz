@@ -1,3 +1,8 @@
 baseURL = "https://nicholma.xyz/"
 languageCode = "en-IE"
 title = "Home"
+
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
+  page = ["HTML", "JSON"]
+  section = ["HTML", "JSON"]
