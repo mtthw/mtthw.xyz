@@ -8,29 +8,34 @@
   width: 50%;
   margin: 0 auto;
 
-  .logo__nm {
-    fill-opacity: 0;
-    stroke-width: 1px;
-    animation: letter 10s linear forwards;
-    animation-delay: 2.5s;
-    @include stroke-length(3300);
-  }
+  &.logo__header {
+    .logo__nm {
+      fill-opacity: 0;
+      stroke-width: 1px;
+      animation: letter 10s linear forwards;
+      animation-delay: 2.5s;
+      @include stroke-length(3300);
+    }
 
-  .logo__a,
-  .logo__b,
-  .logo__c {
-    stroke-opacity: 0;
-    animation: circle 10s linear forwards;
-    animation-delay: 0.5s;
-  }
-  .logo__a {
-    @include stroke-length(155);
-  }
-  .logo__b {
-    @include stroke-length(220);
-  }
-  .logo__c {
-    @include stroke-length(860);
+    .logo__a,
+    .logo__b,
+    .logo__c {
+      stroke-opacity: 0;
+      animation: circle 10s linear forwards;
+      animation-delay: 0.5s;
+    }
+
+    .logo__a {
+      @include stroke-length(155);
+    }
+
+    .logo__b {
+      @include stroke-length(220);
+    }
+
+    .logo__c {
+      @include stroke-length(860);
+    }
   }
 }
 

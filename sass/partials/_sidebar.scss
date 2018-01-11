@@ -4,7 +4,7 @@
   height: 3px;
   background-color: inherit;
   left: 0;
-  transition: left 0.5s, right 0.5s, width 0.5s, transform 0.5s, background 0.5s;
+  transition: left 0.5s, right 0.5s, top 0.1s, width 0.5s, transform 0.5s, background 0.5s;
 }
 
 @mixin arrow--right {

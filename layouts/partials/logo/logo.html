@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="logo" id="{{ .id }}">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="logo {{ .id }}" id="{{ .id }}">
   <defs>
     <radialGradient id="{{ .id }}--fill" cx="0" cy="0" r="1.41421">
       <stop offset="0" stop-color="#04c5cc"/>
@@ -48,6 +48,7 @@
              150.00,505.00 140.00,515.00 125.00,515.00
              125.00,515.00 75.00,515.00 75.00,515.00
              60.00,515.00 50.00,525.00 50.00,540.00 Z" />
+  {{ if eq .id "logo__header" }}
   <g class="logo__a">
     <path id="a1"
           fill="none" stroke="black" stroke-width="1"
@@ -201,6 +202,6 @@
                735.60,247.52 745.53,245.96 763.00,243.42
                778.35,241.56 800.32,244.16 815.00,249.00 Z" />
   </g>
-
-
+  {{ end }}
 </svg>
+
