@@ -1,0 +1,4 @@
+{
+  "content" : "{{ .Content }}",
+  "from": "_default/list.json"
+}

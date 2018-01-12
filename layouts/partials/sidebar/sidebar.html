@@ -1,17 +1,20 @@
 <div class="sidebar sidebar--left">
   <input type="checkbox" id="sidebar__checkbox" name="sidebar__checkbox" class="sidebar__checkbox"/>
   <div class="sidebar__wrapper">
-    <label class="sidebar__toggle" for="sidebar__checkbox">
-      <div class="sidebar__icon"></div>
-    </label>
-    <div class="sidebar__content">
-      {{ $logoID := "logo__sidebar" }}
-      {{ partial "logo/logo.html" (dict "id" $logoID) }}
-      {{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
-        <div class="toc">
-        {{ .TableOfContents }}
-        </div>
-      {{end}}
+    <label class="sidebar__focus" for="sidebar__checkbox"></label>
+    <div class="sidebar__panel">
+      <label class="sidebar__toggle" for="sidebar__checkbox">
+        <div class="sidebar__icon"></div>
+      </label>
+      <div class="sidebar__content">
+        {{ $logoID := "logo__sidebar" }}
+        {{ partial "logo/logo.html" (dict "content" . "id" $logoID) }}
+        {{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+          <div class="toc">
+          {{ .TableOfContents }}
+          </div>
+        {{end}}
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <header class="header content">
   {{ $logoID := "logo__header" }}
   {{ partial "nav/nav.html" . }}
-  {{ partial "logo/logo.html" (dict "id" $logoID) }}
+  {{ partial "logo/logo.html" (dict "context" . "id" $logoID) }}
 </header>

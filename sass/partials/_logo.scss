@@ -1,19 +1,45 @@
+@mixin stroke-length ($length) {
+  stroke-dasharray: $length;
+  stroke-dashoffset: -$length;
+}
+
 .logo {
   display: block;
   width: 50%;
   margin: 0 auto;
 
-  .logo__nm {
-    fill-opacity: 0;
-    stroke-width: 1px;
-    $magic-number: 3250; // 6600
-    stroke-dasharray: $magic-number;
-    stroke-dashoffset: -$magic-number;
-    animation: dash 10s linear forwards;
+  &.logo__header {
+    .logo__nm {
+      fill-opacity: 0;
+      stroke-width: 1px;
+      animation: letter 10s linear forwards;
+      animation-delay: 2.5s;
+      @include stroke-length(3300);
+    }
+
+    .logo__a,
+    .logo__b,
+    .logo__c {
+      stroke-opacity: 0;
+      animation: circle 10s linear forwards;
+      animation-delay: 0.5s;
+    }
+
+    .logo__a {
+      @include stroke-length(155);
+    }
+
+    .logo__b {
+      @include stroke-length(220);
+    }
+
+    .logo__c {
+      @include stroke-length(860);
+    }
   }
 }
 
-@keyframes dash {
+@keyframes letter {
   50% {
     fill-opacity: 0;
     stroke-dashoffset: 0;
@@ -31,3 +57,20 @@
   }
 }
 
+@keyframes circle {
+    0% {
+      stroke-opacity: 0.5;
+    }
+    25% {
+      stroke-dashoffset: 0;
+      stroke-opacity: 0.5;
+    }
+    50% {
+      stroke-dashoffset: 0;
+      stroke-opacity: 0.5;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      stroke-opacity: 0;
+    }
+}
