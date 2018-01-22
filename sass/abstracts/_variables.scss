@@ -1,17 +1,17 @@
 $nav-size: 60px;
 $sidebar-width: 400px;
 
-$increment: 20%;
+$increment: 30%;
 
 $blue: hsl(214, 94%, 56%);
 $blue-lighter: tint($blue, $increment);
 $blue-darker: shade($blue, $increment);
 
-$cyan: hsl(182, 96%, 41%);
+$cyan: hsl(182, 96%, 34%);
 $cyan-lighter: tint($cyan, $increment);
 $cyan-darker: shade($cyan, $increment);
 
-$green: hsl(148, 94%, 44%);
+$green: hsl(148, 94%, 34%);
 $green-lighter: tint($green, $increment);
 $green-darker: shade($green, $increment);
 
@@ -19,19 +19,46 @@ $pink: hsl(320, 79%, 46%);
 $pink-lighter: tint($pink, $increment);
 $pink-darker: shade($pink, $increment);
 
-$red: hsl(6, 100%, 56%);
+$red: hsl(364, 100%, 56%);
 $red-lighter: tint($red, $increment);
 $red-darker: shade($red, $increment);
-
-
-$dark: hsl(221.3, 14.5%, 21.6%);
-$dark-lighter: tint($dark, $increment);
-$dark-darker: shade($dark, $increment);
-
-$light: hsl(240, 14.3%, 98.6%);
-$light-lighter: tint($light, $increment);
-$light-darker: shade($light, $increment);
 
 $primary: $cyan;
 $primary-lighter: tint($primary, $increment);
 $primary-darker: shade($primary, $increment);
+
+$dark: shade($primary, 90%);
+$dark-lighter: shade($primary, 87%);
+$dark-darker: shade($primary, 95%);
+
+$light: tint($primary, 95%);
+$light-lighter: tint($primary, 99%);
+$light-darker: tint($primary, 65%);
+
+// $blue-darker
+// $blue
+// $blue-lighter
+
+// $cyan-darker
+// $cyan
+// $cyan-lighter
+
+// $green-darker
+// $green
+// $green-lighter
+
+// $pink-darker
+// $pink
+// $pink-lighter
+
+// $red-darker
+// $red
+// $red-lighter
+
+// $dark-lighter
+// $dark
+// $dark-darker
+
+// $light-lighter
+// $light
+// $light-darker

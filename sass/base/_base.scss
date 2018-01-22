@@ -24,7 +24,7 @@ body,
 
 .body {
   color: $dark;
-  background: $light;
+  background: $light-lighter;
 }
 
 .theme__checkbox {
@@ -79,7 +79,7 @@ code {
   font-size: 90%;
   white-space: nowrap;
   background: $light;
-  border: 1px solid $light-lighter;
+  border: 1px solid $light;
   border-radius: 4px;
 }
 
@@ -91,5 +91,6 @@ pre > code {
 
 .content {
   width: 600px;
+  max-width: 100%;
   margin: 0 auto;
 }
