@@ -7,7 +7,7 @@ $blue: hsl(214, 94%, 56%);
 $blue-lighter: tint($blue, $increment);
 $blue-darker: shade($blue, $increment);
 
-$cyan: hsl(182, 96%, 34%);
+$cyan: hsl(182, 96%, 40.8%);
 $cyan-lighter: tint($cyan, $increment);
 $cyan-darker: shade($cyan, $increment);
 
@@ -23,17 +23,17 @@ $red: hsl(364, 100%, 56%);
 $red-lighter: tint($red, $increment);
 $red-darker: shade($red, $increment);
 
-$primary: $cyan;
+$primary: $blue;
 $primary-lighter: tint($primary, $increment);
 $primary-darker: shade($primary, $increment);
 
-$dark: shade($primary, 90%);
-$dark-lighter: shade($primary, 87%);
-$dark-darker: shade($primary, 95%);
+$dark: #051325; //shade($primary, 85%);
+$dark-lighter: tint($dark, 10%);
+$dark-darker: shade($dark, 30%);
 
-$light: tint($primary, 95%);
-$light-lighter: tint($primary, 99%);
-$light-darker: tint($primary, 65%);
+$light: #F4F8FE; //tint($primary, 95%);
+$light-lighter: tint($light, 50%);
+$light-darker: shade($light, 10%);
 
 // $blue-darker
 // $blue
