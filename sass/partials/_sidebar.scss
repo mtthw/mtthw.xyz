@@ -68,7 +68,9 @@
     width: 100%;
     position: fixed;
     @include background-opacity($dark-darker, 0.05);
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .sidebar__toggle {
@@ -123,12 +125,13 @@
 
   .sidebar__checkbox:checked + .sidebar__wrapper {
     .sidebar__focus {
-      visibility: visible;
+      opacity: 1;
+      pointer-events: unset;
     }
 
     .sidebar__panel {
       right: 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 10px rgba($dark, 0.5);
 
       .sidebar__toggle {
         left: 0;

@@ -3,15 +3,13 @@
   {{ partial "head/head.html" . }}
    <body>
     <input type="checkbox" id="theme__checkbox" name="theme__checkbox" class="theme__checkbox"/>
-    <div class="body">
-      {{ block "header" . }}
-        {{ partial "header/header.html" . }}
-      {{ end}}
-      {{ block "main" . }}
-      {{ end }}
-      {{ block "footer" . }}
-      {{ end }}
-      {{ partial "sidebar/sidebar.html" . }}
-    </div>
+    {{ block "header" . }}
+      {{ partial "header/header.html" . }}
+    {{ end}}
+    {{ block "main" . }}
+    {{ end }}
+    {{ block "footer" . }}
+    {{ end }}
+    {{ partial "sidebar/sidebar.html" . }}
   </body>
 </html>

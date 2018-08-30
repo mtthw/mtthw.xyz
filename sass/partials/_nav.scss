@@ -2,18 +2,21 @@
   height: $nav-size;
   display: flex;
   .nav__item {
-    margin: auto 10px;
+    margin: auto 1rem;
   }
+  .nav__current,
   .nav__link {
     padding: 2px;
     padding-bottom: 0px;
-    margin: 10px 8px;
-    border-bottom: 2px solid transparent;
+    margin: 1rem;
     display: inline-block;
+  }
+  .nav__link {
+    border-bottom: 2px solid transparent;
     transition: margin 0.5s, border-bottom 0.5s;
 
     &:hover {
-      margin: 9px 8px 11px;
+      margin: .9rem 1rem 1.1rem;
       border-bottom: 2px solid $blue-lighter;
     }
   }
