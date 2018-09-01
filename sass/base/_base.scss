@@ -1,12 +1,17 @@
 html,
-body {
-  font-size: 10px;
+body,
+.body {
   margin: 0;
   min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+html,
+body {
+  font-size: 10px;
 }
 
 html {
@@ -50,11 +55,13 @@ h4,
 h5,
 h6 {
   line-height: 4rem;
+  font-weight: 700;
 }
 
 h1,
 h2 {
   line-height: 8rem;
+  font-weight: normal;
 }
 
 
@@ -69,6 +76,21 @@ pre {
   margin: 0 0 4rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  code, kbd, samp {
+    line-height: 0;
+  }
+}
+
+
 body {
   font-family: "Inter UI", sans-serif;
   overflow-x: hidden;
@@ -76,15 +98,14 @@ body {
   line-height: 4rem;
   font-weight: normal;
   font-style: normal;
-  color: $dark;
-  background: $light-lighter;
 }
-
 body:after {
   top: 3rem;
 }
 
 .body {
+  color: $dark;
+  background: $light-lighter;
 }
 
 .theme__checkbox {
@@ -93,22 +114,47 @@ body:after {
 
 .theme__checkbox:checked + .body {
   color: $light;
-  background: $dark;
+  background: $dark-darker;
+  code {
+    background: $dark;
+    box-shadow: 0 0 0 1px $dark-lighter inset;
+  }
+  blockquote {
+    border-color: $primary;
+  }
+  a {
+    color: $secondary;
+    border-color: $secondary;
+    &:hover {
+      color: $secondary-lighter;
+      border-color: $secondary-lighter;
+    }
+  }
+  .header .nav .nav__link:hover {
+    color: $secondary-lighter;
+    border-color: $secondary-lighter;
+  }
+  .sidebar .sidebar__panel {
+    background: $dark;
+    color: $light-lighter;
+  }
+  .sidebar .sidebar__icon {
+    background: $secondary;
+  }
+  .sidebar .sidebar__toggle:hover {
+    background: rgba($secondary, .1);
+  }
 }
 
 
-ul {
-  list-style: disc inside;
-}
-
-ol {
-  list-style: decimal inside;
-}
 
 ol,
 ul {
   padding-left: 0;
   margin: 0 0 4rem 0;
+  p {
+    margin: 0;
+  }
 }
 
 ul ul,
@@ -128,6 +174,12 @@ a {
   }
 }
 
+
+code, kbd, samp {
+  font-family: Droid Sans Mono, monospace;
+  font-family: Cousine, monospace;
+}
+
 code {
   padding: 0 .5rem;
   white-space: nowrap;
@@ -143,6 +195,12 @@ pre > code {
   white-space: pre;
 }
 
+blockquote {
+  font-style: italic;
+  margin: 0 0 0 -2rem;
+  border-left: 0.3rem solid $secondary;
+  padding-left: 1.7rem;
+}
 .content {
   width: 600px;
   max-width: 100%;

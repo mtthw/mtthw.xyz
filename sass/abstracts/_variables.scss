@@ -27,6 +27,10 @@ $primary: $blue;
 $primary-lighter: tint($primary, $increment);
 $primary-darker: shade($primary, $increment);
 
+$secondary: $cyan;
+$secondary-lighter: tint($secondary, $increment);
+$secondary-darker: shade($secondary, $increment);
+
 $dark: #051325; //shade($primary, 85%);
 $dark-lighter: tint($dark, 10%);
 $dark-darker: shade($dark, 30%);

@@ -2,7 +2,8 @@
 <html>
   {{ partial "head/head.html" . }}
    <body>
-    <input type="checkbox" id="theme__checkbox" name="theme__checkbox" class="theme__checkbox"/>
+    <input type="checkbox" id="theme__checkbox" name="theme__checkbox" class="theme__checkbox" checked="true"/>
+    <div class="body">
     {{ block "header" . }}
       {{ partial "header/header.html" . }}
     {{ end}}
@@ -11,5 +12,6 @@
     {{ block "footer" . }}
     {{ end }}
     {{ partial "sidebar/sidebar.html" . }}
+    </div>
   </body>
 </html>
