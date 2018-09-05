@@ -39,7 +39,7 @@ $light: #F4F8FE; //tint($primary, 95%);
 $light-lighter: tint($light, 50%);
 $light-darker: shade($light, 10%);
 
-$middle: tint($dark, 50%);
+$middle: mix($dark, $light, 50%);
 
 // $blue-darker
 // $blue
