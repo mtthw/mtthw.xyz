@@ -31,13 +31,13 @@ $secondary: $cyan;
 $secondary-lighter: tint($secondary, $increment);
 $secondary-darker: shade($secondary, $increment);
 
-$dark: #051325; //shade($primary, 85%);
-$dark-lighter: tint($dark, 10%);
-$dark-darker: shade($dark, 30%);
+$dark: shade($primary, 85%);
+$dark-lighter: tint($dark, 60%);
+$dark-darker: shade($dark, 90%);
 
-$light: #F4F8FE; //tint($primary, 95%);
-$light-lighter: tint($light, 50%);
-$light-darker: shade($light, 10%);
+$light: tint($primary, 85%);
+$light-lighter: tint($light, 95%);
+$light-darker: shade($light, 22%);
 
 // $blue-darker
 // $blue
