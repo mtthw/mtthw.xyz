@@ -122,28 +122,28 @@ body:after {
   blockquote {
     border-color: $primary;
   }
-  a {
-    color: $secondary;
-    border-color: $secondary;
-    &:hover {
-      color: $secondary-lighter;
-      border-color: $secondary-lighter;
-    }
-  }
-  .header .nav .nav__link:hover {
-    color: $secondary-lighter;
-    border-color: $secondary-lighter;
-  }
+  // a {
+  //   color: $secondary;
+  //   border-color: $secondary;
+  //   &:hover {
+  //     color: $secondary-lighter;
+  //     border-color: $secondary-lighter;
+  //   }
+  // }
+  // .header .nav .nav__link:hover {
+  //   color: $secondary-lighter;
+  //   border-color: $secondary-lighter;
+  // }
   .sidebar .sidebar__panel {
     background: $dark;
     color: $light-lighter;
   }
-  .sidebar .sidebar__icon {
-    background: $secondary;
-  }
-  .sidebar .sidebar__toggle:hover {
-    background: rgba($secondary, .1);
-  }
+  // .sidebar .sidebar__icon {
+  //   background: $secondary;
+  // }
+  // .sidebar .sidebar__toggle:hover {
+  //   background: rgba($secondary, .1);
+  // }
 }
 
 
