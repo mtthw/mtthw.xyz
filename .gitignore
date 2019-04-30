@@ -3,6 +3,7 @@ static/css/main.css.map
 
 # Hugo default output directory
 /public
+/resources
 
 ## OS Files
 # Windows
