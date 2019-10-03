@@ -1,4 +1,0 @@
-{
-  "content" : "{{ .Content }}",
-  "from": "_default/taxonomies.json"
-}

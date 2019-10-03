@@ -1,6 +1,6 @@
 baseURL = "https://nicholma.xyz/"
 languageCode = "en-IE"
-title = "Home"
+title = "mtthw.xyz"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
