@@ -6,14 +6,9 @@
         </header>
         {{.Content}}
     </article>
-    <ul>
-    <!-- Ranges through content/post/*.md -->
     {{ range .Data.Pages }}
-        <li>
-            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-        </li>
+      {{ .Render "listing" }}
     {{ end }}
-    </ul>
 </main>
 {{ end }}
 
