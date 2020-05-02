@@ -10,7 +10,9 @@ function click (event) {
 }
 
 
-// TODO: What if you clikc a link that is wrapped by an anchor tag
+// TODO: What if you click am element that is wrapped by an anchor tag
+// TODO: Handle target="_blank"
+// TODO: Handle CTLR+Click and Middle click
 function shouldPreventNavigation (event) {
   if (event.target.href) {
     return isForLocalSite(event.target.href, location.origin)
