@@ -12,7 +12,7 @@ dev *args:
 
 # Build the production site into public/ using Docker.
 build:
-    {{ compose }} -f compose.dev.yaml run --rm hugo hugo
+    {{ compose }} -f compose.dev.yaml run --rm hugo hugo --cleanDestinationDir
 
 # Follow the development server logs.
 logs:
