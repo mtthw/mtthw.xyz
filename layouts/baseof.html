@@ -10,6 +10,11 @@
     {{ block "main" . }}
     {{ end }}
     {{ block "footer" . }}
+      {{ with .Site.GetPage "/privacy" }}
+      <footer class="content site-footer">
+        <a href="{{ .RelPermalink }}">Privacy Policy</a>
+      </footer>
+      {{ end }}
     {{ end }}
     {{ partial "sidebar/sidebar.html" . }}
     </div>

@@ -64,6 +64,7 @@ There are no Git submodules to initialize.
 - `content/projects.md`: projects from the CV, linked from the main navigation.
 - `content/publications.md`: research publications and preprints, linked from the main navigation.
 - `content/contact/`: the contact page.
+- `content/privacy.md`: the privacy policy at `/privacy/`, linked from the footer and sidebar.
 - `layouts/home.html`: homepage layout.
 - `layouts/`: page templates, with shared templates in `_partials/`.
 - `assets/sass/`: site styles compiled with Dart Sass.

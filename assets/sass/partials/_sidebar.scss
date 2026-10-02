@@ -133,6 +133,14 @@
 
   .sidebar__nav {
     margin: 2.5rem;
+
+    a {
+      display: block;
+    }
+
+    a + a {
+      margin-block-start: .75rem;
+    }
   }
 
   .sidebar__checkbox:focus-visible + .sidebar__wrapper .sidebar__toggle {
