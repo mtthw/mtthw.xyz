@@ -1,6 +1,15 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
 
+@mixin panel-background($pink-opacity, $blue-opacity, $cyan-opacity) {
+  background-image:
+    url("../images/grain.svg"),
+    radial-gradient(ellipse 19rem 18rem at 12% 8%, rgba(v.$pink, $pink-opacity), transparent 78%),
+    radial-gradient(ellipse 24rem 23rem at 95% 36%, rgba(v.$blue, $blue-opacity), transparent 80%),
+    radial-gradient(ellipse 19rem 22rem at 16% 98%, rgba(v.$cyan, $cyan-opacity), transparent 78%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+}
+
 @mixin line {
   display: inline-block;
   width: 24px;
@@ -64,7 +73,8 @@
     height: 100%;
     transform: translateX(100%);
     transition: transform 0.5s, box-shadow 1s;
-    background: v.$light-lighter;
+    background-color: v.$light-lighter;
+    @include panel-background(.04, .08, .06);
     color: v.$dark-darker;
   }
 
@@ -203,6 +213,12 @@
       }
     }
   }
+}
+
+.theme__checkbox:checked + .body .sidebar__panel {
+  background-color: v.$dark-darker;
+  @include panel-background(.08, .18, .12);
+  color: v.$light-lighter;
 }
 
 // modify position to display to the left if div.class="sidebar sidebar--left"
