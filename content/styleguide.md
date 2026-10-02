@@ -1,5 +1,5 @@
 ---
-title: "Formatting"
+title: "Style guide"
 description: "A sample page for checking typography and Markdown styles."
 date: 2018-01-04T11:55:49Z
 ---

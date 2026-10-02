@@ -127,6 +127,10 @@
     margin-top: v.$nav-size + 8rem;
   }
 
+  .sidebar__nav {
+    margin: 4rem;
+  }
+
   .sidebar__checkbox:checked + .sidebar__wrapper {
     .sidebar__focus {
       opacity: 1;

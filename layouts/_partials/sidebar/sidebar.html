@@ -9,6 +9,11 @@
       <div class="sidebar__content">
         {{ $logoID := "logo__sidebar" }}
         {{ partial "logo/logo.html" (dict "content" . "id" $logoID) }}
+        {{ with .Site.GetPage "/styleguide" }}
+          <nav class="sidebar__nav" aria-label="Sidebar">
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          </nav>
+        {{ end }}
         {{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
           <div class="toc">
           {{ .TableOfContents }}

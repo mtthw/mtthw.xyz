@@ -58,7 +58,8 @@ There are no Git submodules to initialize.
 
 ## Site files
 
-- `content/posts/formatting.md`: the single sample post for checking Markdown styles.
+- `content/styleguide.md`: the Markdown style guide at `/styleguide/`, linked from
+  the sidebar.
 - `content/contact/`: the contact page.
 - `layouts/home.html`: homepage text.
 - `layouts/`: page templates, with shared templates in `_partials/`.
