@@ -61,24 +61,70 @@
   isolation: isolate;
 }
 
-.logo__adapt path {
-  fill-opacity: 0;
-  mix-blend-mode: multiply;
+.logo__adapt-guide {
+  fill: none;
+  stroke: var(--logo-stroke);
   stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-opacity: 0;
+  animation: adapt-guide-draw 1s ease-out forwards;
+}
+
+.logo__adapt-guides {
+  animation: adapt-guide-fade .9s ease-in 6.8s forwards;
+}
+
+.logo__adapt-guides--diagonal-down { --guide-start: 0s; }
+.logo__adapt-guides--vertical { --guide-start: .35s; }
+.logo__adapt-guides--diagonal-up { --guide-start: .7s; }
+
+@for $index from 1 through 8 {
+  .logo__adapt-guide:nth-child(#{$index}) {
+    animation-delay: calc(var(--guide-start) + #{($index - 1) * .08s});
+  }
+}
+
+.logo__adapt-shapes path {
+  fill-opacity: .15;
+  mix-blend-mode: multiply;
+  stroke-width: 3;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: adapt-draw 4.8s ease-in-out both;
+  animation-delay: 2.3s;
 }
 
-.logo__adapt path:nth-of-type(2) { animation-delay: .15s; }
-.logo__adapt path:nth-of-type(3) { animation-delay: .3s; }
-.logo__adapt path:nth-of-type(4) { animation-delay: .45s; }
-.logo__adapt path:nth-of-type(5) { animation-delay: .6s; }
+.logo__adapt-shapes path:nth-of-type(2) { animation-delay: 2.45s; }
+.logo__adapt-shapes path:nth-of-type(3) { animation-delay: 2.6s; }
+.logo__adapt-shapes path:nth-of-type(4) { animation-delay: 2.75s; }
+.logo__adapt-shapes path:nth-of-type(5) { animation-delay: 2.9s; }
+
+@keyframes adapt-guide-draw {
+  0% {
+    stroke-opacity: 0;
+    stroke-dashoffset: 1;
+  }
+  15% {
+    stroke-opacity: .3;
+  }
+  100% {
+    stroke-opacity: .25;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes adapt-guide-fade {
+  to {
+    opacity: 0;
+  }
+}
 
 @keyframes adapt-draw {
   0% {
-    fill-opacity: 0;
+    fill-opacity: .15;
     stroke-opacity: 0;
     stroke-dashoffset: 1;
   }
@@ -86,7 +132,7 @@
     stroke-opacity: 1;
   }
   55% {
-    fill-opacity: 0;
+    fill-opacity: .15;
     stroke-opacity: 1;
     stroke-dashoffset: 0;
   }
@@ -102,7 +148,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo__adapt path {
+  .logo__adapt-guides {
+    animation: none;
+    opacity: 0;
+  }
+
+  .logo__adapt-guide {
+    animation: none;
+  }
+
+  .logo__adapt-shapes path {
     animation: none;
     fill-opacity: 1;
     stroke-opacity: 0;
