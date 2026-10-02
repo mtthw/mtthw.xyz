@@ -115,28 +115,10 @@ body:after {
   blockquote {
     border-color: v.$primary;
   }
-  // a {
-  //   color: v.$secondary;
-  //   border-color: v.$secondary;
-  //   &:hover {
-  //     color: v.$secondary-lighter;
-  //     border-color: v.$secondary-lighter;
-  //   }
-  // }
-  // .header .nav .nav__link:hover {
-  //   color: v.$secondary-lighter;
-  //   border-color: v.$secondary-lighter;
-  // }
   .sidebar .sidebar__panel {
     background: v.$dark;
     color: v.$light-lighter;
   }
-  // .sidebar .sidebar__icon {
-  //   background: v.$secondary;
-  // }
-  // .sidebar .sidebar__toggle:hover {
-  //   background: rgba(v.$secondary, .1);
-  // }
 }
 
 

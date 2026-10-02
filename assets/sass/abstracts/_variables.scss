@@ -33,40 +33,12 @@ $secondary: $cyan;
 $secondary-lighter: f.tint($secondary, $increment);
 $secondary-darker: f.shade($secondary, $increment);
 
-$dark: #051325; //f.shade($primary, 85%);
+$dark: #051325;
 $dark-lighter: f.tint($dark, 10%);
 $dark-darker: f.shade($dark, 30%);
 
-$light: #F4F8FE; //f.tint($primary, 95%);
+$light: #F4F8FE;
 $light-lighter: f.tint($light, 50%);
 $light-darker: f.shade($light, 10%);
 
 $middle: color.mix($dark, $light, 50%);
-
-// $blue-darker
-// $blue
-// $blue-lighter
-
-// $cyan-darker
-// $cyan
-// $cyan-lighter
-
-// $green-darker
-// $green
-// $green-lighter
-
-// $pink-darker
-// $pink
-// $pink-lighter
-
-// $red-darker
-// $red
-// $red-lighter
-
-// $dark-lighter
-// $dark
-// $dark-darker
-// $middle
-// $light-lighter
-// $light
-// $light-darker
