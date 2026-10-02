@@ -1,6 +1,7 @@
 ---
 title: ADAPT Projects
 description: Collaborative projects and public engagement from my time at Trinity College Dublin and the ADAPT Centre.
+pageLogo: adapt
 ---
 
 At Trinity College Dublin's ADAPT Centre, I worked on collaborative projects with academic, clinical, and industry partners. My roles ranged from software engineering and architecture to team leadership.

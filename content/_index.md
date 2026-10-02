@@ -1,5 +1,6 @@
 ---
 title: mtthw.xyz
+pageLogo: site
 ---
 
 # Hi, I’m Matthew.

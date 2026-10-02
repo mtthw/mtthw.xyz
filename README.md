@@ -76,6 +76,13 @@ There are no Git submodules to initialize.
 There is no CMS or Node build step. Hugo compiles the Sass and copies the static
 assets during the build.
 
+Pages can set `pageLogo` to `site` or `adapt` for the built-in animated SVGs, or
+to an image path (with `pageLogoAlt` for its alternative text) in front matter.
+Pages without `pageLogo` show no image above the content. The homepage uses the
+site logo; the ADAPT Projects page uses the ADAPT logo. Both logos render inline
+through HTML partials that include SVG partials in `layouts/_partials/logo/`.
+This lets their paths animate without JavaScript.
+
 ## Page navigation
 
 The site works with ordinary HTML links. In browsers with JavaScript, a plain
