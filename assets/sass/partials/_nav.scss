@@ -24,4 +24,17 @@
       border-bottom: 2px solid v.$blue-lighter;
     }
   }
+
+  @media (max-width: 40rem) {
+    height: auto;
+    min-height: v.$nav-size;
+    flex-wrap: wrap;
+
+    .nav__item,
+    .nav__current,
+    .nav__link,
+    .nav__link:hover {
+      margin: .25rem;
+    }
+  }
 }
