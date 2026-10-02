@@ -64,7 +64,6 @@
 .logo__adapt path {
   fill-opacity: 0;
   mix-blend-mode: multiply;
-  stroke: var(--logo-stroke);
   stroke-width: 1;
   stroke-linejoin: round;
   stroke-dasharray: 1;
@@ -92,8 +91,8 @@
     stroke-dashoffset: 0;
   }
   80% {
-    fill-opacity: .8;
-    stroke-opacity: .5;
+    fill-opacity: 1;
+    stroke-opacity: 1;
   }
   100% {
     fill-opacity: 1;
