@@ -1,0 +1,135 @@
+@use "../abstracts/variables" as v;
+
+@property --pink-x {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 90%;
+}
+
+@property --pink-y {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 5%;
+}
+
+@property --pink-intensity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --pink-size {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --blue-x {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 80%;
+}
+
+@property --blue-y {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 15%;
+}
+
+@property --blue-intensity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --blue-size {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --cyan-x {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 10%;
+}
+
+@property --cyan-y {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 85%;
+}
+
+@property --cyan-intensity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --cyan-size {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+.body {
+  position: relative;
+  isolation: isolate;
+  background: v.$light-lighter;
+}
+
+.body::before {
+  content: "";
+  position: fixed;
+  inset: -12vmax;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    url("../images/grain.svg"),
+    radial-gradient(ellipse calc(24rem * var(--pink-size, 1)) calc(21rem * var(--pink-size, 1)) at var(--pink-x, 90%) var(--pink-y, 5%), color-mix(in srgb, #{v.$pink} calc(6% * var(--pink-intensity, 1)), transparent), transparent 75%),
+    radial-gradient(ellipse calc(30rem * var(--blue-size, 1)) calc(25rem * var(--blue-size, 1)) at var(--blue-x, 80%) var(--blue-y, 15%), color-mix(in srgb, #{v.$blue} calc(12% * var(--blue-intensity, 1)), transparent), transparent 78%),
+    radial-gradient(ellipse calc(28rem * var(--cyan-size, 1)) calc(23rem * var(--cyan-size, 1)) at var(--cyan-x, 10%) var(--cyan-y, 85%), color-mix(in srgb, #{v.$cyan} calc(9% * var(--cyan-intensity, 1)), transparent), transparent 75%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.body--animated::before {
+  transform: translate3d(var(--drift-start-x), var(--drift-start-y), 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .body--animated {
+    transition-property:
+      --pink-x, --pink-y, --pink-intensity, --pink-size,
+      --blue-x, --blue-y, --blue-intensity, --blue-size,
+      --cyan-x, --cyan-y, --cyan-intensity, --cyan-size;
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .body--animated::before {
+    animation: background-drift var(--drift-duration) ease-in-out infinite alternate;
+    will-change: transform;
+  }
+}
+
+@keyframes background-drift {
+  from {
+    transform: translate3d(var(--drift-start-x), var(--drift-start-y), 0);
+  }
+
+  to {
+    transform: translate3d(var(--drift-end-x), var(--drift-end-y), 0);
+  }
+}
+
+.theme__checkbox:checked + .body {
+  background-color: v.$dark-darker;
+
+  &::before {
+    background-image:
+      url("../images/grain.svg"),
+      radial-gradient(ellipse calc(24rem * var(--pink-size, 1)) calc(21rem * var(--pink-size, 1)) at var(--pink-x, 90%) var(--pink-y, 5%), color-mix(in srgb, #{v.$pink} calc(14% * var(--pink-intensity, 1)), transparent), transparent 75%),
+      radial-gradient(ellipse calc(30rem * var(--blue-size, 1)) calc(25rem * var(--blue-size, 1)) at var(--blue-x, 80%) var(--blue-y, 15%), color-mix(in srgb, #{v.$blue} calc(28% * var(--blue-intensity, 1)), transparent), transparent 78%),
+      radial-gradient(ellipse calc(28rem * var(--cyan-size, 1)) calc(23rem * var(--cyan-size, 1)) at var(--cyan-x, 10%) var(--cyan-y, 85%), color-mix(in srgb, #{v.$cyan} calc(21% * var(--cyan-intensity, 1)), transparent), transparent 75%);
+  }
+}

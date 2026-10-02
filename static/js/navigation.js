@@ -1,5 +1,8 @@
+import { shiftBackground } from "./background.js";
+
 let activeRequest = 0;
 let activeController;
+let renderedPath = window.location.pathname;
 const main = document.querySelector("main");
 const heroElement = main?.querySelector(":scope > .page-hero");
 const contentElement = main?.querySelector(":scope > .page-content");
@@ -71,6 +74,12 @@ function updateHero(hero) {
   heroElement.dataset.heroKey = hero.key;
 }
 
+function updateBackground(url) {
+  if (renderedPath === url.pathname) return;
+  renderedPath = url.pathname;
+  shiftBackground();
+}
+
 function renderPage(page, url) {
   updateHero(page.hero);
   contentElement.innerHTML = page.content;
@@ -80,6 +89,7 @@ function renderPage(page, url) {
   document.getElementById("sidebar__checkbox").checked = false;
   main.focus({ preventScroll: true });
   scrollToDestination(url);
+  updateBackground(url);
 }
 
 function loadNormally(url, isNewVisit) {

@@ -100,7 +100,6 @@ body:after {
 
 .body {
   color: v.$dark;
-  background: v.$light-lighter;
 }
 
 .theme__checkbox {
@@ -109,7 +108,6 @@ body:after {
 
 .theme__checkbox:checked + .body {
   color: v.$light;
-  background: v.$dark-darker;
   code {
     background: v.$dark;
     box-shadow: 0 0 0 1px v.$dark-lighter inset;
