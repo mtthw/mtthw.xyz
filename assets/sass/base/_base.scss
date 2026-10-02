@@ -11,14 +11,8 @@ body,
   flex-grow: 1;
 }
 
-html,
-body {
-  font-size: 10px;
-}
-
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  font-size: 100%;
   box-sizing: border-box;
 }
 
@@ -32,37 +26,37 @@ html {
 
 
 h1 {
-  font-size: 5rem;
+  font-size: clamp(2rem, 1.5rem + 2vw, 3.125rem);
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.5rem);
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 1.125rem + 1vw, 1.875rem);
 }
 
 h4 {
-  font-size: 2.5rem;
+  font-size: clamp(1.25rem, 1.125rem + 0.5vw, 1.5625rem);
 }
 
 h5,
 h6 {
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  line-height: 4rem;
+  line-height: 1.35;
   font-weight: 700;
 }
 
 h1,
 h2 {
-  line-height: 8rem;
+  line-height: 1.2;
   font-weight: normal;
 }
 
@@ -75,7 +69,7 @@ h5,
 h6,
 p,
 pre {
-  margin: 0 0 4rem;
+  margin: 0 0 2.5rem;
 }
 
 h1,
@@ -95,14 +89,13 @@ ol {
 
 body {
   font-family: "Inter UI", sans-serif;
-  overflow-x: hidden;
-  font-size: 1.6rem;
-  line-height: 4rem;
+  font-size: 1rem;
+  line-height: 1.6;
   font-weight: normal;
   font-style: normal;
 }
 body:after {
-  top: 3rem;
+  top: 1.875rem;
 }
 
 .body {
@@ -152,8 +145,8 @@ body:after {
 
 ol,
 ul {
-  padding-left: 0;
-  margin: 0 0 4rem 0;
+  padding-inline-start: 1.5rem;
+  margin: 0 0 2.5rem;
   p {
     margin: 0;
   }
@@ -163,7 +156,7 @@ ul ul,
 ul ol,
 ol ol,
 ol ul {
-  margin: 0 0 0 4rem ;
+  margin: 0;
 }
 
 a {
@@ -183,7 +176,7 @@ code, kbd, samp {
 }
 
 code {
-  padding: 0 .5rem;
+  padding: 0 .3125rem;
   white-space: nowrap;
   background: v.$light;
   border-radius: 4px;
@@ -193,18 +186,36 @@ code {
 
 pre > code {
   display: block;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
   white-space: pre;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 blockquote {
   font-style: italic;
-  margin: 0 0 0 -2rem;
-  border-left: 0.3rem solid v.$secondary;
-  padding-left: 1.7rem;
+  margin: 0 0 2.5rem;
+  border-inline-start: 3px solid v.$secondary;
+  padding-inline-start: 1rem;
 }
-.content {
-  width: 600px;
+
+table {
+  display: block;
   max-width: 100%;
+  overflow-x: auto;
+}
+
+.content {
+  width: 100%;
+  max-width: 40.5rem;
   margin: 0 auto;
+  padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+
+  @media (max-width: 40rem) {
+    padding-inline-start: v.$nav-size;
+    padding-inline-end: 1rem;
+  }
 }
