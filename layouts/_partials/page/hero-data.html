@@ -1,0 +1,2 @@
+{{- $html := partial "page/hero.html" . -}}
+{{- return (dict "key" (sha256 $html) "html" $html) -}}

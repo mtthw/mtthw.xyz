@@ -1,1 +1,7 @@
-{{- dict "format" "mtthw-page-v1" "title" (partial "page/title.html" .) "main" (partial "page/main.html" .) "toc" (partial "page/toc.html" .) | jsonify -}}
+{{- $page := dict
+  "title" (partial "page/title.html" .)
+  "hero" (partial "page/hero-data.html" .)
+  "content" (partial "page/content.html" .)
+  "toc" (partial "page/toc.html" .)
+-}}
+{{- $page | jsonify -}}

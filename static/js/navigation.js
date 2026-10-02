@@ -1,5 +1,8 @@
 let activeRequest = 0;
 let activeController;
+const main = document.querySelector("main");
+const heroElement = main?.querySelector(":scope > .page-hero");
+const contentElement = main?.querySelector(":scope > .page-content");
 
 function isPlainClick(event, link) {
   return link && !event.defaultPrevented && event.button === 0 &&
@@ -17,22 +20,15 @@ function shouldHandleClick(event, link, url) {
     url.pathname !== window.location.pathname;
 }
 
-function parseMain(markup) {
-  const template = document.createElement("template");
-  template.innerHTML = markup.trim();
-  const main = template.content.firstElementChild;
-  if (main?.tagName !== "MAIN") throw new Error("Invalid page markup");
-  return main;
-}
-
 async function fetchPage(url, signal) {
   const jsonUrl = new URL("index.json", url);
   const response = await fetch(jsonUrl, { signal, headers: { Accept: "application/json" } });
   if (!response.ok) throw new Error(`Page request failed: ${response.status}`);
 
   const page = await response.json();
-  if (page.format !== "mtthw-page-v1" || typeof page.title !== "string" ||
-      typeof page.main !== "string" || typeof page.toc !== "string") {
+  if (typeof page.title !== "string" ||
+      typeof page.hero?.key !== "string" || typeof page.hero?.html !== "string" ||
+      typeof page.content !== "string" || typeof page.toc !== "string") {
     throw new Error("Invalid page data");
   }
   return page;
@@ -69,8 +65,15 @@ function scrollToDestination(url) {
   else window.scrollTo(0, 0);
 }
 
-function renderPage(page, main, url) {
-  document.querySelector("main").replaceWith(main);
+function updateHero(hero) {
+  if (heroElement.dataset.heroKey === hero.key) return;
+  heroElement.innerHTML = hero.html;
+  heroElement.dataset.heroKey = hero.key;
+}
+
+function renderPage(page, url) {
+  updateHero(page.hero);
+  contentElement.innerHTML = page.content;
   document.title = page.title;
   updateTableOfContents(page.toc);
   updateCurrentLinks(url);
@@ -92,9 +95,8 @@ async function navigate(url, isNewVisit) {
   try {
     const page = await fetchPage(url, activeController.signal);
     if (request !== activeRequest) return;
-    const main = parseMain(page.main);
     if (isNewVisit) history.pushState(null, "", url.href);
-    renderPage(page, main, url);
+    renderPage(page, url);
   } catch (error) {
     if (request === activeRequest && error.name !== "AbortError") {
       loadNormally(url, isNewVisit);
@@ -122,7 +124,8 @@ function handlePopState() {
   else window.location.reload();
 }
 
-if (typeof window.fetch === "function" && typeof window.AbortController === "function" &&
+if (main && heroElement && contentElement && typeof window.fetch === "function" &&
+    typeof window.AbortController === "function" &&
     typeof history.pushState === "function") {
   document.addEventListener("click", handleClick);
   window.addEventListener("popstate", handlePopState);

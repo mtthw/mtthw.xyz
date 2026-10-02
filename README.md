@@ -93,6 +93,8 @@ back/forward history update with the page. Modified clicks, external links,
 same-page anchors, and links with query strings retain their usual browser
 behaviour. If the JSON request fails, the browser loads the normal HTML page.
 
-Hugo builds the HTML page and its JSON version from the same main-content
-partial. The small script is in `static/js/navigation.js`; no JavaScript build
-tool or dependency is needed.
+Hugo builds the HTML page and its JSON version from the same hero and content
+partials. The JSON has a separate `hero` component; navigation keeps the
+current hero when its key matches, so its animation does not restart. The small
+script is in `static/js/navigation.js`; no JavaScript build tool or dependency
+is needed.

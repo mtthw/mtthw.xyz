@@ -1,27 +1,5 @@
+{{- $hero := partial "page/hero-data.html" . -}}
 <main class="content" tabindex="-1">
-  {{ with .Params.pageLogo }}
-    {{ if eq . "site" }}
-      {{ partial "logo/logo.html" (dict "id" "logo__header" "class" "page-logo") }}
-    {{ else if eq . "adapt" }}
-      {{ partial "logo/adapt.html" $ }}
-    {{ else }}
-      <img class="logo page-logo" src="{{ . | relURL }}" alt="{{ $.Params.pageLogoAlt | default "" }}">
-    {{ end }}
-  {{ end }}
-  {{ if .IsHome }}
-    {{ .Content }}
-  {{ else if eq .Kind "section" }}
-    <article>
-      <header><h1>{{ .Title }}</h1></header>
-      {{ .Content }}
-    </article>
-    {{ range .Pages }}
-      {{ .Render "listing" }}
-    {{ end }}
-  {{ else if eq .Kind "term" }}
-    <div><h1>{{ .Title }}</h1></div>
-  {{ else }}
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  {{ end }}
+  <div class="page-hero" data-hero-key="{{ $hero.key }}">{{ $hero.html }}</div>
+  <div class="page-content">{{ partial "page/content.html" . }}</div>
 </main>
