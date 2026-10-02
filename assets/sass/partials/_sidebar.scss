@@ -1,9 +1,9 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
 
-@mixin panel-background($pink-opacity, $blue-opacity, $cyan-opacity) {
+@mixin panel-background($pink-opacity, $blue-opacity, $cyan-opacity, $grain) {
   background-image:
-    url("../images/grain.svg"),
+    url("../images/#{$grain}"),
     radial-gradient(ellipse 19rem 18rem at 12% 8%, rgba(v.$pink, $pink-opacity), transparent 78%),
     radial-gradient(ellipse 24rem 23rem at 95% 36%, rgba(v.$blue, $blue-opacity), transparent 80%),
     radial-gradient(ellipse 19rem 22rem at 16% 98%, rgba(v.$cyan, $cyan-opacity), transparent 78%);
@@ -74,7 +74,7 @@
     transform: translateX(100%);
     transition: transform 0.5s, box-shadow 1s;
     background-color: v.$light-lighter;
-    @include panel-background(.04, .08, .06);
+    @include panel-background(.1, .16, .13, "grain-light.svg");
     color: v.$dark-darker;
   }
 
@@ -222,7 +222,7 @@
 
 .theme__checkbox:checked + .body .sidebar__panel {
   background-color: v.$dark-darker;
-  @include panel-background(.08, .18, .12);
+  @include panel-background(.08, .18, .12, "grain.svg");
   color: v.$light-lighter;
 }
 

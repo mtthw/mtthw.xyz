@@ -85,10 +85,10 @@
   z-index: -1;
   pointer-events: none;
   background-image:
-    url("../images/grain.svg"),
-    radial-gradient(ellipse calc(24rem * var(--pink-size, 1)) calc(21rem * var(--pink-size, 1)) at var(--pink-x, 90%) var(--pink-y, 5%), color-mix(in srgb, #{v.$pink} calc(6% * var(--pink-intensity, 1)), transparent), transparent 75%),
-    radial-gradient(ellipse calc(30rem * var(--blue-size, 1)) calc(25rem * var(--blue-size, 1)) at var(--blue-x, 80%) var(--blue-y, 15%), color-mix(in srgb, #{v.$blue} calc(12% * var(--blue-intensity, 1)), transparent), transparent 78%),
-    radial-gradient(ellipse calc(28rem * var(--cyan-size, 1)) calc(23rem * var(--cyan-size, 1)) at var(--cyan-x, 10%) var(--cyan-y, 85%), color-mix(in srgb, #{v.$cyan} calc(9% * var(--cyan-intensity, 1)), transparent), transparent 75%);
+    url("../images/grain-light.svg"),
+    radial-gradient(ellipse calc(24rem * var(--pink-size, 1)) calc(21rem * var(--pink-size, 1)) at calc(var(--pink-x, 90%) - 15%) calc(var(--pink-y, 5%) + 15%), color-mix(in srgb, #{v.$pink} calc(14% * var(--pink-intensity, 1)), transparent), transparent 75%),
+    radial-gradient(ellipse calc(30rem * var(--blue-size, 1)) calc(25rem * var(--blue-size, 1)) at calc(var(--blue-x, 80%) - 10%) calc(var(--blue-y, 15%) + 10%), color-mix(in srgb, #{v.$blue} calc(24% * var(--blue-intensity, 1)), transparent), transparent 78%),
+    radial-gradient(ellipse calc(28rem * var(--cyan-size, 1)) calc(23rem * var(--cyan-size, 1)) at calc(var(--cyan-x, 10%) + 10%) calc(var(--cyan-y, 85%) - 10%), color-mix(in srgb, #{v.$cyan} calc(18% * var(--cyan-intensity, 1)), transparent), transparent 75%);
   background-repeat: repeat, no-repeat, no-repeat, no-repeat;
 }
 
