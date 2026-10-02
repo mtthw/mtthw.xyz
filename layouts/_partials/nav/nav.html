@@ -3,6 +3,9 @@
 {{ $context :=  . }}
 
 {{ partial "nav/navItem" ( dict "page" $home "context" $context ) }}
+{{ with .Site.GetPage "/projects" }}
+  {{ partial "nav/navItem" (dict "page" . "context" $context) }}
+{{ end }}
 {{ with .Site.GetPage "/publications" }}
   {{ partial "nav/navItem" (dict "page" . "context" $context) }}
 {{ end }}

@@ -60,6 +60,7 @@ There are no Git submodules to initialize.
 
 - `content/styleguide.md`: the Markdown style guide at `/styleguide/`, linked from
   the sidebar.
+- `content/projects.md`: projects from the CV, linked from the main navigation.
 - `content/publications.md`: research publications and preprints, linked from the main navigation.
 - `content/contact/`: the contact page.
 - `layouts/home.html`: homepage text.

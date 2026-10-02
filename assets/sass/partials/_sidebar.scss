@@ -127,6 +127,8 @@
 
   .sidebar__content {
     margin-top: v.$nav-size + 5rem;
+    max-height: calc(100dvh - #{v.$nav-size + 5rem});
+    overflow-y: auto;
   }
 
   .sidebar__nav {
