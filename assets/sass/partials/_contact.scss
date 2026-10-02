@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
 
 .contact-links {
   display: grid;
@@ -68,14 +69,16 @@
   line-height: 1;
 }
 
-.theme__checkbox:checked + .body .contact-link {
-  background: v.$dark;
-  border-color: v.$dark-lighter;
+@include t.dark {
+  .contact-link {
+    background: v.$dark;
+    border-color: v.$dark-lighter;
 
-  &:hover,
-  &:focus-visible {
-    background: v.$dark-lighter;
-    border-color: v.$blue-lighter;
+    &:hover,
+    &:focus-visible {
+      background: v.$dark-lighter;
+      border-color: v.$blue-lighter;
+    }
   }
 }
 

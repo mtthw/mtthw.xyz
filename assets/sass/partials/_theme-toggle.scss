@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
 
 .theme-toggle {
   display: grid;
@@ -8,7 +9,6 @@
   height: 2.75rem;
   border-radius: .75rem;
   color: v.$blue-darker;
-  cursor: pointer;
 
   &:hover {
     background: rgba(v.$blue, .1);
@@ -18,6 +18,21 @@
     width: 1.5rem;
     height: 1.5rem;
   }
+}
+
+.theme-toggle__option {
+  display: none;
+  grid-area: 1 / 1;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#theme-system:checked ~ .body .theme-toggle__option--system,
+#theme-dark:checked ~ .body .theme-toggle__option--dark,
+#theme-light:checked ~ .body .theme-toggle__option--light {
+  display: grid;
 }
 
 .theme-toggle__text {
@@ -32,23 +47,16 @@
   border: 0;
 }
 
-.theme-toggle__sun {
-  display: none;
-}
-
-.theme__checkbox:checked + .body .theme-toggle {
-  color: v.$blue-lighter;
-
-  .theme-toggle__sun {
-    display: block;
-  }
-
-  .theme-toggle__moon {
-    display: none;
+@include t.dark {
+  .theme-toggle {
+    color: v.$blue-lighter;
   }
 }
 
-.theme__checkbox:focus-visible + .body .theme-toggle {
+#theme-system:focus-visible ~ .body .theme-toggle__option--system,
+#theme-dark:focus-visible ~ .body .theme-toggle__option--dark,
+#theme-light:focus-visible ~ .body .theme-toggle__option--light {
   outline: 2px solid v.$blue;
   outline-offset: 2px;
+  border-radius: .75rem;
 }

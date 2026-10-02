@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
 
 @mixin stroke-length ($length) {
   stroke-dasharray: $length;
@@ -48,8 +49,10 @@
   }
 }
 
-.theme__checkbox:checked + .body .logo {
-  --logo-stroke: #{v.$light-darker};
+@include t.dark {
+  .logo {
+    --logo-stroke: #{v.$light-darker};
+  }
 }
 
 .page-logo {

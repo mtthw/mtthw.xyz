@@ -1,0 +1,11 @@
+@mixin dark {
+  #theme-dark:checked ~ .body {
+    @content;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #theme-system:checked ~ .body {
+      @content;
+    }
+  }
+}

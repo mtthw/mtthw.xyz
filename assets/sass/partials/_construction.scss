@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
 
 $radius: .75rem;
 $guide-stops: transparent calc(#{$radius} - 1px), var(--frame-guide) #{$radius}, transparent calc(#{$radius} + 1px);
@@ -14,9 +15,11 @@ $guide-stops: transparent calc(#{$radius} - 1px), var(--frame-guide) #{$radius},
     radial-gradient(circle at calc(100% - #{$radius}) calc(100% - #{$radius}), #{$guide-stops});
 }
 
-.theme__checkbox:checked + .body .construction-frame {
-  --frame-line: #{rgba(v.$light, .2)};
-  --frame-guide: #{rgba(v.$light, .05)};
+@include t.dark {
+  .construction-frame {
+    --frame-line: #{rgba(v.$light, .2)};
+    --frame-guide: #{rgba(v.$light, .05)};
+  }
 }
 
 .site-footer {

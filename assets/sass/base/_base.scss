@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
 
 html,
 body,
@@ -100,9 +101,10 @@ body:after {
 
 .body {
   color: v.$dark;
+  color-scheme: light;
 }
 
-.theme__checkbox {
+.theme__radio {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -114,8 +116,9 @@ body:after {
   border: 0;
 }
 
-.theme__checkbox:checked + .body {
+@include t.dark {
   color: v.$light;
+  color-scheme: dark;
   code {
     background: v.$dark;
     box-shadow: 0 0 0 1px v.$dark-lighter inset;

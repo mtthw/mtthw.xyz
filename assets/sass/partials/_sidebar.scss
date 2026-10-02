@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+@use "../abstracts/theme" as t;
 
 @mixin panel-background($pink-opacity, $blue-opacity, $cyan-opacity, $grain) {
   background-image:
@@ -220,10 +221,12 @@
   }
 }
 
-.theme__checkbox:checked + .body .sidebar__panel {
-  background-color: v.$dark-darker;
-  @include panel-background(.08, .18, .12, "grain.svg");
-  color: v.$light-lighter;
+@include t.dark {
+  .sidebar__panel {
+    background-color: v.$dark-darker;
+    @include panel-background(.08, .18, .12, "grain.svg");
+    color: v.$light-lighter;
+  }
 }
 
 // modify position to display to the left if div.class="sidebar sidebar--left"
