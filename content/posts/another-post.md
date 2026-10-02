@@ -10,7 +10,7 @@ tags = [
 ]
 +++
 
-TOML, YAML, JSON --- Oh my!
+TOML, YAML, JSON --- Oh my! {#toml-yaml-json-----oh-my}
 -------------------------
 
 One of the nifty Hugo features we should cover: flexible configuration and front matter formats! This entry has front
