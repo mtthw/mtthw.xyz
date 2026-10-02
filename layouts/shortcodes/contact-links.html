@@ -1,0 +1,14 @@
+<ul class="contact-links" aria-label="Online profiles">
+  {{- range .Page.Params.contacts }}
+    <li>
+      <a class="contact-link" href="{{ .url }}">
+        <span class="contact-link__icon"><img src="{{ printf "images/contact/%s.svg" .icon | relURL }}" alt="" width="28" height="28"></span>
+        <span class="contact-link__text">
+          <strong class="contact-link__name">{{ .name }}</strong>
+          <span class="contact-link__detail">{{ .detail }}</span>
+        </span>
+        <span class="contact-link__arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  {{- end }}
+</ul>

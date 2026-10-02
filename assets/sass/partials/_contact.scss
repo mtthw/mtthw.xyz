@@ -1,0 +1,93 @@
+@use "../abstracts/variables" as v;
+
+.contact-links {
+  display: grid;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.contact-link {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: .875rem 1rem;
+  color: inherit;
+  background: v.$light;
+  border: 1px solid v.$light-darker;
+  border-radius: .75rem;
+
+  &:hover,
+  &:focus-visible {
+    color: inherit;
+    background: v.$light-lighter;
+    border-color: v.$blue;
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$blue;
+    outline-offset: 2px;
+  }
+}
+
+.contact-link__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border-radius: .5rem;
+
+  img {
+    display: block;
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+  }
+}
+
+.contact-link__text {
+  display: grid;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.contact-link__name {
+  font-size: 1.0625rem;
+}
+
+.contact-link__detail {
+  font-size: .875rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-link__arrow {
+  align-self: start;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.theme__checkbox:checked + .body .contact-link {
+  background: v.$dark;
+  border-color: v.$dark-lighter;
+
+  &:hover,
+  &:focus-visible {
+    background: v.$dark-lighter;
+    border-color: v.$blue-lighter;
+  }
+}
+
+@media (max-width: 25rem) {
+  .contact-link {
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    gap: .75rem;
+    padding: .75rem;
+  }
+
+  .contact-link__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

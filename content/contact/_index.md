@@ -2,8 +2,27 @@
 date = "2014-04-09T00:00:00Z"
 title = "Contact"
 pageLogo = "site"
+[[contacts]]
+name = "GitHub"
+detail = "github.com/mtthw"
+url = "https://github.com/mtthw"
+icon = "github"
+
+[[contacts]]
+name = "Bluesky"
+detail = "@mtthw.xyz"
+url = "https://bsky.app/profile/mtthw.xyz"
+icon = "bluesky"
+
+[[contacts]]
+name = "LinkedIn"
+detail = "Matthew Nicholson"
+url = "https://www.linkedin.com/in/matthew-nicholson-aa204b14b"
+icon = "linkedin"
+
 [menu.main]
 
 +++
-Message me on [keybase](https://keybase.io/mtthw)?
-Or maybe [twitter](http://twitter.com/mtthwn)?
+You can find me online and get in touch through these profiles.
+
+{{< contact-links >}}
