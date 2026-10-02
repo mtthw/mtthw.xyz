@@ -8,7 +8,6 @@
   .nav__item {
     margin: auto .625rem;
   }
-  .nav__current,
   .nav__link {
     padding: 2px;
     padding-bottom: 0px;
@@ -23,6 +22,10 @@
       margin: .5625rem .625rem .6875rem;
       border-bottom: 2px solid v.$blue-lighter;
     }
+
+    &[aria-current="page"] {
+      color: inherit;
+    }
   }
 
   @media (max-width: 40rem) {
@@ -31,7 +34,6 @@
     flex-wrap: wrap;
 
     .nav__item,
-    .nav__current,
     .nav__link,
     .nav__link:hover {
       margin: .25rem;

@@ -75,3 +75,17 @@ There are no Git submodules to initialize.
 
 There is no CMS or Node build step. Hugo compiles the Sass and copies the static
 assets during the build.
+
+## Page navigation
+
+The site works with ordinary HTML links. In browsers with JavaScript, a plain
+click on an internal page link fetches that page's `index.json` and replaces the
+main content without reloading the shared layout, styles, or fonts. The page
+title, current navigation link, sidebar table of contents, URL, and browser
+back/forward history update with the page. Modified clicks, external links,
+same-page anchors, and links with query strings retain their usual browser
+behaviour. If the JSON request fails, the browser loads the normal HTML page.
+
+Hugo builds the HTML page and its JSON version from the same main-content
+partial. The small script is in `static/js/navigation.js`; no JavaScript build
+tool or dependency is needed.

@@ -1,0 +1,18 @@
+<main class="content" tabindex="-1">
+  {{ if .IsHome }}
+    {{ .Content }}
+  {{ else if eq .Kind "section" }}
+    <article>
+      <header><h1>{{ .Title }}</h1></header>
+      {{ .Content }}
+    </article>
+    {{ range .Pages }}
+      {{ .Render "listing" }}
+    {{ end }}
+  {{ else if eq .Kind "term" }}
+    <div><h1>{{ .Title }}</h1></div>
+  {{ else }}
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  {{ end }}
+</main>

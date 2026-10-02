@@ -1,4 +1,1 @@
-{
-  "content" : "{{ .Content }}",
-  "from": "_default/single.json"
-}
+{{ partial "page/json.html" . }}

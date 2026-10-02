@@ -1,14 +1,3 @@
 {{ define "main" }}
-<main class="content">
-    <article>
-        <header>
-            <h1>{{.Title}}</h1>
-        </header>
-        {{.Content}}
-    </article>
-    {{ range .Pages }}
-      {{ .Render "listing" }}
-    {{ end }}
-</main>
+{{ partial "page/main.html" . }}
 {{ end }}
-

@@ -1,1 +1,1 @@
-{{ dict "content" .Content "from" "index.json" | jsonify }}
+{{ partial "page/json.html" . }}
