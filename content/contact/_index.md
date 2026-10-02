@@ -1,6 +1,7 @@
 +++
 date = "2014-04-09T00:00:00Z"
 title = "Contact"
+pageLogo = "site"
 [menu.main]
 
 +++
