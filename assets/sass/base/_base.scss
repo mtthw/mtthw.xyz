@@ -202,6 +202,12 @@ blockquote {
   padding-inline-start: 1rem;
 }
 
+hr {
+  border: 0;
+  border-block-start: 1px solid v.$blue;
+  margin-block-end: 1.5rem;
+}
+
 table {
   display: block;
   max-width: 100%;
