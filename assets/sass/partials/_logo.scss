@@ -1,9 +1,13 @@
+@use "../abstracts/variables" as v;
+
 @mixin stroke-length ($length) {
   stroke-dasharray: $length;
   stroke-dashoffset: -$length;
 }
 
 .logo {
+  --logo-stroke: #{v.$dark-lighter};
+
   display: block;
   width: 50%;
   height: auto;
@@ -25,7 +29,7 @@
       animation: circle 10s linear forwards;
       animation-delay: 0.5s;
       path {
-        stroke: #f4f8fe;
+        stroke: var(--logo-stroke);
         stroke-width: 3px;
       }
     }
@@ -44,6 +48,10 @@
   }
 }
 
+.theme__checkbox:checked + .body .logo {
+  --logo-stroke: #{v.$light-darker};
+}
+
 .page-logo {
   width: min(100%, 18rem);
   margin-block-end: 1.5rem;
@@ -56,7 +64,7 @@
 .logo__adapt path {
   fill-opacity: 0;
   mix-blend-mode: multiply;
-  stroke: #f4f8fe;
+  stroke: var(--logo-stroke);
   stroke-width: 1;
   stroke-linejoin: round;
   stroke-dasharray: 1;
