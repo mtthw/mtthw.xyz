@@ -152,6 +152,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: .5rem;
     margin: auto 2.5rem 2.5rem;
     padding: 1.25rem 1.5rem;
@@ -178,6 +179,10 @@
 
     .sidebar__nav-separator {
       color: var(--frame-line);
+    }
+
+    .theme-toggle {
+      margin-inline: auto 0;
     }
   }
 

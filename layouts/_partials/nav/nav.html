@@ -12,4 +12,5 @@
 {{ range $section := .Site.Sections }}
   {{ partial "nav/navItem" ( dict "page" $section "context" $context ) }}
 {{ end }}
+{{ partial "theme/toggle.html" . }}
 </nav>

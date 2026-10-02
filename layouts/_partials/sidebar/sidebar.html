@@ -26,6 +26,7 @@
           {{ with $privacy }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}
+          {{ partial "theme/toggle.html" . }}
         </nav>
       </div>
     </div>
