@@ -1,4 +1,1 @@
-{
-  "content" : "{{ .Content }}",
-  "from": "index.json"
-}
+{{ dict "content" .Content "from" "index.json" | jsonify }}

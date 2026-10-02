@@ -58,12 +58,13 @@ There are no Git submodules to initialize.
 
 ## Site files
 
+- `content/_index.md`: homepage text.
 - `content/styleguide.md`: the Markdown style guide at `/styleguide/`, linked from
   the sidebar.
 - `content/projects.md`: projects from the CV, linked from the main navigation.
 - `content/publications.md`: research publications and preprints, linked from the main navigation.
 - `content/contact/`: the contact page.
-- `layouts/home.html`: homepage text.
+- `layouts/home.html`: homepage layout.
 - `layouts/`: page templates, with shared templates in `_partials/`.
 - `assets/sass/`: site styles compiled with Dart Sass.
 - `assets/css/vendor/`: the existing Normalize defaults as plain CSS, with
