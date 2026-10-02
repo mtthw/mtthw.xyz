@@ -9,19 +9,24 @@
       <div class="sidebar__content">
         {{ $logoID := "logo__sidebar" }}
         {{ partial "logo/logo.html" (dict "content" . "id" $logoID) }}
-        <nav class="sidebar__nav" aria-label="Sidebar">
-          {{ with .Site.GetPage "/styleguide" }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ with .Site.GetPage "/privacy" }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-        </nav>
         {{ with partial "page/toc.html" . }}
           <div class="toc">
           {{ . }}
           </div>
         {{ end }}
+        {{ $styleguide := .Site.GetPage "/styleguide" }}
+        {{ $privacy := .Site.GetPage "/privacy" }}
+        <nav class="sidebar__nav construction-frame" aria-label="Site information">
+          {{ with $styleguide }}
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          {{ end }}
+          {{ if and $styleguide $privacy }}
+            <span class="sidebar__nav-separator" aria-hidden="true">•</span>
+          {{ end }}
+          {{ with $privacy }}
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          {{ end }}
+        </nav>
       </div>
     </div>
   </div>

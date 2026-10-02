@@ -48,7 +48,7 @@ function updateTableOfContents(markup) {
   next.className = "toc";
   next.innerHTML = markup;
   if (current) current.replaceWith(next);
-  else document.querySelector(".sidebar__content").append(next);
+  else document.querySelector(".sidebar__nav").before(next);
 }
 
 function updateCurrentLinks(url) {

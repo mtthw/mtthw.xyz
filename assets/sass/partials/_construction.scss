@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as v;
+
+$radius: .75rem;
+$guide-stops: transparent calc(#{$radius} - 1px), var(--frame-guide) #{$radius}, transparent calc(#{$radius} + 1px);
+
+.construction-frame {
+  --frame-line: #{rgba(v.$dark, .35)};
+  --frame-guide: #{rgba(v.$dark, .2)};
+
+  border: 1px solid var(--frame-line);
+  border-radius: $radius;
+  background-image:
+    radial-gradient(circle at #{$radius} #{$radius}, #{$guide-stops}),
+    radial-gradient(circle at calc(100% - #{$radius}) calc(100% - #{$radius}), #{$guide-stops});
+}
+
+.theme__checkbox:checked + .body .construction-frame {
+  --frame-line: #{rgba(v.$light, .2)};
+  --frame-guide: #{rgba(v.$light, .05)};
+}
+
+.site-footer {
+  margin-block-start: auto;
+  padding-block: 2rem;
+  font-size: .875rem;
+}
+
+.site-footer__frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.site-footer__name {
+  font-size: .75rem;
+  letter-spacing: .08em;
+}
+
+.site-footer a {
+  border: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .25em;
+}
+
+@media (max-width: 25rem) {
+  .site-footer__frame {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

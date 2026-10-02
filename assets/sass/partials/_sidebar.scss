@@ -81,13 +81,14 @@
   .sidebar__toggle {
     cursor: pointer;
     user-select: none;
+    border-radius: 0 0.75rem 0.75rem 0;
     position: absolute;
     top: 5rem;
     left: -(v.$nav-size);
     height: v.$nav-size;
     width: 100%;
     display: flex;
-    transition: left 0.5s, right 0.5s;
+    transition: left 0.5s, right 0.5s, border-radius 0.5s;
 
     &:focus {
       outline: none;
@@ -126,20 +127,53 @@
   }
 
   .sidebar__content {
+    display: flex;
+    flex-direction: column;
     margin-top: v.$nav-size + 5rem;
-    max-height: calc(100dvh - #{v.$nav-size + 5rem});
+    height: calc(100dvh - #{v.$nav-size + 5rem});
     overflow-y: auto;
+
+    > * {
+      flex-shrink: 0;
+    }
   }
 
   .sidebar__nav {
-    margin: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin: auto 2.5rem 2.5rem;
+    padding: 1.25rem 1.5rem;
 
     a {
-      display: block;
+      border: 0;
+      color: inherit;
+      font-size: .875rem;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-decoration-color: v.$blue;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .25em;
+
+      &:hover {
+        color: v.$blue-lighter;
+        text-decoration-color: currentColor;
+      }
+
+      &[aria-current="page"] {
+        font-weight: 700;
+      }
     }
 
-    a + a {
-      margin-block-start: .75rem;
+    .sidebar__nav-separator {
+      color: var(--frame-line);
+    }
+  }
+
+  @media (max-width: 20rem) {
+    .sidebar__nav {
+      margin-inline: 1rem;
     }
   }
 
@@ -199,6 +233,7 @@
       transform: translateX(0);
 
       .sidebar__toggle {
+        border-radius: 0;
         left: auto;
         right: 0;
 

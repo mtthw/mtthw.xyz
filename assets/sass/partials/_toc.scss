@@ -1,5 +1,25 @@
+@use "../abstracts/variables" as v;
+
 .toc {
   ul {
     list-style: none;
+  }
+
+  li + li {
+    margin-block-start: .625rem;
+  }
+
+  a {
+    border: 0;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: v.$blue;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .25em;
+
+    &:hover {
+      color: v.$blue-lighter;
+      text-decoration-color: currentColor;
+    }
   }
 }

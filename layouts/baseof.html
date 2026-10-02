@@ -12,7 +12,10 @@
     {{ block "footer" . }}
       {{ with .Site.GetPage "/privacy" }}
       <footer class="content site-footer">
-        <a href="{{ .RelPermalink }}">Privacy Policy</a>
+        <div class="construction-frame site-footer__frame">
+          <span class="site-footer__name">mtthw.xyz</span>
+          <a href="{{ .RelPermalink }}">Privacy Policy</a>
+        </div>
       </footer>
       {{ end }}
     {{ end }}
