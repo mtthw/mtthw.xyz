@@ -1,3 +1,0 @@
-[submodule "sass/normalize-scss"]
-	path = assets/sass/normalize-scss
-	url = https://github.com/JohnAlbin/normalize-scss.git

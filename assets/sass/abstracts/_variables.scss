@@ -1,45 +1,47 @@
+@use "sass:color";
+@use "functions" as f;
 $nav-size: 6rem;
 $sidebar-width: 40rem;
 
 $increment: 30%;
 
 $blue: hsl(214, 94%, 56%);
-$blue-lighter: tint($blue, $increment);
-$blue-darker: shade($blue, $increment);
+$blue-lighter: f.tint($blue, $increment);
+$blue-darker: f.shade($blue, $increment);
 
 $cyan: hsl(182, 96%, 40.8%);
-$cyan-lighter: tint($cyan, $increment);
-$cyan-darker: shade($cyan, $increment);
+$cyan-lighter: f.tint($cyan, $increment);
+$cyan-darker: f.shade($cyan, $increment);
 
 $green: hsl(148, 94%, 34%);
-$green-lighter: tint($green, $increment);
-$green-darker: shade($green, $increment);
+$green-lighter: f.tint($green, $increment);
+$green-darker: f.shade($green, $increment);
 
 $pink: hsl(320, 79%, 46%);
-$pink-lighter: tint($pink, $increment);
-$pink-darker: shade($pink, $increment);
+$pink-lighter: f.tint($pink, $increment);
+$pink-darker: f.shade($pink, $increment);
 
 $red: hsl(364, 100%, 56%);
-$red-lighter: tint($red, $increment);
-$red-darker: shade($red, $increment);
+$red-lighter: f.tint($red, $increment);
+$red-darker: f.shade($red, $increment);
 
 $primary: $blue;
-$primary-lighter: tint($primary, $increment);
-$primary-darker: shade($primary, $increment);
+$primary-lighter: f.tint($primary, $increment);
+$primary-darker: f.shade($primary, $increment);
 
 $secondary: $cyan;
-$secondary-lighter: tint($secondary, $increment);
-$secondary-darker: shade($secondary, $increment);
+$secondary-lighter: f.tint($secondary, $increment);
+$secondary-darker: f.shade($secondary, $increment);
 
-$dark: #051325; //shade($primary, 85%);
-$dark-lighter: tint($dark, 10%);
-$dark-darker: shade($dark, 30%);
+$dark: #051325; //f.shade($primary, 85%);
+$dark-lighter: f.tint($dark, 10%);
+$dark-darker: f.shade($dark, 30%);
 
-$light: #F4F8FE; //tint($primary, 95%);
-$light-lighter: tint($light, 50%);
-$light-darker: shade($light, 10%);
+$light: #F4F8FE; //f.tint($primary, 95%);
+$light-lighter: f.tint($light, 50%);
+$light-darker: f.shade($light, 10%);
 
-$middle: mix($dark, $light, 50%);
+$middle: color.mix($dark, $light, 50%);
 
 // $blue-darker
 // $blue

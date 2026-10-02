@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as v;
+
 html,
 body,
 .body {
@@ -104,8 +106,8 @@ body:after {
 }
 
 .body {
-  color: $dark;
-  background: $light-lighter;
+  color: v.$dark;
+  background: v.$light-lighter;
 }
 
 .theme__checkbox {
@@ -113,36 +115,36 @@ body:after {
 }
 
 .theme__checkbox:checked + .body {
-  color: $light;
-  background: $dark-darker;
+  color: v.$light;
+  background: v.$dark-darker;
   code {
-    background: $dark;
-    box-shadow: 0 0 0 1px $dark-lighter inset;
+    background: v.$dark;
+    box-shadow: 0 0 0 1px v.$dark-lighter inset;
   }
   blockquote {
-    border-color: $primary;
+    border-color: v.$primary;
   }
   // a {
-  //   color: $secondary;
-  //   border-color: $secondary;
+  //   color: v.$secondary;
+  //   border-color: v.$secondary;
   //   &:hover {
-  //     color: $secondary-lighter;
-  //     border-color: $secondary-lighter;
+  //     color: v.$secondary-lighter;
+  //     border-color: v.$secondary-lighter;
   //   }
   // }
   // .header .nav .nav__link:hover {
-  //   color: $secondary-lighter;
-  //   border-color: $secondary-lighter;
+  //   color: v.$secondary-lighter;
+  //   border-color: v.$secondary-lighter;
   // }
   .sidebar .sidebar__panel {
-    background: $dark;
-    color: $light-lighter;
+    background: v.$dark;
+    color: v.$light-lighter;
   }
   // .sidebar .sidebar__icon {
-  //   background: $secondary;
+  //   background: v.$secondary;
   // }
   // .sidebar .sidebar__toggle:hover {
-  //   background: rgba($secondary, .1);
+  //   background: rgba(v.$secondary, .1);
   // }
 }
 
@@ -165,12 +167,12 @@ ol ul {
 }
 
 a {
-  color: $blue;
-  border-bottom: 2px solid $blue;
+  color: v.$blue;
+  border-bottom: 2px solid v.$blue;
   text-decoration: none;
   &:hover {
-    color: $blue-lighter;
-    border-color: $blue-lighter;
+    color: v.$blue-lighter;
+    border-color: v.$blue-lighter;
   }
 }
 
@@ -183,10 +185,10 @@ code, kbd, samp {
 code {
   padding: 0 .5rem;
   white-space: nowrap;
-  background: $light;
+  background: v.$light;
   border-radius: 4px;
   font-size: inherit;
-  box-shadow: 0 0 0 1px $light-darker inset;
+  box-shadow: 0 0 0 1px v.$light-darker inset;
 }
 
 pre > code {
@@ -198,7 +200,7 @@ pre > code {
 blockquote {
   font-style: italic;
   margin: 0 0 0 -2rem;
-  border-left: 0.3rem solid $secondary;
+  border-left: 0.3rem solid v.$secondary;
   padding-left: 1.7rem;
 }
 .content {

@@ -6,11 +6,6 @@ compose := env("COMPOSE", "docker compose")
 default:
     @just --list
 
-# Initialize the pinned Normalize SCSS submodule.
-setup:
-    git submodule sync --recursive
-    git submodule update --init --recursive
-
 # Start the development server with live reload (use `just dev -d` to detach).
 dev *args:
     {{ compose }} -f compose.dev.yaml up {{ args }}

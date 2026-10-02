@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
 @mixin line {
   display: inline-block;
   width: 24px;
@@ -54,20 +57,20 @@
   .sidebar__panel {
     position: absolute;
     top: 0;
-    right: -$sidebar-width;
-    width: $sidebar-width;
+    right: -(v.$sidebar-width);
+    width: v.$sidebar-width;
     max-width: 100vw;
     height: 100%;
     transition: left 0.5s, right 0.5s, box-shadow 1s;
-    background: $light-lighter;
-    color: $dark-darker;
+    background: v.$light-lighter;
+    color: v.$dark-darker;
   }
 
   .sidebar__focus {
     height: 100%;
     width: 100%;
     position: fixed;
-    @include background-opacity($dark-darker, 0.9);
+    @include m.background-opacity(v.$dark-darker, 0.9);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease-in-out;
@@ -78,8 +81,8 @@
     user-select: none;
     position: absolute;
     top: 8rem;
-    left: -$nav-size;
-    height: $nav-size;
+    left: -(v.$nav-size);
+    height: v.$nav-size;
     width: 100%;
     display: flex;
     transition: left 0.5s, right 0.5s;
@@ -89,18 +92,18 @@
     }
 
     &:hover {
-      @include background-opacity($primary, 0.1);
+      @include m.background-opacity(v.$primary, 0.1);
 
       .sidebar__icon {
         @include arrow--left;
-        background: $primary;
+        background: v.$primary;
       }
     }
   }
 
   .sidebar__icon {
     @include line;
-    @include background-opacity($primary, 0.8);
+    @include m.background-opacity(v.$primary, 0.8);
     margin: auto 18px;
     position: relative;
 
@@ -121,7 +124,7 @@
   }
 
   .sidebar__content {
-    margin-top: $nav-size + 8rem;
+    margin-top: v.$nav-size + 8rem;
   }
 
   .sidebar__checkbox:checked + .sidebar__wrapper {
@@ -132,7 +135,7 @@
 
     .sidebar__panel {
       right: 0;
-      box-shadow: 0 0 10px rgba($dark, 0.5);
+      box-shadow: 0 0 10px rgba(v.$dark, 0.5);
 
       .sidebar__toggle {
         left: 0;
@@ -154,11 +157,11 @@
 
   .sidebar__panel {
     right: auto;
-    left: -$sidebar-width;
+    left: -(v.$sidebar-width);
   }
 
   .sidebar__toggle {
-    right: -$nav-size;
+    right: -(v.$nav-size);
     left: auto;
     flex-direction: row-reverse;
 

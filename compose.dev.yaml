@@ -1,7 +1,10 @@
 services:
   hugo:
-    # Keep the legacy templates and LibSass pipeline working until their upgrade.
-    image: hugomods/hugo:base-0.125.7
+    # Pin both Hugo and the Dart Sass bundled in the official image.
+    image: ghcr.io/gohugoio/hugo:v0.167.0@sha256:7bb99a126eddeea8fbfaacedc5ef6708805411bdeaa01e668405a137fd02d048
+    entrypoint: []
+    # Preserve write access to the existing source mount and cache in Colima.
+    user: "0:0"
     working_dir: /src
     command:
       - hugo

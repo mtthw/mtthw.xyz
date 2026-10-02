@@ -6,7 +6,7 @@
         </header>
         {{.Content}}
     </article>
-    {{ range .Data.Pages }}
+    {{ range .Pages }}
       {{ .Render "listing" }}
     {{ end }}
 </main>

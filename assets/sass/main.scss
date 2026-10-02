@@ -1,13 +1,9 @@
-@import 'normalize-scss/sass/normalize/import-now';
+@use '../css/vendor/normalize.css';
 
-@import 'abstracts/functions';
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@use 'base/base';
+@use 'base/typography';
 
-@import 'base/base';
-@import 'base/typography';
-
-@import 'partials/logo';
-@import 'partials/nav';
-@import 'partials/sidebar';
-@import 'partials/toc';
+@use 'partials/logo';
+@use 'partials/nav';
+@use 'partials/sidebar';
+@use 'partials/toc';

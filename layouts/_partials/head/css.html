@@ -1,4 +1,4 @@
 <link href="/fonts/inter-ui/stylesheet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+{{ $style := resources.Get "sass/main.scss" | css.Sass (dict "transpiler" "dartsass") | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
