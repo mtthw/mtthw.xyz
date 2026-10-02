@@ -64,6 +64,16 @@
   isolation: isolate;
 }
 
+$adapt-guide-duration: 0.6s;
+$adapt-guide-interval: 0.4s;
+// The guide groups contain 4, 7, and 8 lines; starts stay evenly spaced across groups.
+$adapt-vertical-start: 4 * $adapt-guide-interval;
+$adapt-diagonal-up-start: 11 * $adapt-guide-interval;
+$adapt-shape-start: 18 * $adapt-guide-interval + $adapt-guide-duration;
+$adapt-shape-stagger: .15s;
+$adapt-shape-duration: 4.8s;
+$adapt-guide-fade-start: $adapt-shape-start + 4 * $adapt-shape-stagger + .8 * $adapt-shape-duration;
+
 .logo__adapt-guide {
   fill: none;
   stroke: var(--logo-stroke);
@@ -72,20 +82,20 @@
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   stroke-opacity: 0;
-  animation: adapt-guide-draw 1s ease-out forwards;
+  animation: adapt-guide-draw $adapt-guide-duration ease-out forwards;
 }
 
 .logo__adapt-guides {
-  animation: adapt-guide-fade .9s ease-in 6.8s forwards;
+  animation: adapt-guide-fade .9s ease-in $adapt-guide-fade-start forwards;
 }
 
 .logo__adapt-guides--diagonal-down { --guide-start: 0s; }
-.logo__adapt-guides--vertical { --guide-start: .35s; }
-.logo__adapt-guides--diagonal-up { --guide-start: .7s; }
+.logo__adapt-guides--vertical { --guide-start: #{$adapt-vertical-start}; }
+.logo__adapt-guides--diagonal-up { --guide-start: #{$adapt-diagonal-up-start}; }
 
 @for $index from 1 through 8 {
   .logo__adapt-guide:nth-child(#{$index}) {
-    animation-delay: calc(var(--guide-start) + #{($index - 1) * .08s});
+    animation-delay: calc(var(--guide-start) + #{($index - 1) * $adapt-guide-interval});
   }
 }
 
@@ -96,14 +106,15 @@
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: adapt-draw 4.8s ease-in-out both;
-  animation-delay: 2.3s;
+  animation: adapt-draw $adapt-shape-duration ease-in-out both;
+  animation-delay: $adapt-shape-start;
 }
 
-.logo__adapt-shapes path:nth-of-type(2) { animation-delay: 2.45s; }
-.logo__adapt-shapes path:nth-of-type(3) { animation-delay: 2.6s; }
-.logo__adapt-shapes path:nth-of-type(4) { animation-delay: 2.75s; }
-.logo__adapt-shapes path:nth-of-type(5) { animation-delay: 2.9s; }
+@for $index from 2 through 5 {
+  .logo__adapt-shapes path:nth-of-type(#{$index}) {
+    animation-delay: $adapt-shape-start + ($index - 1) * $adapt-shape-stagger;
+  }
+}
 
 @keyframes adapt-guide-draw {
   0% {
