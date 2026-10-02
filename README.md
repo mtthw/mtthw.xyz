@@ -42,8 +42,9 @@ Build the production site into the local `public/` directory with the same image
 just build
 ```
 
-This build uses the production URL in `config.toml` and excludes drafts. Both
-`public/` and Hugo's generated `resources/` directory are ignored by Git.
+This build uses the production URL in `config.toml`, excludes drafts, and removes
+stale generated pages after content is renamed or deleted. Both `public/` and
+Hugo's generated `resources/` directory are ignored by Git.
 
 Use `just dev -d` to run in the background, `just logs` to follow the output,
 and `just stop` to stop the server while keeping its container. The
@@ -61,7 +62,7 @@ There are no Git submodules to initialize.
 - `content/_index.md`: homepage text.
 - `content/styleguide.md`: the Markdown style guide at `/styleguide/`, linked from
   the sidebar.
-- `content/projects.md`: projects from the CV, linked from the main navigation.
+- `content/adapt.md`: ADAPT work from the CV, linked from the main navigation.
 - `content/publications.md`: research publications and preprints, linked from the main navigation.
 - `content/contact/`: the contact page.
 - `content/privacy.md`: the privacy policy at `/privacy/`, linked from the footer and sidebar.
@@ -79,7 +80,7 @@ assets during the build.
 Pages can set `pageLogo` to `site` or `adapt` for the built-in animated SVGs, or
 to an image path (with `pageLogoAlt` for its alternative text) in front matter.
 Pages without `pageLogo` show no image above the content. The homepage uses the
-site logo; the ADAPT Projects page uses the ADAPT logo. Both logos render inline
+site logo; the ADAPT page uses the ADAPT logo. Both logos render inline
 through HTML partials that include SVG partials in `layouts/_partials/logo/`.
 This lets their paths animate without JavaScript.
 

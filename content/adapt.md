@@ -1,5 +1,5 @@
 ---
-title: ADAPT Projects
+title: ADAPT
 description: Collaborative projects and public engagement from my time at Trinity College Dublin and the ADAPT Centre.
 pageLogo: adapt
 ---
