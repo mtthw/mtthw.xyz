@@ -39,6 +39,19 @@ test("Back restores the previous reading position and metadata", async ({ page }
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://mtthw.xyz/adapt/");
 });
 
+test("changing theme preserves the reading position", async ({ page }) => {
+  await page.goto("/adapt/");
+  await page.evaluate(() => window.scrollTo(0, 1200));
+  await page.locator(".sidebar__toggle").click();
+  const readingPosition = await page.evaluate(() => window.scrollY);
+
+  for (const [current, next] of [["system", "dark"], ["dark", "light"], ["light", "system"]]) {
+    await page.locator(`.sidebar .theme-toggle__option--${current}`).click();
+    await expect(page.locator(`#theme-${next}`)).toBeChecked();
+    expect(await page.evaluate(() => window.scrollY)).toBe(readingPosition);
+  }
+});
+
 test("a direct section link scrolls to its heading", async ({ page }) => {
   await page.goto("/adapt/#voicetune");
   await expect.poll(() => page.locator("#voicetune").evaluate((element) => Math.abs(element.getBoundingClientRect().top))).toBeLessThan(3);
