@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect, devices } = require("@playwright/test");
 
 test("closed sidebar stays out of the keyboard path and Escape closes it", async ({ page }) => {
   await page.goto("/adapt/");
@@ -51,4 +51,28 @@ test("failed JSON navigation falls back to the HTML page", async ({ page }) => {
   await expect(page).toHaveURL(/\/adapt\/$/);
   await expect(page.getByRole("heading", { name: "ADAPT", exact: true })).toBeVisible();
   await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Collaborative projects/);
+});
+
+test("ADAPT logo stroke draws on a mobile viewport", async ({ browser }) => {
+  const context = await browser.newContext({ ...devices["Pixel 7"], reducedMotion: "no-preference" });
+  try {
+    const page = await context.newPage();
+    await page.goto("/adapt/");
+    const stroke = await page.locator(".logo__adapt-shapes path").first().evaluate(async (path) => {
+      const animation = path.getAnimations()[0];
+      await animation.ready;
+      animation.pause();
+      animation.currentTime = 0;
+      const start = parseFloat(getComputedStyle(path).strokeDashoffset);
+      const dash = parseFloat(getComputedStyle(path).strokeDasharray);
+      animation.currentTime = 10000;
+      const drawing = parseFloat(getComputedStyle(path).strokeDashoffset);
+      return { length: path.getTotalLength(), dash, start, drawing };
+    });
+    expect(stroke.dash).toBeGreaterThan(stroke.length);
+    expect(stroke.start).toBe(stroke.dash);
+    expect(stroke.drawing).toBeLessThan(stroke.start - 100);
+  } finally {
+    await context.close();
+  }
 });
