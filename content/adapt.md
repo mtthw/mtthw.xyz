@@ -8,7 +8,7 @@ At Trinity College Dublin's ADAPT Centre, I worked on collaborative projects wit
 
 The work covered digital health, natural language processing, recommender systems, computer vision, machine learning, and data visualisation. Here are some of the projects and public engagement activities I contributed to.
 
-## Selected projects
+## Highlighted projects
 
 - [Athena](#athena): research tools for studying information manipulation.
 - [PrecisionALS](#precisionals): secure data collection for rare disease research.
