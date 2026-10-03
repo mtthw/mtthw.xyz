@@ -12,11 +12,16 @@
     {{ block "main" . }}
     {{ end }}
     {{ block "footer" . }}
-      {{ with .Site.GetPage "/privacy" }}
+      {{ $contact := .Site.GetPage "/contact" }}
+      {{ $privacy := .Site.GetPage "/privacy" }}
+      {{ if or $contact $privacy }}
       <footer class="content site-footer">
         <div class="construction-frame site-footer__frame">
           <span class="site-footer__name">mtthw.xyz</span>
-          <a href="{{ .RelPermalink }}">Privacy Policy</a>
+          <nav class="site-footer__links" aria-label="Footer">
+            {{ with $contact }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+            {{ with $privacy }}<a href="{{ .RelPermalink }}">Privacy Policy</a>{{ end }}
+          </nav>
         </div>
       </footer>
       {{ end }}

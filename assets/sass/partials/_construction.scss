@@ -41,6 +41,12 @@ $guide-stops: transparent calc(#{$radius} - 1px), var(--frame-guide) #{$radius},
   letter-spacing: .08em;
 }
 
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+}
+
 .site-footer a {
   border: 0;
   text-decoration: underline;

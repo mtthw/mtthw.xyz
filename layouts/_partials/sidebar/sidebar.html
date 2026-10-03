@@ -15,6 +15,7 @@
           </div>
         {{ end }}
         {{ $styleguide := .Site.GetPage "/styleguide" }}
+        {{ $contact := .Site.GetPage "/contact" }}
         {{ $privacy := .Site.GetPage "/privacy" }}
         {{ $categories := .Site.GetPage "/categories" }}
         {{ $tags := .Site.GetPage "/tags" }}
@@ -28,8 +29,11 @@
           {{ with $styleguide }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}
-          {{ if and $styleguide $privacy }}
+          {{ if and $styleguide (or $contact $privacy) }}
             <span class="sidebar__nav-separator" aria-hidden="true">•</span>
+          {{ end }}
+          {{ with $contact }}
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}
           {{ with $privacy }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>

@@ -24,11 +24,12 @@ test("closed sidebar stays out of the keyboard path and Escape closes it", async
 
 test("Back restores the previous reading position and metadata", async ({ page }) => {
   await page.goto("/adapt/");
-  await page.locator(".site-footer a").scrollIntoViewIfNeeded();
+  const privacy = page.locator('.site-footer a[href="/privacy/"]');
+  await privacy.scrollIntoViewIfNeeded();
   const previousY = await page.evaluate(() => window.scrollY);
   expect(previousY).toBeGreaterThan(0);
 
-  await page.locator(".site-footer a").click();
+  await privacy.click();
   await expect(page).toHaveURL(/\/privacy\/$/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", "How this website handles visitor information.");
   await page.goBack();
