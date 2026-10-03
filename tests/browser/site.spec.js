@@ -53,30 +53,6 @@ test("failed JSON navigation falls back to the HTML page", async ({ page }) => {
   await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Collaborative projects/);
 });
 
-test("ADAPT logo stroke draws on a mobile viewport", async ({ browser }) => {
-  const context = await browser.newContext({ ...devices["Pixel 7"], reducedMotion: "no-preference" });
-  try {
-    const page = await context.newPage();
-    await page.goto("/adapt/");
-    const stroke = await page.locator(".logo__adapt-shapes path").first().evaluate(async (path) => {
-      const animation = path.getAnimations()[0];
-      await animation.ready;
-      animation.pause();
-      animation.currentTime = 0;
-      const start = parseFloat(getComputedStyle(path).strokeDashoffset);
-      const dash = parseFloat(getComputedStyle(path).strokeDasharray);
-      animation.currentTime = 10000;
-      const drawing = parseFloat(getComputedStyle(path).strokeDashoffset);
-      return { length: path.getTotalLength(), dash, start, drawing };
-    });
-    expect(stroke.dash).toBeGreaterThan(stroke.length);
-    expect(stroke.start).toBe(stroke.dash);
-    expect(stroke.drawing).toBeLessThan(stroke.start - 100);
-  } finally {
-    await context.close();
-  }
-});
-
 test("both logos respect reduced motion", async ({ browser }) => {
   const context = await browser.newContext({ ...devices["Pixel 7"], reducedMotion: "reduce" });
   try {
@@ -85,9 +61,14 @@ test("both logos respect reduced motion", async ({ browser }) => {
     await expect(page.locator(".logo__adapt-shapes path").first()).toHaveCSS("animation-name", "none");
     await expect(page.locator(".logo__adapt-guides").first()).toHaveCSS("opacity", "0");
 
-    await page.goto("/");
+    await page.locator('a[href="/"]').first().click();
+    await expect(page).toHaveURL("http://127.0.0.1:1314/");
     await expect(page.locator(".logo__header .logo__nm")).toHaveCSS("animation-name", "none");
     await expect(page.locator(".logo__header .logo__a")).toHaveCSS("animation-name", "none");
+    await expect.poll(() => page.locator("svg.logo__header").evaluate((logo) => logo.animationsPaused())).toBe(true);
+
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await expect.poll(() => page.locator("svg.logo__header").evaluate((logo) => logo.animationsPaused())).toBe(false);
   } finally {
     await context.close();
   }

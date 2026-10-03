@@ -7,6 +7,17 @@ const sidebarToggle = document.getElementById("sidebar__checkbox");
 const main = document.querySelector("main");
 const heroElement = main?.querySelector(":scope > .page-hero");
 const contentElement = main?.querySelector(":scope > .page-content");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function syncLogoMotion() {
+  for (const logo of document.querySelectorAll("svg.logo__header")) {
+    if (reducedMotion.matches) logo.pauseAnimations?.();
+    else logo.unpauseAnimations?.();
+  }
+}
+
+reducedMotion.addEventListener("change", syncLogoMotion);
+syncLogoMotion();
 
 function isPlainClick(event, link) {
   return link && !event.defaultPrevented && event.button === 0 &&
@@ -84,6 +95,7 @@ function updateHero(hero) {
   if (heroElement.dataset.heroKey === hero.key) return;
   heroElement.innerHTML = hero.html;
   heroElement.dataset.heroKey = hero.key;
+  syncLogoMotion();
 }
 
 function updateBackground(url) {

@@ -79,8 +79,8 @@ $adapt-guide-fade-start: $adapt-shape-start + 4 * $adapt-shape-stagger + .8 * $a
   stroke: var(--logo-stroke);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
-  stroke-dasharray: var(--draw-length);
-  stroke-dashoffset: var(--draw-length);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   stroke-opacity: 0;
   animation: adapt-guide-draw $adapt-guide-duration ease-out forwards;
 }
@@ -93,11 +93,6 @@ $adapt-guide-fade-start: $adapt-shape-start + 4 * $adapt-shape-stagger + .8 * $a
 .logo__adapt-guides--vertical { --guide-start: #{$adapt-vertical-start}; }
 .logo__adapt-guides--diagonal-up { --guide-start: #{$adapt-diagonal-up-start}; }
 
-// Dash lengths exceed the longest path in each group, in SVG viewBox units.
-.logo__adapt-guides--diagonal-down { --draw-length: 471; }
-.logo__adapt-guides--vertical { --draw-length: 415; }
-.logo__adapt-guides--diagonal-up { --draw-length: 645; }
-
 @for $index from 1 through 8 {
   .logo__adapt-guide:nth-child(#{$index}) {
     animation-delay: calc(var(--guide-start) + #{($index - 1) * $adapt-guide-interval});
@@ -109,19 +104,10 @@ $adapt-guide-fade-start: $adapt-shape-start + 4 * $adapt-shape-stagger + .8 * $a
   mix-blend-mode: multiply;
   stroke-width: 3;
   stroke-linejoin: round;
-  stroke-dasharray: var(--draw-length);
-  stroke-dashoffset: var(--draw-length);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   animation: adapt-draw $adapt-shape-duration ease-in-out both;
   animation-delay: $adapt-shape-start;
-}
-
-// Use the measured path lengths rather than SVG pathLength normalization.
-// Some mobile SVG engines render normalized dashes immediately in their final state.
-$adapt-shape-lengths: 1324, 1393, 1469, 1645, 1456;
-@for $index from 1 through length($adapt-shape-lengths) {
-  .logo__adapt-shapes path:nth-of-type(#{$index}) {
-    --draw-length: #{nth($adapt-shape-lengths, $index)};
-  }
 }
 
 @for $index from 2 through 5 {
@@ -133,7 +119,7 @@ $adapt-shape-lengths: 1324, 1393, 1469, 1645, 1456;
 @keyframes adapt-guide-draw {
   0% {
     stroke-opacity: 0;
-    stroke-dashoffset: var(--draw-length);
+    stroke-dashoffset: 1;
   }
   15% {
     stroke-opacity: .3;
@@ -154,7 +140,7 @@ $adapt-shape-lengths: 1324, 1393, 1469, 1645, 1456;
   0% {
     fill-opacity: .15;
     stroke-opacity: 0;
-    stroke-dashoffset: var(--draw-length);
+    stroke-dashoffset: 1;
   }
   10% {
     stroke-opacity: 1;
