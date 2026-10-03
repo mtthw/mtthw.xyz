@@ -20,22 +20,26 @@
         {{ $categories := .Site.GetPage "/categories" }}
         {{ $tags := .Site.GetPage "/tags" }}
         <nav class="sidebar__nav construction-frame" aria-label="Site information">
-          {{ with $categories }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ with $tags }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ with $styleguide }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ with $contact }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ with $privacy }}
-            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
-          {{ end }}
-          {{ partial "theme/toggle.html" . }}
+          <div class="sidebar__nav-links">
+            {{ with $categories }}
+              <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+            {{ end }}
+            {{ with $tags }}
+              <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+            {{ end }}
+            {{ with $styleguide }}
+              <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+            {{ end }}
+            {{ with $contact }}
+              <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+            {{ end }}
+          </div>
+          <div class="sidebar__nav-bottom">
+            {{ with $privacy }}
+              <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+            {{ end }}
+            {{ partial "theme/toggle.html" . }}
+          </div>
         </nav>
       </div>
     </div>

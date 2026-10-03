@@ -152,12 +152,23 @@
 
   .sidebar__nav {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: .5rem;
     margin: auto 2.5rem 2.5rem;
     padding: 1.25rem 1.5rem;
+
+    .sidebar__nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .sidebar__nav-bottom {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
 
     a {
       border: 0;
