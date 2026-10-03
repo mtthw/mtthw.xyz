@@ -46,6 +46,18 @@ This build uses the production URL in `config.toml`, excludes drafts, and remove
 stale generated pages after content is renamed or deleted. Both `public/` and
 Hugo's generated `resources/` directory are ignored by Git.
 
+Preview and deploy the site to `eris` with:
+
+```sh
+just deploy-preview
+just deploy
+```
+
+Both commands rebuild and validate the site first. Deployment uses noninteractive
+SSH and rsync checksum comparison, so a clean build does not reupload unchanged
+pages. Delayed deletion removes obsolete generated files from the destination;
+keep server-managed files outside `/srv/http/nicholma/mtthw.xyz/`.
+
 Use `just dev -d` to run in the background, `just logs` to follow the output,
 and `just stop` to stop the server while keeping its container. The
 [Justfile](Justfile) wraps `docker compose -f compose.dev.yaml`; set `COMPOSE`

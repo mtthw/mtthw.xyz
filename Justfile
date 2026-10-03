@@ -1,6 +1,9 @@
 set dotenv-load
 
 compose := env("COMPOSE", "docker compose")
+deploy_target := "eris:/srv/http/nicholma/mtthw.xyz/"
+deploy_ssh := "ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=yes"
+deploy_flags := "-av --checksum --delete-delay --delay-updates --itemize-changes"
 
 # List the available commands and their descriptions.
 default:
@@ -17,6 +20,14 @@ build:
 # Build and validate generated pages, links, and metadata.
 check: build
     python3 scripts/check_site.py
+
+# Preview the files a clean, validated deployment would update or delete.
+deploy-preview: check
+    rsync {{ deploy_flags }} --dry-run -e '{{ deploy_ssh }}' public/ {{ deploy_target }}
+
+# Build, validate, and publish the generated site, removing stale remote output.
+deploy: check
+    rsync {{ deploy_flags }} -e '{{ deploy_ssh }}' public/ {{ deploy_target }}
 
 # Run Chromium checks for navigation and sidebar behavior (after npm ci and npx playwright install chromium).
 browser-test: build
