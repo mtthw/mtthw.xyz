@@ -13,7 +13,6 @@ The work covered digital health, natural language processing, recommender system
 - [Athena](#athena): research tools for studying information manipulation.
 - [PrecisionALS](#precisionals): secure data collection for rare disease research.
 - [Voicetune](#voicetune): speech synthesis evaluation tools.
-- [ROBUST](#robust): a mobile app for shared mobility research.
 
 ---
 
