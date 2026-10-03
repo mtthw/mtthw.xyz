@@ -76,3 +76,19 @@ test("ADAPT logo stroke draws on a mobile viewport", async ({ browser }) => {
     await context.close();
   }
 });
+
+test("both logos respect reduced motion", async ({ browser }) => {
+  const context = await browser.newContext({ ...devices["Pixel 7"], reducedMotion: "reduce" });
+  try {
+    const page = await context.newPage();
+    await page.goto("/adapt/");
+    await expect(page.locator(".logo__adapt-shapes path").first()).toHaveCSS("animation-name", "none");
+    await expect(page.locator(".logo__adapt-guides").first()).toHaveCSS("opacity", "0");
+
+    await page.goto("/");
+    await expect(page.locator(".logo__header .logo__nm")).toHaveCSS("animation-name", "none");
+    await expect(page.locator(".logo__header .logo__a")).toHaveCSS("animation-name", "none");
+  } finally {
+    await context.close();
+  }
+});

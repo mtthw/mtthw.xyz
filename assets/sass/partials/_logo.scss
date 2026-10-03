@@ -192,15 +192,15 @@ $adapt-shape-lengths: 1324, 1393, 1469, 1645, 1456;
     stroke-dashoffset: 0;
   }
 
-  .logo__header .logo__nm {
+  .logo.logo__header .logo__nm {
     animation: none;
     fill-opacity: 1;
     stroke-opacity: 0;
   }
 
-  .logo__header .logo__a,
-  .logo__header .logo__b,
-  .logo__header .logo__c {
+  .logo.logo__header .logo__a,
+  .logo.logo__header .logo__b,
+  .logo.logo__header .logo__c {
     animation: none;
     stroke-opacity: 0;
   }
