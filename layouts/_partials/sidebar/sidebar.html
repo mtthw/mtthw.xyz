@@ -29,9 +29,6 @@
           {{ with $styleguide }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}
-          {{ if and $styleguide (or $contact $privacy) }}
-            <span class="sidebar__nav-separator" aria-hidden="true">•</span>
-          {{ end }}
           {{ with $contact }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}
