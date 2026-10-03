@@ -83,9 +83,8 @@ for path, page in pages.items():
         elif fragment and target in pages and fragment not in pages[target].ids:
             ERRORS.append(f"{path}: missing anchor {link}")
 
-for route in ("categories", "tags"):
-    if ROOT.joinpath(route, "index.html") not in pages:
-        ERRORS.append(f"Missing {route} page")
+if ROOT.joinpath("tags", "index.html") not in pages:
+    ERRORS.append("Missing tags page")
 
 for entry in ET.parse(ROOT / "sitemap.xml").iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc"):
     target, _ = target_for(ROOT / "index.html", entry.text)

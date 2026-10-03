@@ -1,8 +1,6 @@
 ---
 title: Publications
 description: My research publications and preprints.
-categories: [Research]
-tags: [publications, research]
 ---
 
 Publications, most recent first.

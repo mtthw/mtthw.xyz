@@ -1,8 +1,6 @@
 ---
 title: Privacy Policy
 description: How this website handles visitor information.
-categories: [Site]
-tags: [privacy]
 ---
 
 Last updated: 2 October 2026

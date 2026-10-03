@@ -77,6 +77,9 @@ There are no Git submodules to initialize.
 There is no CMS or Node build step. Hugo compiles the Sass and copies the static
 assets during the build.
 
+Tags are reserved for pages in `content/posts/`. The `/tags/` page shows an empty
+state until posts are added; ordinary site pages do not use taxonomies.
+
 Run `just check` to build the site and check generated HTML, JSON, internal
 links, metadata, and sitemap entries. Browser tests use Node only for testing:
 

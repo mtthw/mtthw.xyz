@@ -3,7 +3,6 @@ locale = "en-IE"
 title = "mtthw.xyz"
 
 [taxonomies]
-  category = "categories"
   tag = "tags"
 
 [outputs]
