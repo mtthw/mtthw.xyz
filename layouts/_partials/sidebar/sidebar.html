@@ -16,7 +16,15 @@
         {{ end }}
         {{ $styleguide := .Site.GetPage "/styleguide" }}
         {{ $privacy := .Site.GetPage "/privacy" }}
+        {{ $categories := .Site.GetPage "/categories" }}
+        {{ $tags := .Site.GetPage "/tags" }}
         <nav class="sidebar__nav construction-frame" aria-label="Site information">
+          {{ with $categories }}
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          {{ end }}
+          {{ with $tags }}
+            <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          {{ end }}
           {{ with $styleguide }}
             <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
           {{ end }}

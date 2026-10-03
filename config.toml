@@ -2,6 +2,10 @@ baseURL = "https://mtthw.xyz/"
 locale = "en-IE"
 title = "mtthw.xyz"
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [outputs]
   home = ["HTML", "JSON", "RSS"]
   page = ["HTML", "JSON"]

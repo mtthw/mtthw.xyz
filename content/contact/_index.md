@@ -2,6 +2,8 @@
 date = "2014-04-09T00:00:00Z"
 title = "Contact"
 pageLogo = "site"
+categories = ["Site"]
+tags = ["contact"]
 [[contacts]]
 name = "GitHub"
 detail = "github.com/mtthw"
