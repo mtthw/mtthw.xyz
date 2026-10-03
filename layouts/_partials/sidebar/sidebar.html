@@ -1,12 +1,12 @@
 <div class="sidebar sidebar--left">
-  <input type="checkbox" id="sidebar__checkbox" name="sidebar__checkbox" class="sidebar__checkbox"/>
+  <input type="checkbox" id="sidebar__checkbox" name="sidebar__checkbox" class="sidebar__checkbox" aria-label="Site menu" aria-controls="sidebar__content"/>
   <div class="sidebar__wrapper">
     <label class="sidebar__focus" for="sidebar__checkbox"></label>
     <div class="sidebar__panel">
       <label class="sidebar__toggle" for="sidebar__checkbox">
         <div class="sidebar__icon"></div>
       </label>
-      <div class="sidebar__content">
+      <div class="sidebar__content" id="sidebar__content">
         {{ $logoID := "logo__sidebar" }}
         {{ partial "logo/logo.html" (dict "content" . "id" $logoID) }}
         {{ with partial "page/toc.html" . }}

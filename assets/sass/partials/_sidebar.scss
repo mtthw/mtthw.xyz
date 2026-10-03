@@ -138,6 +138,7 @@
   }
 
   .sidebar__content {
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     margin-top: v.$nav-size + 5rem;
@@ -199,6 +200,9 @@
   }
 
   .sidebar__checkbox:checked + .sidebar__wrapper {
+    .sidebar__content {
+      visibility: visible;
+    }
     .sidebar__focus {
       opacity: 1;
       pointer-events: unset;
@@ -268,11 +272,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes display {
-  0% {
-    opacity: ddd
   }
 }

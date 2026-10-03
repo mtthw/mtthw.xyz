@@ -14,6 +14,14 @@ dev *args:
 build:
     {{ compose }} -f compose.dev.yaml run --rm hugo hugo --cleanDestinationDir
 
+# Build and validate generated pages, links, and metadata.
+check: build
+    python3 scripts/check_site.py
+
+# Run Chromium checks for navigation and sidebar behavior (after npm ci and npx playwright install chromium).
+browser-test: build
+    npm run test:browser
+
 # Follow the development server logs.
 logs:
     {{ compose }} -f compose.dev.yaml logs -f hugo

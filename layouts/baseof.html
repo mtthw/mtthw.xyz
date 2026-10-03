@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-IE">
   {{ partial "head/head.html" . }}
    <body>
     <input type="radio" id="theme-system" name="theme" class="theme__radio" aria-label="Use system theme" checked/>
@@ -23,6 +23,7 @@
     {{ end }}
     {{ partial "sidebar/sidebar.html" . }}
     </div>
-    <script type="module" src="{{ "js/navigation.js" | relURL }}"></script>
+    {{ $scriptVersion := substr (printf "%s%s" (readFile "static/js/navigation.js") (readFile "static/js/background.js") | sha256) 0 12 }}
+    <script type="module" src="{{ printf "js/navigation.js?v=%s" $scriptVersion | relURL }}"></script>
   </body>
 </html>

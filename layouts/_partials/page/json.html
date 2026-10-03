@@ -1,5 +1,7 @@
 {{- $page := dict
   "title" (partial "page/title.html" .)
+  "description" (partial "page/description.html" .)
+  "canonical" .Permalink
   "hero" (partial "page/hero-data.html" .)
   "content" (partial "page/content.html" .)
   "toc" (partial "page/toc.html" .)

@@ -77,6 +77,18 @@ There are no Git submodules to initialize.
 There is no CMS or Node build step. Hugo compiles the Sass and copies the static
 assets during the build.
 
+Run `just check` to build the site and check generated HTML, JSON, internal
+links, metadata, and sitemap entries. Browser tests use Node only for testing:
+
+```sh
+npm ci
+npx playwright install chromium
+just browser-test
+```
+
+The browser tests start a temporary local server on port 1314. GitHub Actions
+runs both checks on pushes and pull requests.
+
 Pages can set `pageLogo` to `site` or `adapt` for the built-in animated SVGs, or
 to an image path (with `pageLogoAlt` for its alternative text) in front matter.
 Pages without `pageLogo` show no image above the content. The homepage uses the

@@ -1,0 +1,9 @@
+{{- if .Description -}}
+  {{- return (.Description | plainify) -}}
+{{- else if .IsHome -}}
+  {{- return "Software development, architecture, and research work by Matthew Nicholson." -}}
+{{- else if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+  {{- return (printf "Browse %s on %s." (lower .Title) .Site.Title) -}}
+{{- else -}}
+  {{- return (.Summary | plainify) -}}
+{{- end -}}

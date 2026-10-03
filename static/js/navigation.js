@@ -3,6 +3,7 @@ import { shiftBackground } from "./background.js";
 let activeRequest = 0;
 let activeController;
 let renderedPath = window.location.pathname;
+const sidebarToggle = document.getElementById("sidebar__checkbox");
 const main = document.querySelector("main");
 const heroElement = main?.querySelector(":scope > .page-hero");
 const contentElement = main?.querySelector(":scope > .page-content");
@@ -30,6 +31,7 @@ async function fetchPage(url, signal) {
 
   const page = await response.json();
   if (typeof page.title !== "string" ||
+      typeof page.description !== "string" || typeof page.canonical !== "string" ||
       typeof page.hero?.key !== "string" || typeof page.hero?.html !== "string" ||
       typeof page.content !== "string" || typeof page.toc !== "string") {
     throw new Error("Invalid page data");
@@ -61,11 +63,21 @@ function updateCurrentLinks(url) {
   }
 }
 
-function scrollToDestination(url) {
+function scrollToDestination(url, savedScrollY) {
+  if (typeof savedScrollY === "number") {
+    window.scrollTo(0, savedScrollY);
+    return;
+  }
   const id = decodeURIComponent(url.hash.slice(1));
   const target = id && document.getElementById(id);
   if (target) target.scrollIntoView();
   else window.scrollTo(0, 0);
+}
+
+function closeSidebar() {
+  if (!sidebarToggle) return;
+  sidebarToggle.checked = false;
+  sidebarToggle.setAttribute("aria-expanded", "false");
 }
 
 function updateHero(hero) {
@@ -80,15 +92,24 @@ function updateBackground(url) {
   shiftBackground();
 }
 
-function renderPage(page, url) {
+function updateMetadata(page) {
+  document.querySelector('meta[name="description"]').content = page.description;
+  document.querySelector('link[rel="canonical"]').href = page.canonical;
+  document.querySelector('meta[property="og:title"]').content = page.title;
+  document.querySelector('meta[property="og:description"]').content = page.description;
+  document.querySelector('meta[property="og:url"]').content = page.canonical;
+}
+
+function renderPage(page, url, savedScrollY) {
   updateHero(page.hero);
   contentElement.innerHTML = page.content;
   document.title = page.title;
+  updateMetadata(page);
   updateTableOfContents(page.toc);
   updateCurrentLinks(url);
-  document.getElementById("sidebar__checkbox").checked = false;
+  closeSidebar();
   main.focus({ preventScroll: true });
-  scrollToDestination(url);
+  scrollToDestination(url, savedScrollY);
   updateBackground(url);
 }
 
@@ -105,8 +126,11 @@ async function navigate(url, isNewVisit) {
   try {
     const page = await fetchPage(url, activeController.signal);
     if (request !== activeRequest) return;
-    if (isNewVisit) history.pushState(null, "", url.href);
-    renderPage(page, url);
+    if (isNewVisit) {
+      history.replaceState({ ...history.state, scrollY: window.scrollY }, "", window.location.href);
+      history.pushState({ scrollY: 0 }, "", url.href);
+    }
+    renderPage(page, url, isNewVisit ? undefined : history.state?.scrollY);
   } catch (error) {
     if (request === activeRequest && error.name !== "AbortError") {
       loadNormally(url, isNewVisit);
@@ -117,6 +141,7 @@ async function navigate(url, isNewVisit) {
 function handleClick(event) {
   const link = event.target instanceof Element && event.target.closest("a[href]");
   if (!link) return;
+  if (link.closest(".sidebar__content")) closeSidebar();
   const url = new URL(link.href);
   if (!shouldHandleClick(event, link, url)) {
     if (url.origin === window.location.origin && url.pathname === window.location.pathname) {
@@ -139,4 +164,24 @@ if (main && heroElement && contentElement && typeof window.fetch === "function" 
     typeof history.pushState === "function") {
   document.addEventListener("click", handleClick);
   window.addEventListener("popstate", handlePopState);
+  history.scrollRestoration = "manual";
+  if (!history.state || typeof history.state.scrollY !== "number") {
+    history.replaceState({ ...history.state, scrollY: window.scrollY }, "", window.location.href);
+  }
+  if (window.location.hash) {
+    requestAnimationFrame(() => scrollToDestination(new URL(window.location.href)));
+  }
+}
+
+if (sidebarToggle) {
+  sidebarToggle.setAttribute("aria-expanded", String(sidebarToggle.checked));
+  sidebarToggle.addEventListener("change", () => {
+    sidebarToggle.setAttribute("aria-expanded", String(sidebarToggle.checked));
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && sidebarToggle.checked) {
+      closeSidebar();
+      sidebarToggle.focus();
+    }
+  });
 }

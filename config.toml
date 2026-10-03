@@ -10,3 +10,5 @@ title = "mtthw.xyz"
   home = ["HTML", "JSON", "RSS"]
   page = ["HTML", "JSON"]
   section = ["HTML", "JSON"]
+  taxonomy = ["HTML", "JSON"]
+  term = ["HTML", "JSON"]

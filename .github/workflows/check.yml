@@ -1,0 +1,25 @@
+name: Check site
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build site
+        run: docker compose -f compose.dev.yaml run --rm hugo hugo --cleanDestinationDir
+      - name: Check generated site
+        run: python3 scripts/check_site.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install browser test dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test browser behavior
+        run: npm run test:browser
