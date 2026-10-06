@@ -1,5 +1,7 @@
 {{- if .IsHome -}}
   {{ .Content }}
+{{- else if .Params.profilePage -}}
+  {{ .Content }}
 {{- else if or (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
   <h1>{{ .Title }}</h1>
   {{ .Content }}

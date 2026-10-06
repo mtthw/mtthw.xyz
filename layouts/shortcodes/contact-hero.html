@@ -1,0 +1,8 @@
+<div class="contact-hero">
+  <div class="contact-hero__heading">
+    <h1>{{ .Page.Title }}</h1>
+    <p class="contact-hero__name">Matthew Nicholson</p>
+  </div>
+  <img class="contact-hero__portrait" src="{{ "images/Matthew_Nicholson-640.jpg" | relURL }}" srcset="{{ "images/Matthew_Nicholson-320.jpg" | relURL }} 320w, {{ "images/Matthew_Nicholson-640.jpg" | relURL }} 640w, {{ "images/Matthew_Nicholson.jpg" | relURL }} 1200w" sizes="(max-width: 32rem) 8rem, 10rem" alt="Portrait of Matthew Nicholson" width="640" height="640">
+  <div class="contact-hero__intro">{{ .Inner | markdownify }}</div>
+</div>

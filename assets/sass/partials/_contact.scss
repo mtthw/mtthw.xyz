@@ -1,6 +1,68 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/theme" as t;
 
+.contact-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10rem;
+  grid-template-rows: auto 1fr;
+  gap: 1rem 2rem;
+  align-items: start;
+  margin-block-end: 2.5rem;
+}
+
+.contact-hero__heading {
+  grid-column: 1;
+  grid-row: 1;
+
+  h1 {
+    margin-block-end: .75rem;
+  }
+}
+
+.contact-hero__name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.contact-hero__portrait {
+  display: block;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid rgba(v.$dark, .35);
+  border-radius: 0.75rem;
+}
+
+.contact-hero__intro {
+  grid-column: 1;
+  grid-row: 2;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 32rem) {
+  .contact-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1.5rem;
+  }
+
+  .contact-hero__portrait {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .contact-hero__intro {
+    grid-row: 3;
+  }
+}
+
 .contact-links {
   display: grid;
   gap: .75rem;
@@ -70,6 +132,10 @@
 }
 
 @include t.dark {
+  .contact-hero__portrait {
+    border-color: rgba(v.$light, .35);
+  }
+
   .contact-link {
     background: v.$dark;
     border-color: v.$dark-lighter;
