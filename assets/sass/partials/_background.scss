@@ -93,10 +93,6 @@
   background-repeat: repeat, no-repeat, no-repeat, no-repeat;
 }
 
-.body--animated::before {
-  transform: translate3d(var(--drift-start-x), var(--drift-start-y), 0);
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .body--animated {
     transition-property:
@@ -105,21 +101,6 @@
       --cyan-x, --cyan-y, --cyan-intensity, --cyan-size;
     transition-duration: 3s;
     transition-timing-function: ease-in-out;
-  }
-
-  .body--animated::before {
-    animation: background-drift var(--drift-duration) ease-in-out infinite alternate;
-    will-change: transform;
-  }
-}
-
-@keyframes background-drift {
-  from {
-    transform: translate3d(var(--drift-start-x), var(--drift-start-y), 0);
-  }
-
-  to {
-    transform: translate3d(var(--drift-end-x), var(--drift-end-y), 0);
   }
 }
 

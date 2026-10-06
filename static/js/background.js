@@ -37,23 +37,10 @@ function setGlows(element) {
   }
 }
 
-function driftOffset(unit) {
-  return `${randomBetween(-8, 8).toFixed(1)}${unit}`;
-}
-
-function setDrift(element) {
-  element.style.setProperty("--drift-start-x", driftOffset("vw"));
-  element.style.setProperty("--drift-start-y", driftOffset("vh"));
-  element.style.setProperty("--drift-end-x", driftOffset("vw"));
-  element.style.setProperty("--drift-end-y", driftOffset("vh"));
-  element.style.setProperty("--drift-duration", `${Math.round(randomBetween(45, 70))}s`);
-}
-
 function initializeBackground() {
   const element = document.querySelector(".body");
   if (!element) return;
 
-  setDrift(element);
   element.classList.add("body--animated");
   // Start at the default scene, then ease into a new one on load.
   getComputedStyle(element).getPropertyValue("--pink-x");
