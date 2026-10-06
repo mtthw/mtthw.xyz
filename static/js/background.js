@@ -1,22 +1,23 @@
 const glowCenters = {
-  pink: [90, 5],
-  blue: [80, 15],
-  cyan: [10, 85],
+  pink: [100, 5],
+  blue: [100, 15],
+  cyan: [0, 85],
 };
 
 function randomBetween(min, max) {
   return min + Math.random() * (max - min);
 }
 
-function percentNear(center, previous) {
-  const value = Math.round(randomBetween(center - 20, center + 20));
-  if (!Number.isFinite(previous) || Math.abs(value - previous) >= 12) return `${value}%`;
-  return `${center + (previous < center ? 14 : -14)}%`;
+function percentNear(center, previous, spread) {
+  const value = Math.round(randomBetween(center - spread, center + spread));
+  if (!Number.isFinite(previous) || Math.abs(value - previous) >= Math.min(12, spread)) return `${value}%`;
+  const fallback = Math.min(14, spread);
+  return `${center + (previous < center ? fallback : -fallback)}%`;
 }
 
-function setCoordinate(element, property, center) {
+function setCoordinate(element, property, center, spread) {
   const previous = Number.parseFloat(element.style.getPropertyValue(property));
-  element.style.setProperty(property, percentNear(center, previous));
+  element.style.setProperty(property, percentNear(center, previous, spread));
 }
 
 function setVariation(element, property, min, max) {
@@ -30,8 +31,8 @@ function setVariation(element, property, min, max) {
 
 function setGlows(element) {
   for (const [name, [x, y]] of Object.entries(glowCenters)) {
-    setCoordinate(element, `--${name}-x`, x);
-    setCoordinate(element, `--${name}-y`, y);
+    setCoordinate(element, `--${name}-x`, x, 5);
+    setCoordinate(element, `--${name}-y`, y, 20);
     setVariation(element, `--${name}-intensity`, 0.7, 1.3);
     setVariation(element, `--${name}-size`, 0.8, 1.25);
   }
