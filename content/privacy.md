@@ -3,11 +3,11 @@ title: Privacy Policy
 description: How this website handles visitor information.
 ---
 
-Last updated: 2 October 2026
+Last updated: 6 October 2026
 
 ## Introduction
 
-Welcome to mtthw.xyz. This personal website is an informational page about my work.
+I'm Matthew Nicholson, and mtthw.xyz is my personal website about my work.
 
 ## How the site works
 

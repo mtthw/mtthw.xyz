@@ -1,6 +1,7 @@
 baseURL = "https://mtthw.xyz/"
 locale = "en-IE"
 title = "Matthew Nicholson · mtthw.xyz"
+enableGitInfo = true
 
 [taxonomies]
   tag = "tags"
