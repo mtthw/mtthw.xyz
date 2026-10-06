@@ -1,0 +1,96 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
+@use "background" as bg;
+
+.social-headers {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 4rem);
+
+  h1 { margin-bottom: .5rem; }
+  h2 { margin-bottom: .25rem; font-size: 1.5rem; }
+  p { margin-bottom: 1.5rem; }
+}
+
+.social-headers__themes {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 2.5rem;
+}
+
+.social-headers__themes button {
+  padding: .5rem 1rem;
+  border: 1px solid rgba(v.$dark, .35);
+  border-radius: .5rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+
+  &[aria-pressed="true"] {
+    border-color: v.$blue;
+    background: rgba(v.$blue, .12);
+  }
+}
+
+.social-headers__card {
+  margin-bottom: 2.5rem;
+
+  p { margin-bottom: .75rem; }
+}
+
+.social-banner {
+  display: block;
+  width: 100%;
+  background-color: v.$light-lighter;
+  @include bg.light-layers;
+}
+
+.social-banner--dark {
+  background-color: v.$dark-darker;
+  @include bg.dark-layers;
+}
+
+.social-banner--linkedin { aspect-ratio: 4 / 1; }
+.social-banner--bluesky { aspect-ratio: 3 / 1; }
+
+.social-headers__capture-link {
+  display: inline-block;
+  margin-top: .75rem;
+}
+
+.social-headers__capture-banner { display: none; }
+
+@include t.dark {
+  .social-headers__themes button { border-color: rgba(v.$light, .35); }
+}
+
+html.social-capture,
+html.social-capture body,
+html.social-capture .body {
+  width: var(--capture-width);
+  height: var(--capture-height);
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+html.social-capture {
+  .body::before { display: none; }
+
+  .social-headers {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+
+    > :not(.social-headers__capture-banner) { display: none; }
+  }
+
+  .social-headers__capture-banner {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

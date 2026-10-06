@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-IE">
+  {{ partial "head/head.html" . }}
+  <body>
+    <input type="radio" id="theme-system" name="theme" class="theme__radio" aria-label="Use system theme" checked>
+    <input type="radio" id="theme-dark" name="theme" class="theme__radio" aria-label="Use dark theme">
+    <input type="radio" id="theme-light" name="theme" class="theme__radio" aria-label="Use light theme">
+    <div class="body">
+      <main class="social-headers">
+        <h1>Social headers</h1>
+        <p>The site background, framed for LinkedIn and Bluesky. Open a clean view and take a full-page screenshot.</p>
+        <div class="social-headers__themes" role="group" aria-label="Background theme">
+          <button type="button" data-theme="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-theme="light" aria-pressed="false">Light</button>
+        </div>
+        <section class="social-headers__card" data-platform="linkedin">
+          <h2>LinkedIn</h2>
+          <p>1584 × 396 pixels</p>
+          <div class="social-banner social-banner--dark social-banner--linkedin" role="img" aria-label="LinkedIn header preview"></div>
+          <a class="social-headers__capture-link" href="?capture=linkedin&amp;theme=dark" target="_blank" rel="noopener">Open screenshot view</a>
+        </section>
+        <section class="social-headers__card" data-platform="bluesky">
+          <h2>Bluesky</h2>
+          <p>1800 × 600 pixels</p>
+          <div class="social-banner social-banner--dark social-banner--bluesky" role="img" aria-label="Bluesky header preview"></div>
+          <a class="social-headers__capture-link" href="?capture=bluesky&amp;theme=dark" target="_blank" rel="noopener">Open screenshot view</a>
+        </section>
+        <div class="social-banner social-banner--dark social-headers__capture-banner" role="img" aria-label="Matthew Nicholson social header"></div>
+      </main>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const capture = params.get("capture");
+      const sizes = {linkedin: [1584, 396], bluesky: [1800, 600]};
+      let theme = params.get("theme") === "light" ? "light" : "dark";
+
+      function setTheme() {
+        for (const button of document.querySelectorAll("[data-theme]")) {
+          button.setAttribute("aria-pressed", String(button.dataset.theme === theme));
+        }
+        for (const banner of document.querySelectorAll(".social-banner")) {
+          banner.classList.toggle("social-banner--dark", theme === "dark");
+        }
+        for (const card of document.querySelectorAll("[data-platform]")) {
+          card.querySelector(".social-headers__capture-link").href = `?capture=${card.dataset.platform}&theme=${theme}`;
+        }
+      }
+
+      if (Object.hasOwn(sizes, capture)) {
+        document.documentElement.classList.add("social-capture");
+        document.documentElement.style.setProperty("--capture-width", `${sizes[capture][0]}px`);
+        document.documentElement.style.setProperty("--capture-height", `${sizes[capture][1]}px`);
+        setTheme();
+      } else {
+        for (const button of document.querySelectorAll("[data-theme]")) {
+          button.addEventListener("click", () => { theme = button.dataset.theme; setTheme(); });
+        }
+      }
+    </script>
+  </body>
+</html>

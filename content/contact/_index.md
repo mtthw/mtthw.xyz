@@ -3,6 +3,7 @@ date = "2014-04-09T00:00:00Z"
 title = "Contact"
 description = "Get in touch with Matthew Nicholson through GitHub, Bluesky, or LinkedIn."
 profilePage = true
+hideFromNav = true
 [[contacts]]
 name = "GitHub"
 detail = "github.com/mtthw"

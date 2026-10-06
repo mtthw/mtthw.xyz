@@ -9,9 +9,8 @@
 {{ with .Site.GetPage "/publications" }}
   {{ partial "nav/navItem" (dict "page" . "context" $context) }}
 {{ end }}
-{{ $contact := .Site.GetPage "/contact" }}
 {{ range $section := .Site.Sections }}
-  {{ if ne $section.RelPermalink $contact.RelPermalink }}
+  {{ if not $section.Params.hideFromNav }}
     {{ partial "nav/navItem" ( dict "page" $section "context" $context ) }}
   {{ end }}
 {{ end }}
