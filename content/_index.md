@@ -3,7 +3,7 @@ title: mtthw.xyz
 pageLogo: site
 ---
 
-# 👋 Hi, I’m Matthew.
+# 👋 Hi, I’m Matthew Nicholson.
 
 I’m a software developer working as the Development Support Technical Lead at the [ARC Hub for ICT](https://ict.archub.ie/), hosted by TU Dublin.
 

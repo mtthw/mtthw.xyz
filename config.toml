@@ -1,6 +1,6 @@
 baseURL = "https://mtthw.xyz/"
 locale = "en-IE"
-title = "mtthw.xyz"
+title = "Matthew Nicholson · mtthw.xyz"
 
 [taxonomies]
   tag = "tags"
