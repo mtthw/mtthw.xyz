@@ -16,8 +16,10 @@
   <meta name="description" content="{{ partial "page/description.html" . }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Matthew Nicholson">
   <meta property="og:title" content="{{ partial "page/title.html" . }}">
   <meta property="og:description" content="{{ partial "page/description.html" . }}">
   <meta property="og:url" content="{{ .Permalink }}">
+  {{ if .IsHome }}{{ partial "head/structured-data.html" . }}{{ end }}
   {{ partial "head/css.html" . }}
 </head>

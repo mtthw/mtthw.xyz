@@ -1,9 +1,10 @@
 ---
 title: mtthw.xyz
+description: Matthew Nicholson is a software developer and Development Support Technical Lead at the ARC Hub for ICT, hosted by TU Dublin.
 pageLogo: site
 ---
 
-# 👋 Hi, I’m Matthew Nicholson.
+# 👋 Hi, I’m Matthew.
 
 I’m a software developer working as the Development Support Technical Lead at the [ARC Hub for ICT](https://ict.archub.ie/), hosted by TU Dublin.
 
