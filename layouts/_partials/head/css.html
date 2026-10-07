@@ -1,4 +1,5 @@
-<link href="/fonts/inter-ui/stylesheet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link href="/fonts/inter/stylesheet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 {{ $style := resources.Get "sass/main.scss" | css.Sass (dict "transpiler" "dartsass") | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
