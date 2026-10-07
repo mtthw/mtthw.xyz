@@ -83,7 +83,7 @@ There are no Git submodules to initialize.
 - `assets/sass/`: site styles compiled with Dart Sass.
 - `assets/css/vendor/`: the existing Normalize defaults as plain CSS, with
   their [license and provenance](assets/css/vendor/README.md).
-- `static/`: self-hosted Inter 4.1 fonts (with its license) and images.
+- `static/`: self-hosted Inter 4.1 and Geist Mono 1.7.2 fonts (with their licenses) and images.
 - `config.toml`: site settings and the existing HTML, JSON, and RSS outputs.
 
 There is no CMS or Node build step. Hugo compiles the Sass and copies the static
