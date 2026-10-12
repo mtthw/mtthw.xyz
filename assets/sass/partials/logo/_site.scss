@@ -1,0 +1,89 @@
+@mixin stroke-length($length) {
+  stroke-dasharray: $length;
+  stroke-dashoffset: -$length;
+}
+
+.logo.logo__header {
+  .logo__nm {
+    fill-opacity: 0.1;
+    stroke-width: 5px;
+    animation: letter 10s linear forwards;
+    animation-delay: 2.5s;
+    @include stroke-length(3300);
+  }
+
+  .logo__a,
+  .logo__b,
+  .logo__c {
+    stroke-opacity: 0;
+    animation: circle 10s linear forwards;
+    animation-delay: 0.5s;
+    path {
+      stroke: var(--logo-stroke);
+      stroke-width: 3px;
+    }
+  }
+
+  .logo__a {
+    @include stroke-length(155);
+  }
+
+  .logo__b {
+    @include stroke-length(220);
+  }
+
+  .logo__c {
+    @include stroke-length(860);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo.logo__header .logo__nm {
+    animation: none;
+    fill-opacity: 1;
+    stroke-opacity: 0;
+  }
+
+  .logo.logo__header .logo__a,
+  .logo.logo__header .logo__b,
+  .logo.logo__header .logo__c {
+    animation: none;
+    stroke-opacity: 0;
+  }
+}
+
+@keyframes letter {
+  50% {
+    fill-opacity: 0.1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+  75% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+  100% {
+    fill-opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+  }
+}
+
+@keyframes circle {
+  0% {
+    stroke-opacity: 0.5;
+  }
+  25% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.5;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.5;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+  }
+}

@@ -8,7 +8,7 @@
       </label>
       <div class="sidebar__content" id="sidebar__content">
         {{ $logoID := "logo__sidebar" }}
-        {{ partial "logo/logo.html" (dict "content" . "id" $logoID) }}
+        {{ partial "logo/logo.svg" (dict "content" . "id" $logoID) }}
         {{ with partial "page/toc.html" . }}
           <div class="toc">
           {{ . }}

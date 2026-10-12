@@ -6,7 +6,10 @@
 
 @use 'partials/background';
 @use 'partials/construction';
-@use 'partials/logo';
+@use 'partials/logo/base' as logo-base;
+@use 'partials/logo/site';
+@use 'partials/logo/adapt';
+@use 'partials/logo/arc';
 @use 'partials/theme-toggle';
 @use 'partials/nav';
 @use 'partials/sidebar';

@@ -75,6 +75,8 @@ There are no Git submodules to initialize.
 - `content/styleguide.md`: the Markdown style guide at `/styleguide/`, linked from
   the sidebar.
 - `content/adapt.md`: ADAPT work from the CV, linked from the main navigation.
+- `content/arc-hub-for-ict.md`: current work at the ARC Hub for ICT, linked from
+  the main navigation.
 - `content/publications.md`: research publications and preprints, linked from the main navigation.
 - `content/contact/`: the contact page.
 - `content/privacy.md`: the privacy policy at `/privacy/`, linked from the footer and sidebar.
@@ -104,11 +106,11 @@ just browser-test
 The browser tests start a temporary local server on port 1314. GitHub Actions
 runs both checks on pushes and pull requests.
 
-Pages can set `pageLogo` to `site` or `adapt` for the built-in animated SVGs, or
+Pages can set `pageLogo` to `site`, `adapt`, or `arc` for the built-in animated SVGs, or
 to an image path (with `pageLogoAlt` for its alternative text) in front matter.
 Pages without `pageLogo` show no image above the content. The homepage uses the
-site logo; the ADAPT page uses the ADAPT logo. Both logos render inline
-through HTML partials that include SVG partials in `layouts/_partials/logo/`.
+site logo; the ADAPT and ARC Hub pages use their respective logos. All three
+logos render inline from SVG partials in `layouts/_partials/logo/`.
 This lets their paths animate without JavaScript.
 
 ## Page navigation

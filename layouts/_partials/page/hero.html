@@ -1,8 +1,10 @@
 {{- with .Params.pageLogo -}}
   {{- if eq . "site" -}}
-    {{- partial "logo/logo.html" (dict "id" "logo__header" "class" "page-logo") -}}
+    {{- partial "logo/logo.svg" (dict "id" "logo__header" "class" "page-logo") -}}
   {{- else if eq . "adapt" -}}
-    {{- partial "logo/adapt.html" $ -}}
+    {{- partial "logo/adapt.svg" $ -}}
+  {{- else if eq . "arc" -}}
+    {{- partial "logo/arc.svg" $ -}}
   {{- else -}}
     <img class="logo page-logo" src="{{ . | relURL }}" alt="{{ $.Params.pageLogoAlt | default "" }}">
   {{- end -}}

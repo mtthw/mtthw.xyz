@@ -1,0 +1,22 @@
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/theme" as t;
+
+.logo {
+  --logo-stroke: #{v.$dark-lighter};
+
+  display: block;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@include t.dark {
+  .logo {
+    --logo-stroke: #{v.$light-darker};
+  }
+}
+
+.page-logo {
+  width: min(100%, 18rem);
+  margin-block-end: 1.5rem;
+}

@@ -1,0 +1,49 @@
+.logo__arc path {
+  fill-opacity: 0;
+  stroke-width: .8;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: arc-draw 2s ease-in-out both;
+}
+
+.logo__arc-frame path { animation-delay: 0s; }
+.logo__arc-mark-teal path { animation-delay: .25s; }
+.logo__arc-mark-blue path { animation-delay: .5s; }
+.logo__arc-for path,
+.logo__arc-ict path { animation-delay: .85s; }
+.logo__arc-tagline-top path { animation-delay: 1.25s; }
+.logo__arc-tagline-bottom path { animation-delay: 1.5s; }
+
+@keyframes arc-draw {
+  0% {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+    stroke-dashoffset: 1;
+  }
+  15% {
+    stroke-opacity: 1;
+  }
+  60% {
+    fill-opacity: 0;
+    stroke-dashoffset: 0;
+  }
+  85% {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+  }
+  100% {
+    fill-opacity: 1;
+    stroke-opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo__arc path {
+    animation: none;
+    fill-opacity: 1;
+    stroke-opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
