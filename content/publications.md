@@ -8,11 +8,11 @@ Publications, most recent first.
 ## 2025
 
 - [Active Learning and Transfer Learning for Anomaly Detection in Time-Series Data](https://arxiv.org/abs/2508.03921) — *arXiv preprint*, August 2025.
-- [Challenges and solutions to complex data governance issues in cross-national, cross-sectoral, multidisciplinary real world health research: a descriptive overview](https://www.tandfonline.com/doi/abs/10.1080/21678421.2024.2428927) — *Amyotrophic Lateral Sclerosis and Frontotemporal Degeneration*, May 2025.
+- [Challenges and solutions to complex data governance issues in cross-national, cross-sectoral, multidisciplinary real world health research: a descriptive overview](https://www.tandfonline.com/doi/abs/10.1080/21678421.2024.2428927) — *Amyotrophic Lateral Sclerosis and Frontotemporal Degeneration*, March 2025.
 
 ## 2024
 
-- [Data and Process Harmonisation of MultiNational, Multi-Site Research Data](https://ebooks.iospress.nl/doi/10.3233/SHTI240675) — *Studies in Health Technology and Informatics*, January 2024.
+- [Data and Process Harmonisation of Multi-National, Multi-Site Research Data](https://ebooks.iospress.nl/doi/10.3233/SHTI240675) — *Studies in Health Technology and Informatics*, August 2024.
 
 ## 2023
 
