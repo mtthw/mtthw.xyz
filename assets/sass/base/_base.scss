@@ -158,7 +158,9 @@ a {
 
 
 code, kbd, samp {
-  font-family: "Geist Mono", monospace;
+  font-family: "Commit Mono", monospace;
+  font-feature-settings: "cv02" 1, "cv05" 1, "ss03" 1, "ss04" 1, "ss05" 1;
+  letter-spacing: 0;
 }
 
 code {
