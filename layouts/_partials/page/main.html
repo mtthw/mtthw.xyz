@@ -1,5 +1,5 @@
 {{- $hero := partial "page/hero-data.html" . -}}
-<main class="content" tabindex="-1">
+<main class="content{{ if $hero.isTextOnly }} content--no-hero{{ end }}" tabindex="-1">
   <div class="page-hero" data-hero-key="{{ $hero.key }}">{{ $hero.html }}</div>
   <div class="page-content">{{ partial "page/content.html" . }}</div>
 </main>
