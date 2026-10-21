@@ -2,20 +2,22 @@
 {{ $home :=  .Site.GetPage "home" }}
 {{ $context :=  . }}
 
-{{ partial "nav/navItem" ( dict "page" $home "context" $context ) }}
-{{ with .Site.GetPage "/arc-hub-for-ict" }}
-  {{ partial "nav/navItem" (dict "page" . "context" $context) }}
-{{ end }}
-{{ with .Site.GetPage "/adapt" }}
-  {{ partial "nav/navItem" (dict "page" . "context" $context) }}
-{{ end }}
-{{ with .Site.GetPage "/publications" }}
-  {{ partial "nav/navItem" (dict "page" . "context" $context) }}
-{{ end }}
-{{ range $section := .Site.Sections }}
-  {{ if not $section.Params.hideFromNav }}
-    {{ partial "nav/navItem" ( dict "page" $section "context" $context ) }}
+<div class="nav__items">
+  {{ partial "nav/navItem" ( dict "page" $home "context" $context ) }}
+  {{ with .Site.GetPage "/arc-hub-for-ict" }}
+    {{ partial "nav/navItem" (dict "page" . "context" $context) }}
   {{ end }}
-{{ end }}
+  {{ with .Site.GetPage "/adapt" }}
+    {{ partial "nav/navItem" (dict "page" . "context" $context) }}
+  {{ end }}
+  {{ with .Site.GetPage "/publications" }}
+    {{ partial "nav/navItem" (dict "page" . "context" $context) }}
+  {{ end }}
+  {{ range $section := .Site.Sections }}
+    {{ if not $section.Params.hideFromNav }}
+      {{ partial "nav/navItem" ( dict "page" $section "context" $context ) }}
+    {{ end }}
+  {{ end }}
+</div>
 {{ partial "theme/toggle.html" . }}
 </nav>

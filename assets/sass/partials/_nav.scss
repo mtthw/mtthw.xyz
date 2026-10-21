@@ -1,13 +1,23 @@
 @use "../abstracts/variables" as v;
 
 .header .nav {
-  height: v.$nav-size;
+  min-height: v.$nav-size;
   width: 100%;
   display: flex;
   align-items: center;
   margin-top: 5rem;
 
+  .nav__items {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 0;
+    padding-block: .25rem;
+  }
+
   .nav__item {
+    flex: none;
     margin: auto .625rem;
   }
   .nav__link {
@@ -35,10 +45,6 @@
   }
 
   @media (max-width: 40rem) {
-    height: auto;
-    min-height: v.$nav-size;
-    flex-wrap: wrap;
-
     .nav__item,
     .nav__link,
     .nav__link:hover {
