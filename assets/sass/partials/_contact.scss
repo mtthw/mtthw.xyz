@@ -76,7 +76,7 @@
 
 .contact-form {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
   padding: clamp(1.25rem, 4vw, 2rem);
   background: #eef0ff;
   border-radius: .75rem;
@@ -89,18 +89,23 @@
 }
 
 .contact-form__field {
+  position: relative;
   display: grid;
-  gap: .375rem;
 
   label {
-    margin-inline-start: .8125rem;
+    position: absolute;
+    top: 50%;
+    left: .8125rem;
+    transform: translateY(-50%);
     font-weight: 700;
+    line-height: 1.2;
+    transition: top .18s ease, transform .18s ease, font-size .18s ease;
   }
 
   input,
   textarea {
     width: 100%;
-    padding: .75rem;
+    padding: 1.4rem .75rem .35rem;
     font: inherit;
     color: inherit;
     background: white;
@@ -110,6 +115,20 @@
 
   textarea {
     resize: vertical;
+  }
+
+  textarea + label {
+    top: .9rem;
+    transform: none;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: .3rem;
+    transform: none;
+    font-size: .75rem;
   }
 
   input:focus-visible,
@@ -326,6 +345,12 @@
 @media (max-width: 36rem) {
   .contact-form__row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__field label {
+    transition: none;
   }
 }
 

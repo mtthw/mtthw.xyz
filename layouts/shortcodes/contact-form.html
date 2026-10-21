@@ -2,21 +2,21 @@
   <form class="contact-form" action="https://contact.mtthw.xyz/submit" method="post">
     <div class="contact-form__row">
       <div class="contact-form__field">
+        <input id="contact-name" name="name" type="text" autocomplete="name" placeholder=" " required>
         <label for="contact-name">Name</label>
-        <input id="contact-name" name="name" type="text" autocomplete="name" required>
       </div>
       <div class="contact-form__field">
+        <input id="contact-email" name="email" type="email" autocomplete="email" placeholder=" " required>
         <label for="contact-email">Email</label>
-        <input id="contact-email" name="email" type="email" autocomplete="email" required>
       </div>
     </div>
     <div class="contact-form__field">
+      <input id="contact-subject" name="subject" type="text" placeholder=" " required>
       <label for="contact-subject">Subject</label>
-      <input id="contact-subject" name="subject" type="text" required>
     </div>
     <div class="contact-form__field">
+      <textarea id="contact-message" name="message" rows="8" minlength="64" aria-describedby="contact-message-help" placeholder=" " required></textarea>
       <label for="contact-message">Message</label>
-      <textarea id="contact-message" name="message" rows="8" minlength="64" aria-describedby="contact-message-help" required></textarea>
     </div>
     <div class="contact-form__honeypot" aria-hidden="true">
       <label for="contact-company-website">Company website</label>
