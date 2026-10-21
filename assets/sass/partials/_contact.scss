@@ -150,6 +150,33 @@
   }
 }
 
+.contact-form__feedback {
+  display: none;
+  margin: 0;
+  padding: .875rem 1rem;
+  background: white;
+  border: 1px solid v.$light-darker;
+  border-inline-start-width: .375rem;
+  border-radius: .5rem;
+  scroll-margin-block: 1rem;
+
+  &:target {
+    display: block;
+  }
+
+  &--success {
+    border-inline-start-color: v.$green;
+  }
+
+  &--error {
+    border-inline-start-color: v.$red;
+  }
+
+  &--rate-limited {
+    border-inline-start-color: #b86600;
+  }
+}
+
 .contact-link {
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr) auto;
@@ -249,6 +276,22 @@
     }
   }
 
+  .contact-form__feedback {
+    background: v.$dark;
+    border-color: v.$dark;
+
+    &--success {
+      border-inline-start-color: v.$green-lighter;
+    }
+
+    &--error {
+      border-inline-start-color: v.$red-lighter;
+    }
+
+    &--rate-limited {
+      border-inline-start-color: #ffbd62;
+    }
+  }
 }
 
 @media (max-width: 36rem) {
