@@ -44,7 +44,6 @@ async function fetchPage(url, signal) {
   if (typeof page.title !== "string" ||
       typeof page.description !== "string" || typeof page.canonical !== "string" ||
       typeof page.hero?.key !== "string" || typeof page.hero?.html !== "string" ||
-      typeof page.hero?.isTextOnly !== "boolean" ||
       typeof page.content !== "string" || typeof page.toc !== "string") {
     throw new Error("Invalid page data");
   }
@@ -116,7 +115,7 @@ function updateMetadata(page) {
 function renderPage(page, url, savedScrollY) {
   updateHero(page.hero);
   contentElement.innerHTML = page.content;
-  main.classList.toggle("content--no-hero", page.hero.isTextOnly);
+  main.classList.toggle("content--no-hero", !page.hero.html);
   document.title = page.title;
   updateMetadata(page);
   updateTableOfContents(page.toc);
