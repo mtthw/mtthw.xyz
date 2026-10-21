@@ -1,0 +1,195 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
+
+@property --home-cta-border-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+@property --home-cta-border-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.home-cta-wrap {
+  text-align: center;
+}
+
+.home-cta {
+  --home-cta-border-x: 100%;
+  --home-cta-border-y: 0%;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .75rem 1.25rem;
+  font-weight: 500;
+  color: v.$dark;
+  background: linear-gradient(v.$light, v.$light) padding-box,
+    radial-gradient(circle farthest-corner at var(--home-cta-border-x) var(--home-cta-border-y), #04c5cc, #2581f8) border-box;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 0 rgba(v.$light, .18), 0 .4rem 1.25rem rgba(v.$dark, .18);
+  transition: transform .25s ease, --home-cta-border-x .55s ease, --home-cta-border-y .55s ease, box-shadow .35s ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -25%;
+    width: 75%;
+    height: 150%;
+    border-radius: 50%;
+    filter: blur(.4rem);
+    opacity: .55;
+    transition: transform .5s ease, opacity .5s ease, filter .5s ease;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 10%;
+    background: radial-gradient(ellipse farthest-side, v.$blue, transparent 70%);
+    transform: translate(-22%, 20%) rotate(-15deg) scale(1.95, 1.1);
+  }
+
+  &::after {
+    right: 10%;
+    background: radial-gradient(ellipse farthest-side, rgba(v.$cyan, .9), transparent 70%);
+    transform: translate(22%, -20%) rotate(-5deg) scale(1.05, 1.55);
+    transition-delay: .08s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    --home-cta-border-x: 50%;
+    --home-cta-border-y: 100%;
+
+    color: v.$dark;
+    box-shadow: inset 0 1px 0 rgba(v.$light, .28), 0 .4rem 1.25rem rgba(v.$dark, .24);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    opacity: 1;
+    filter: blur(.4rem) brightness(1.15) saturate(1.5);
+    transform: translate(-70%, 50%) rotate(-15deg) scale(3.3, 1.65);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: .35;
+    filter: blur(.4rem) brightness(1.7) saturate(1.5);
+    transform: translate(70%, -50%) rotate(5deg) scale(1.7, 2.25);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$dark;
+    outline-offset: 3px;
+  }
+
+  &:is(:hover, :focus-visible) {
+    .home-cta__purple--upper {
+      transform: translate(-26%, -95%) scale(2.1);
+    }
+
+    .home-cta__purple--lower {
+      transform: translate(110%, 75%) scale(2.1);
+    }
+  }
+}
+
+.home-cta__purple {
+  position: absolute;
+  z-index: 0;
+  width: 46%;
+  height: 80%;
+  border-radius: 50%;
+  filter: blur(.2rem);
+  opacity: .4;
+  transition: transform .55s ease;
+  pointer-events: none;
+
+  &--upper {
+    top: 4%;
+    left: 22%;
+    background: radial-gradient(ellipse, rgba(#d8c9ee, .9) 0 20%, transparent 78%);
+  }
+
+  &--lower {
+    right: 22%;
+    bottom: 4%;
+    background: radial-gradient(ellipse, rgba(#cab7e5, .9) 0 20%, transparent 78%);
+    transition-delay: .08s;
+  }
+}
+
+.home-cta__label {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(v.$light, .8);
+}
+
+.home-cta__arrow {
+  position: relative;
+  z-index: 2;
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  fill: currentColor;
+}
+
+@include t.dark {
+  .home-cta {
+    color: v.$light;
+    background-image: linear-gradient(v.$dark-lighter, v.$dark-lighter),
+      radial-gradient(circle farthest-corner at var(--home-cta-border-x) var(--home-cta-border-y), #04c5cc, #2581f8);
+
+    &:hover,
+    &:focus-visible {
+      color: v.$light;
+    }
+
+    &:focus-visible {
+      outline-color: v.$light;
+    }
+  }
+
+  .home-cta__label {
+    text-shadow: 0 1px 2px rgba(v.$dark, .6);
+  }
+
+  .home-cta__purple {
+    opacity: .55;
+  }
+
+  .home-cta__purple--upper {
+    background: radial-gradient(ellipse, rgba(#8050ae, .9) 0 20%, transparent 78%);
+  }
+
+  .home-cta__purple--lower {
+    background: radial-gradient(ellipse, rgba(#5b3988, .9) 0 20%, transparent 78%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-cta,
+  .home-cta::before,
+  .home-cta::after,
+  .home-cta__purple {
+    transition: none;
+  }
+}
