@@ -153,6 +153,15 @@
     border-color: v.$dark-lighter;
   }
 
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: .8;
+  }
+
   &:focus-visible {
     outline: 2px solid v.$blue;
     outline-offset: 2px;
@@ -169,7 +178,8 @@
   border-radius: .5rem;
   scroll-margin-block: 1rem;
 
-  &:target {
+  &:target,
+  &.is-visible {
     display: block;
   }
 
@@ -183,6 +193,16 @@
 
   &--rate-limited {
     border-inline-start-color: #b86600;
+  }
+}
+
+.contact-form--enhanced .contact-form__feedback {
+  &:target {
+    display: none;
+  }
+
+  &.is-visible {
+    display: block;
   }
 }
 
