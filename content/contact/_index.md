@@ -1,7 +1,7 @@
 +++
 date = "2014-04-09T00:00:00Z"
 title = "Contact"
-description = "Get in touch with Matthew Nicholson through GitHub, Bluesky, or LinkedIn."
+description = "Send Matthew Nicholson a message or connect through GitHub, Bluesky, or LinkedIn."
 profilePage = true
 hideFromNav = true
 [[contacts]]
@@ -26,7 +26,11 @@ icon = "linkedin"
 
 +++
 {{< contact-hero >}}
-You can find me online and get in touch through these profiles.
+Send me a message below, or find me through these profiles.
 {{< /contact-hero >}}
+
+{{< contact-form >}}
+
+## Find me online
 
 {{< contact-links >}}
