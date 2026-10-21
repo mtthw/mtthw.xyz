@@ -15,6 +15,10 @@ $guide-stops: transparent calc(#{$radius} - 1px), var(--frame-guide) #{$radius},
     radial-gradient(circle at calc(100% - #{$radius}) calc(100% - #{$radius}), #{$guide-stops});
 }
 
+.construction-frame--plain {
+  background-image: none;
+}
+
 @include t.dark {
   .construction-frame {
     --frame-line: #{rgba(v.$light, .2)};

@@ -51,17 +51,11 @@ async function fetchPage(url, signal) {
 }
 
 function updateTableOfContents(markup) {
-  const current = document.querySelector(".sidebar__content .toc");
-  if (!markup) {
-    current?.remove();
-    return;
-  }
-
-  const next = document.createElement("div");
-  next.className = "toc";
-  next.innerHTML = markup;
-  if (current) current.replaceWith(next);
-  else document.querySelector(".sidebar__nav").before(next);
+  const links = document.querySelector(".sidebar__content .toc__links");
+  const empty = document.querySelector(".sidebar__content .toc__empty");
+  links.innerHTML = markup;
+  links.hidden = !markup;
+  empty.hidden = Boolean(markup);
 }
 
 function updateCurrentLinks(url) {

@@ -9,11 +9,13 @@
       <div class="sidebar__content" id="sidebar__content">
         {{ $logoID := "logo__sidebar" }}
         {{ partial "logo/logo.svg" (dict "content" . "id" $logoID) }}
-        {{ with partial "page/toc.html" . }}
-          <div class="toc">
-          {{ . }}
+        {{ $toc := partial "page/toc.html" . }}
+        <div class="toc">
+          <div class="toc__links construction-frame construction-frame--plain"{{ if not $toc }} hidden{{ end }}>{{ $toc }}</div>
+          <div class="toc__empty construction-frame construction-frame--plain"{{ if $toc }} hidden{{ end }}>
+            <p>For longer pages, the table of contents will appear here.</p>
           </div>
-        {{ end }}
+        </div>
         {{ $styleguide := .Site.GetPage "/styleguide" }}
         {{ $contact := .Site.GetPage "/contact" }}
         {{ $privacy := .Site.GetPage "/privacy" }}
