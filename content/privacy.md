@@ -3,7 +3,7 @@ title: Privacy Policy
 description: How this website handles visitor information.
 ---
 
-Last updated: 6 October 2026
+Last updated: 21 October 2026
 
 ## Introduction
 
@@ -19,11 +19,15 @@ The theme defaults to System, which follows your device's light or dark appearan
 
 ## Data collection
 
-I do not ask visitors to provide personal information through this site.
+You can browse the site without providing personal information. If you use the contact form, I ask for your name, email address, subject, and message. I use these details to read and respond to your message.
 
 - I do not use cookies.
 - I do not use analytics or tracking tools.
-- There are no contact forms, user accounts, or newsletter sign-ups.
+- There are no user accounts or newsletter sign-ups.
+
+## Contact form
+
+The form sends your submission to my self-hosted FormFling service at contact.mtthw.xyz, which forwards it to my Proton Mail inbox. FormFling does not save submissions to a database. It temporarily tracks the sending IP address in memory to limit repeated submissions. The servers handling the form may also record technical request details, including IP addresses, in logs.
 
 ## Third-party services
 
@@ -33,7 +37,7 @@ Links to other websites take you to services with their own privacy practices.
 
 ## Changes to this policy
 
-If I add features that collect visitor information, I will update this page accordingly.
+I will update this page if I change how the site handles visitor information.
 
 ## Contact
 
