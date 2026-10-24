@@ -73,10 +73,8 @@ for path, page in pages.items():
         ERRORS.append(f"{path}: missing description")
     if page.canonical != f"https://mtthw.xyz{route}":
         ERRORS.append(f"{path}: invalid canonical URL {page.canonical!r}")
-    data_path = path.with_name("index.json")
-    if is_not_found:
-        pass  # Error pages use ordinary HTML navigation, not JSON navigation.
-    elif not data_path.exists():
+    data_path = ROOT / "404.json" if is_not_found else path.with_name("index.json")
+    if not data_path.exists():
         ERRORS.append(f"{path}: missing JSON page")
     else:
         data = json.loads(data_path.read_text())
@@ -84,6 +82,10 @@ for path, page in pages.items():
             ERRORS.append(f"{data_path}: incomplete page data")
         elif data["description"] != page.description or data["canonical"] != page.canonical:
             ERRORS.append(f"{data_path}: metadata differs from HTML")
+        if data.get("status") != (404 if is_not_found else 200):
+            ERRORS.append(f"{data_path}: incorrect page status")
+        if data.get("noindex") != (page.robots == "noindex"):
+            ERRORS.append(f"{data_path}: robots metadata differs from HTML")
     for link in page.links:
         target, fragment = target_for(path, link)
         if target is None:

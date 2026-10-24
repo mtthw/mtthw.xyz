@@ -58,11 +58,26 @@ SSH and rsync checksum comparison, so a clean build does not reupload unchanged
 pages. Delayed deletion removes obsolete generated files from the destination;
 keep server-managed files outside `/srv/http/nicholma/mtthw.xyz/`.
 
-Hugo generates `public/404.html` from `layouts/404.html`. The production nginx
-site already uses `error_page 404 /404.html;`, so deploying the generated file
-enables the custom error page without changing or reloading nginx. Keep the
-404 status (do not redirect missing URLs to the error page). After deployment,
-check with `curl -I https://mtthw.xyz/does-not-exist/`.
+Hugo generates `public/404.html` and `public/404.json` from `layouts/404.html`,
+using the same content partial as navigation. The production nginx site uses:
+
+```nginx
+error_page 404 /404.html;
+
+location ~ /index\.json$ {
+    error_page 404 /404.json;
+}
+
+location = /404.json {
+    internal;
+}
+```
+
+Keep the 404 status (do not redirect missing URLs or change errors to 200).
+After deployment, check `curl -I https://mtthw.xyz/does-not-exist/` and
+`curl -i https://mtthw.xyz/does-not-exist/index.json`: both should return 404,
+with HTML and JSON bodies respectively. The internal `/404.json` is served
+through nginx's error mapping, not fetched directly by navigation.
 
 Use `just dev -d` to run in the background, `just logs` to follow the output,
 and `just stop` to stop the server while keeping its container. The
@@ -133,7 +148,10 @@ main content without reloading the shared layout, styles, or fonts. The page
 title, current navigation link, sidebar table of contents, URL, and browser
 back/forward history update with the page. Modified clicks, external links,
 same-page anchors, and links with query strings retain their usual browser
-behaviour. If the JSON request fails, the browser loads the normal HTML page.
+behaviour. A valid JSON 404 response displays the error page without reloading,
+keeping the missing URL in the address bar. Navigation updates the error layout
+and robots metadata when entering or leaving it, including through history.
+Other failures (including invalid JSON or server errors) load the normal HTML page.
 
 Hugo builds the HTML page and its JSON version from the same hero and content
 partials. The JSON has a separate `hero` component; navigation keeps the

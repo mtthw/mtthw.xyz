@@ -2,6 +2,60 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("missing pages render JSON 404s without reloading, including Back and Forward", async ({ page }) => {
+  await page.route("**/missing/nested/page/index.json", (route) => route.fulfill({
+    status: 404,
+    contentType: "application/json",
+    body: readFileSync(path.join(__dirname, "../../public/404.json"), "utf8"),
+  }));
+  await page.goto("/adapt/");
+  await page.evaluate(() => {
+    window.navigationMarker = "same document";
+    const link = document.createElement("a");
+    link.href = "/missing/nested/page/";
+    link.textContent = "Missing page";
+    document.querySelector(".page-content").append(link);
+  });
+  await page.getByRole("link", { name: "Missing page", exact: true }).click();
+  await expect(page).toHaveURL(/\/missing\/nested\/page\/$/);
+  await expect(page.locator("main")).toHaveClass("content not-found");
+  await expect(page.getByRole("heading", { name: "Page not found", exact: true })).toBeVisible();
+  await expect(page.locator(".not-found__code")).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://mtthw.xyz/404.html");
+  await expect(page.locator("main")).toBeFocused();
+  await expect(page.locator('.header a[aria-current="page"]')).toHaveCount(0);
+  await expect(page.locator(".toc__links")).toBeHidden();
+
+  await page.getByRole("link", { name: "Back to home" }).click();
+  await expect(page).toHaveURL("http://127.0.0.1:1314/");
+  await expect(page.locator("main")).not.toHaveClass(/not-found/);
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+  await expect(page).toHaveTitle("Matthew Nicholson · mtthw.xyz");
+
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "Page not found", exact: true })).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "ADAPT", exact: true })).toBeVisible();
+  await expect(page.locator("main")).not.toHaveClass(/not-found/);
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+  await page.goForward();
+  await expect(page.getByRole("heading", { name: "Page not found", exact: true })).toBeVisible();
+  expect(await page.evaluate(() => window.navigationMarker)).toBe("same document");
+});
+
+for (const body of ["<html>Not found</html>", '{"status":404}']) {
+  test(`invalid 404 JSON falls back to HTML: ${body}`, async ({ page }) => {
+    await page.route("**/adapt/index.json", (route) => route.fulfill({ status: 404, body }));
+    await page.goto("/");
+    await page.evaluate(() => { window.navigationMarker = true; });
+    await page.getByRole("link", { name: "ADAPT", exact: true }).first().click();
+    await expect(page.getByRole("heading", { name: "ADAPT", exact: true })).toBeVisible();
+    expect(await page.evaluate(() => window.navigationMarker)).toBeUndefined();
+  });
+}
+
 test("main page headings use DT Getai Grotesk while smaller headings retain Inter", async ({ page }) => {
   await page.goto("/adapt/");
   await expect(page.locator("main h1")).toHaveCSS("font-family", /^"DT Getai Grotesk", Inter, sans-serif$/i);
@@ -44,11 +98,13 @@ for (const javaScriptEnabled of [true, false]) {
       await expect(page.locator(".not-found__code")).toBeVisible();
       await expect(page).toHaveTitle(/^404 — Page not found/);
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+      if (javaScriptEnabled) await page.evaluate(() => { window.navigationMarker = true; });
 
       await page.getByRole("link", { name: "Back to home" }).click();
       await expect(page).toHaveURL("http://127.0.0.1:1314/");
       await expect(page).toHaveTitle("Matthew Nicholson · mtthw.xyz");
       await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+      if (javaScriptEnabled) expect(await page.evaluate(() => window.navigationMarker)).toBe(true);
     });
   });
 }

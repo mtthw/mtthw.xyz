@@ -1,4 +1,6 @@
-{{- if .IsHome -}}
+{{- if eq .Kind "404" -}}
+  {{ partial "page/not-found.html" . }}
+{{- else if .IsHome -}}
   {{ .Content }}
 {{- else if .Params.profilePage -}}
   {{ .Content }}

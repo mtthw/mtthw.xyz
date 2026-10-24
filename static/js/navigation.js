@@ -38,13 +38,15 @@ function shouldHandleClick(event, link, url) {
 async function fetchPage(url, signal) {
   const jsonUrl = new URL("index.json", url);
   const response = await fetch(jsonUrl, { signal, headers: { Accept: "application/json" } });
-  if (!response.ok) throw new Error(`Page request failed: ${response.status}`);
+  if (!response.ok && response.status !== 404) throw new Error(`Page request failed: ${response.status}`);
 
   const page = await response.json();
   if (typeof page.title !== "string" ||
       typeof page.description !== "string" || typeof page.canonical !== "string" ||
       typeof page.hero?.key !== "string" || typeof page.hero?.html !== "string" ||
-      typeof page.content !== "string" || typeof page.toc !== "string") {
+      typeof page.content !== "string" || typeof page.toc !== "string" ||
+      (page.noindex !== undefined && typeof page.noindex !== "boolean") ||
+      (response.status === 404) !== (page.status === 404)) {
     throw new Error("Invalid page data");
   }
   return page;
@@ -99,6 +101,17 @@ function updateBackground(url) {
 }
 
 function updateMetadata(page) {
+  let robots = document.querySelector('meta[name="robots"]');
+  if (page.noindex || page.status === 404) {
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.name = "robots";
+      document.head.append(robots);
+    }
+    robots.content = "noindex";
+  } else {
+    robots?.remove();
+  }
   document.querySelector('meta[name="description"]').content = page.description;
   document.querySelector('link[rel="canonical"]').href = page.canonical;
   document.querySelector('meta[property="og:title"]').content = page.title;
@@ -109,7 +122,8 @@ function updateMetadata(page) {
 function renderPage(page, url, savedScrollY) {
   updateHero(page.hero);
   contentElement.innerHTML = page.content;
-  main.classList.toggle("content--no-hero", !page.hero.html);
+  main.classList.toggle("not-found", page.status === 404);
+  main.classList.toggle("content--no-hero", page.status !== 404 && !page.hero.html);
   document.title = page.title;
   updateMetadata(page);
   updateTableOfContents(page.toc);

@@ -1,4 +1,6 @@
 {{- $page := dict
+  "status" (cond (eq .Kind "404") 404 200)
+  "noindex" (or (eq .Kind "404") (.Params.noindex | default false))
   "title" (partial "page/title.html" .)
   "description" (partial "page/description.html" .)
   "canonical" .Permalink
