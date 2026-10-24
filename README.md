@@ -58,6 +58,12 @@ SSH and rsync checksum comparison, so a clean build does not reupload unchanged
 pages. Delayed deletion removes obsolete generated files from the destination;
 keep server-managed files outside `/srv/http/nicholma/mtthw.xyz/`.
 
+Hugo generates `public/404.html` from `layouts/404.html`. The production nginx
+site already uses `error_page 404 /404.html;`, so deploying the generated file
+enables the custom error page without changing or reloading nginx. Keep the
+404 status (do not redirect missing URLs to the error page). After deployment,
+check with `curl -I https://mtthw.xyz/does-not-exist/`.
+
 Use `just dev -d` to run in the background, `just logs` to follow the output,
 and `just stop` to stop the server while keeping its container. The
 [Justfile](Justfile) wraps `docker compose -f compose.dev.yaml`; set `COMPOSE`

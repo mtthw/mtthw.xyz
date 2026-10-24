@@ -19,6 +19,7 @@ class Page(HTMLParser):
         self.lang = None
         self.description = None
         self.canonical = None
+        self.robots = None
         self.feed(markup)
 
     def handle_starttag(self, tag, attrs):
@@ -29,6 +30,8 @@ class Page(HTMLParser):
             self.ids.add(attrs["id"])
         if tag == "meta" and attrs.get("name") == "description":
             self.description = attrs.get("content")
+        if tag == "meta" and attrs.get("name") == "robots":
+            self.robots = attrs.get("content")
         if tag == "link" and attrs.get("rel") == "canonical":
             self.canonical = attrs.get("href")
         for name in ("href", "src"):
@@ -56,9 +59,14 @@ def target_for(source, value):
 
 
 for path, page in pages.items():
+    is_not_found = path == ROOT / "404.html"
     route = "/" + str(path.relative_to(ROOT).parent).replace(".", "").strip("/")
     if route != "/":
         route += "/"
+    if is_not_found:
+        route = "/404.html"
+        if page.robots != "noindex":
+            ERRORS.append(f"{path}: missing noindex directive")
     if page.lang != "en-IE":
         ERRORS.append(f"{path}: missing en-IE language")
     if not page.description:
@@ -66,7 +74,9 @@ for path, page in pages.items():
     if page.canonical != f"https://mtthw.xyz{route}":
         ERRORS.append(f"{path}: invalid canonical URL {page.canonical!r}")
     data_path = path.with_name("index.json")
-    if not data_path.exists():
+    if is_not_found:
+        pass  # Error pages use ordinary HTML navigation, not JSON navigation.
+    elif not data_path.exists():
         ERRORS.append(f"{path}: missing JSON page")
     else:
         data = json.loads(data_path.read_text())
@@ -85,6 +95,8 @@ for path, page in pages.items():
 
 if ROOT.joinpath("tags", "index.html") not in pages:
     ERRORS.append("Missing tags page")
+if ROOT / "404.html" not in pages:
+    ERRORS.append("Missing 404 page")
 
 for entry in ET.parse(ROOT / "sitemap.xml").iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc"):
     target, _ = target_for(ROOT / "index.html", entry.text)

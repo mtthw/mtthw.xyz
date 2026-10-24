@@ -1,5 +1,7 @@
 {{- if .Description -}}
   {{- return (.Description | plainify) -}}
+{{- else if eq .Kind "404" -}}
+  {{- return "The page you’re looking for doesn’t exist or may have moved." -}}
 {{- else if .IsHome -}}
   {{- return "Software development, architecture, and research work by Matthew Nicholson." -}}
 {{- else if or (eq .Kind "taxonomy") (eq .Kind "term") -}}

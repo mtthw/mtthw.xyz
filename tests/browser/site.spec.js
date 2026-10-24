@@ -1,4 +1,45 @@
 const { test, expect, devices } = require("@playwright/test");
+const { readFileSync } = require("node:fs");
+const path = require("node:path");
+
+test("404 graphic fills the content width and sits above the footer", async ({ page }) => {
+  for (const viewport of [{ width: 1280, height: 900 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/404.html");
+    const graphic = await page.locator(".not-found__code").boundingBox();
+    const footer = await page.locator(".site-footer__frame").boundingBox();
+    expect(Math.abs(graphic.width - footer.width)).toBeLessThan(1);
+    expect(footer.y - (graphic.y + graphic.height)).toBeCloseTo(32, 0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(viewport.width);
+    expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBe(viewport.height);
+  }
+});
+
+for (const javaScriptEnabled of [true, false]) {
+  test.describe(`404 recovery with JavaScript ${javaScriptEnabled ? "enabled" : "disabled"}`, () => {
+    test.use({ javaScriptEnabled });
+
+    test("a missing URL shows the error page and links back home", async ({ page }) => {
+      // Emulate nginx's error_page mapping; Python's test server has its own 404 page.
+      await page.route("**/missing/nested/page/", (route) => route.fulfill({
+        status: 404,
+        contentType: "text/html",
+        body: readFileSync(path.join(__dirname, "../../public/404.html"), "utf8"),
+      }));
+      const response = await page.goto("/missing/nested/page/");
+      expect(response.status()).toBe(404);
+      await expect(page.getByRole("heading", { name: "Page not found", exact: true })).toBeVisible();
+      await expect(page.locator(".not-found__code")).toBeVisible();
+      await expect(page).toHaveTitle(/^404 — Page not found/);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+
+      await page.getByRole("link", { name: "Back to home" }).click();
+      await expect(page).toHaveURL("http://127.0.0.1:1314/");
+      await expect(page).toHaveTitle("Matthew Nicholson · mtthw.xyz");
+      await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+    });
+  });
+}
 
 test("closed sidebar stays out of the keyboard path and Escape closes it", async ({ page }) => {
   await page.goto("/adapt/");
