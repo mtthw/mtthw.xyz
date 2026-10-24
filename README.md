@@ -147,6 +147,8 @@ This lets their paths animate without JavaScript.
 The style guide and tags index remain available to visitors but use `noindex`
 and are excluded from the sitemap.
 
+Social previews use the contact portrait with Open Graph image metadata.
+
 The site works with ordinary HTML links. In browsers with JavaScript, a plain
 click on an internal page link fetches that page's `index.json` and replaces the
 main content without reloading the shared layout, styles, or fonts. The page

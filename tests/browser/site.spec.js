@@ -2,6 +2,16 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("Open Graph previews use the contact portrait and update during navigation", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", "https://mtthw.xyz/images/Matthew_Nicholson.jpg");
+  await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute("content", "Matthew Nicholson");
+
+  await page.getByRole("link", { name: "ADAPT", exact: true }).first().click();
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "ADAPT · Matthew Nicholson · mtthw.xyz");
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute("content", /Collaborative projects/);
+});
+
 test("style guide and tags retain noindex during JavaScript navigation", async ({ page }) => {
   await page.goto("/");
   for (const href of ["/styleguide/", "/tags/"]) {

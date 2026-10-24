@@ -20,10 +20,13 @@ class Page(HTMLParser):
         self.description = None
         self.canonical = None
         self.robots = None
+        self.metadata = {}
         self.feed(markup)
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "meta":
+            self.metadata[attrs.get("property") or attrs.get("name")] = attrs.get("content")
         if tag == "html":
             self.lang = attrs.get("lang")
         if "id" in attrs:
@@ -73,6 +76,14 @@ for path, page in pages.items():
         ERRORS.append(f"{path}: missing description")
     if page.canonical != f"https://mtthw.xyz{route}":
         ERRORS.append(f"{path}: invalid canonical URL {page.canonical!r}")
+    image = page.metadata.get("og:image", "")
+    target, _ = target_for(path, image)
+    if not image.startswith("https://mtthw.xyz/") or target is None or not target.is_file():
+        ERRORS.append(f"{path}: invalid social image: {image!r}")
+    if not page.metadata.get("og:image:alt"):
+        ERRORS.append(f"{path}: missing og:image:alt")
+    if page.metadata.get("og:image:width") != "1200" or page.metadata.get("og:image:height") != "1200":
+        ERRORS.append(f"{path}: incorrect portrait dimensions")
     data_path = ROOT / "404.json" if is_not_found else path.with_name("index.json")
     if not data_path.exists():
         ERRORS.append(f"{path}: missing JSON page")
