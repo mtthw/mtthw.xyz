@@ -2,6 +2,16 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("contact page links to the ResearchGate profile", async ({ page }) => {
+  await page.goto("/contact/");
+  const profile = page.getByRole("link", { name: /ResearchGate Matthew Nicholson/ });
+  await expect(profile).toHaveAttribute("href", "https://www.researchgate.net/profile/Matthew-Nicholson-8");
+  await expect(profile).toHaveAttribute("rel", "noopener");
+  await expect.poll(() => profile.locator("img").evaluate((image) => image.naturalWidth)).toBeGreaterThan(0);
+  const data = await page.locator('script[type="application/ld+json"]').evaluate((element) => JSON.parse(element.textContent));
+  expect(data.mainEntity.sameAs).toContain("https://www.researchgate.net/profile/Matthew-Nicholson-8");
+});
+
 test("homepage logo has an accessible name, including after JavaScript navigation", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("main").getByRole("img", { name: "Matthew Nicholson logo", exact: true })).toBeVisible();

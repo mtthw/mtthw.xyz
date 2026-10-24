@@ -1,7 +1,7 @@
 +++
 date = "2014-04-09T00:00:00Z"
 title = "Contact"
-description = "Send Matthew Nicholson a message or connect through GitHub, Bluesky, or LinkedIn."
+description = "Send Matthew Nicholson a message or connect through GitHub, Bluesky, LinkedIn, or ResearchGate."
 profilePage = true
 hideFromNav = true
 [[contacts]]
@@ -21,6 +21,12 @@ name = "LinkedIn"
 detail = "Matthew Nicholson"
 url = "https://www.linkedin.com/in/matthew-nicholson-aa204b14b"
 icon = "linkedin"
+
+[[contacts]]
+name = "ResearchGate"
+detail = "Matthew Nicholson"
+url = "https://www.researchgate.net/profile/Matthew-Nicholson-8"
+icon = "researchgate"
 
 [menu.main]
 
