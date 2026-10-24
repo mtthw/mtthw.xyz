@@ -176,12 +176,12 @@
       font-size: .875rem;
       white-space: nowrap;
       text-decoration: underline;
-      text-decoration-color: v.$blue;
+      text-decoration-color: var(--link-color);
       text-decoration-thickness: 1px;
       text-underline-offset: .25em;
 
       &:hover {
-        color: v.$blue-lighter;
+        color: var(--link-hover-color);
         text-decoration-color: currentColor;
       }
 

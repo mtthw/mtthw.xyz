@@ -8,6 +8,7 @@ $increment: 30%;
 $blue: hsl(214, 94%, 56%);
 $blue-lighter: f.tint($blue, $increment);
 $blue-darker: f.shade($blue, $increment);
+$blue-darkest: f.shade($blue-darker, 15%);
 
 $cyan: hsl(182, 96%, 40.8%);
 $cyan-lighter: f.tint($cyan, $increment);

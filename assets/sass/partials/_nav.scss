@@ -36,7 +36,7 @@
 
     &:hover {
       margin: .5625rem .625rem .6875rem;
-      border-bottom: 2px solid v.$blue-lighter;
+      border-bottom: 2px solid var(--link-hover-color);
     }
 
     &[aria-current="page"] {

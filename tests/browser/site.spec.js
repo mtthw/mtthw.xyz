@@ -2,6 +2,35 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("light-theme links stay dark on hover and follow system or explicit themes", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  const link = page.locator('main p a[href="/arc-hub-for-ict/"]');
+  const color = () => link.evaluate((element) => getComputedStyle(element).color);
+  const light = await color();
+  await link.hover();
+  const lightHover = await color();
+  const contrastOnLightBackground = (value) => {
+    const luminance = (rgb) => rgb.map((channel) => channel / 255)
+      .map((channel) => channel <= .04045 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4)
+      .reduce((sum, channel, i) => sum + channel * [.2126, .7152, .0722][i], 0);
+    return (luminance([250, 252, 255]) + .05) / (luminance(value.match(/[\d.]+/g).map(Number)) + .05);
+  };
+  expect(contrastOnLightBackground(light)).toBeGreaterThan(4.5);
+  expect(contrastOnLightBackground(lightHover)).toBeGreaterThan(4.5);
+
+  await page.mouse.move(0, 0);
+  await page.emulateMedia({ colorScheme: "dark" });
+  const dark = await color();
+  expect(dark).not.toBe(light);
+  await page.locator(".header .theme-toggle__option--system").click();
+  expect(await color()).toBe(dark);
+  await page.locator(".header .theme-toggle__option--dark").click();
+  expect(await color()).toBe(light);
+  await link.hover();
+  expect(await color()).toBe(lightHover);
+});
+
 test("contact page links to the ResearchGate profile", async ({ page }) => {
   await page.goto("/contact/");
   const profile = page.getByRole("link", { name: /ResearchGate Matthew Nicholson/ });

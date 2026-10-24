@@ -100,6 +100,8 @@ body:after {
 }
 
 .body {
+  --link-color: #{v.$blue-darker};
+  --link-hover-color: #{v.$blue-darkest};
   color: v.$dark;
   color-scheme: light;
 }
@@ -117,6 +119,8 @@ body:after {
 }
 
 @include t.dark {
+  --link-color: #{v.$blue};
+  --link-hover-color: #{v.$blue-lighter};
   color: v.$light;
   color-scheme: dark;
   code {
@@ -147,12 +151,12 @@ ol ul {
 }
 
 a {
-  color: v.$blue;
-  border-bottom: 2px solid v.$blue;
+  color: var(--link-color);
+  border-bottom: 2px solid var(--link-color);
   text-decoration: none;
   &:hover {
-    color: v.$blue-lighter;
-    border-color: v.$blue-lighter;
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
   }
 }
 
