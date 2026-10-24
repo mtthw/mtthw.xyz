@@ -18,7 +18,8 @@ The work covered digital health, natural language processing, recommender system
 
 ## Athena
 
-*Senior Research Engineer / Software Architect*\
+*Senior Research Engineer / Software Architect*
+
 Athena is a project focused on Foreign Information Manipulation and Interference (FIMI): intentional, coordinated behaviour by state or non-state actors aimed at distorting public perception, eroding trust, and undermining democratic institutions. ADAPT is creating a platform for researchers to work with FIMI, supporting dataset creation, annotation with NLP and AI tools, and dashboard-based exploration.
 
 - I familiarised myself with a codebase developed before I joined the project.
@@ -29,7 +30,8 @@ Athena is a project focused on Foreign Information Manipulation and Interference
 
 ## Asthma Wearables
 
-*Senior Research Engineer / Software Architect*\
+*Senior Research Engineer / Software Architect*
+
 Asthma Wearables is developing a digital health platform that integrates wearable data, home spirometry, and patient-reported outcomes for continuous asthma monitoring and early detection of exacerbations.
 
 - I reviewed patient data, identified data quality issues, and provided feedback to platform developers during data collection.
@@ -41,7 +43,8 @@ Asthma Wearables is developing a digital health platform that integrates wearabl
 
 ## ROBUST
 
-*Senior Research Engineer / Software Architect*\
+*Senior Research Engineer / Software Architect*
+
 ROBUST is a research project trialling electric shared mobility hubs across Ireland. It studies how e-cars, e-bikes, and e-cargo bikes can drive sustained changes in travel behaviour.
 
 - I developed an iOS and Android app in React Native to show hub locations, collect survey responses, and gather usage data on shared mobility services.
@@ -50,7 +53,8 @@ ROBUST is a research project trialling electric shared mobility hubs across Irel
 
 ## PARADISE
 
-*Senior Research Engineer / Software Architect*\
+*Senior Research Engineer / Software Architect*
+
 PARADISE is a personalised medicine project focused on predicting relapse risk in ANCA-associated vasculitis. It combines clinical, biomarker, and patient-generated data to support AI-driven clinical decision tools, with an emphasis on semantic data integration and explainable AI.
 
 - I carried out a security review of the existing development.
@@ -61,6 +65,7 @@ PARADISE is a personalised medicine project focused on predicting relapse risk i
 ## PrecisionALS
 
 *Senior Software Engineer / Web Architect*
+
 PrecisionALS is a collaborative research project between the School of Medicine and the School of Computer Science. I worked on the development and deployment of its data collection system, bringing initially outsourced Node.js back-end and Android app development in-house. I also worked on securing and deploying the back-end services on a university-hosted VM.
 
 - I developed a test suite for an externally developed Node.js Express API.
@@ -87,7 +92,8 @@ Machine Learning Dublin brought public talks on AI and machine learning to a loc
 
 ## Voicetune
 
-*Fullstack*\
+*Fullstack*
+
 Voicetune is an ADAPT spin-out funded by Enterprise Ireland. I supported its transition from academic research to a commercial spin-out. It focused on emotive text-to-speech for creative fields such as video game localisation and audiobooks.
 
 - I designed a web app for researchers to evaluate speech synthesis models using different parameters.
@@ -99,7 +105,8 @@ Voicetune is an ADAPT spin-out funded by Enterprise Ireland. I supported its tra
 
 ## HSE COVID Tracker App Review
 
-*Senior Research Engineer / Software Architect*\
+*Senior Research Engineer / Software Architect*
+
 ADAPT participated in an SFI review panel assessing the codebase for the COVID Tracker app, developed by NearForm.
 
 - I reviewed the hosting and architecture of the app.
@@ -110,6 +117,7 @@ ADAPT participated in an SFI review panel assessing the codebase for the COVID T
 ## Time Series Anomaly Detection for DevOps
 
 *Machine Learning / Data Engineer*
+
 Monitoring virtual machines, containers, databases, and other services is challenging: expected resource usage for one service might be a reason for concern for another. This project reproduced existing research and explored how domain adaptation could use data annotated for one system to detect possible faults in a target system without annotated data.
 
 - I implemented a Python script to apply clustering, domain adaptation, and anomaly detection algorithms to a processed dataset and compare system performance.
@@ -119,7 +127,8 @@ Monitoring virtual machines, containers, databases, and other services is challe
 
 ## Titles in the New Testament
 
-*Scrum Master*\
+*Scrum Master*
+
 This project built an annotation tool to collect data stored in the New Testament Virtual Manuscript Room, a repository of manuscript scans built using Liferay. We extended existing widgets to support more complex annotations, including TEI transcripts.
 
 - I supervised development of the project website and collection interface, mentoring a developer with less web development experience.
@@ -130,6 +139,7 @@ This project built an annotation tool to collect data stored in the New Testamen
 ## Huawei: Adverts 2
 
 *Scrum Master*
+
 This follow-on to Huawei: Adverts developed tools for natural-looking integration of 3D models into video. We developed a demo system for lens detection, surface recognition, perspective matching, and object replacement.
 
 - I created a video dataset for object tracking and replacement.
@@ -139,7 +149,8 @@ This follow-on to Huawei: Adverts developed tools for natural-looking integratio
 
 ## GAP: Gaming for Peace
 
-*Senior Software Engineer*\
+*Senior Software Engineer*
+
 GAP was an EU Horizon 2020 project developing a game to train peacekeepers, including army and police officers, in gender, cultural, and situational awareness. This training is typically delivered through in-person role-play.
 
 - I developed a Unity plugin for event logging and syncing to a server.
@@ -150,7 +161,8 @@ GAP was an EU Horizon 2020 project developing a game to train peacekeepers, incl
 
 ## Huawei: Adverts
 
-*Scrum Master*\
+*Scrum Master*
+
 This project developed a computer vision pipeline for billboard detection and advert replacement analysis in video. A C++ binary tracked, transformed, blended, and handled occlusion mapping to integrate a billboard or poster into video; an Express and Vue.js interface supported the workflow. The project received the 2018 Technology Ireland Industry Outstanding Academic Achievement Award.
 
 - I coordinated image dataset creation and annotation.
@@ -161,7 +173,8 @@ This project developed a computer vision pipeline for billboard detection and ad
 
 ## Huawei: Semantic Understanding Video Summarisation
 
-*Scrum Master*\
+*Scrum Master*
+
 This project focused on semantic video search and automatic summarisation for video collections. We developed annotation tools, knowledge-graph pipelines, and search tools to help users find objects, actors, actions, and moods within video archives.
 
 - I coordinated technical delivery, including work allocation across the team.
@@ -172,6 +185,7 @@ This project focused on semantic video search and automatic summarisation for vi
 ## Ryanair: Hotel Recommender System
 
 *Data / Software Engineer*
+
 Ryanair was developing Ryanair Rooms, a hotel search and booking platform. With no hotel booking information available to rank listings, we developed a recommendation system using flight bookings and customer segmentation to bootstrap recommendations.
 
 - I cleaned and normalised a provided data export, processing close to a terabyte of SQL exports.
@@ -202,7 +216,8 @@ The All Ireland Linguistics Olympiad (AILO) is an annual competition organised b
 
 ## DCU Fuse
 
-*Software Engineer*\
+*Software Engineer*
+
 This project developed a website for a 24-hour public brainstorming session for DCU's 2017 strategic plan. It received a Presidents' Award from DCU.
 
 - I wrote a plugin for Discourse, an open-source forum platform.
@@ -212,7 +227,8 @@ This project developed a website for a 24-hour public brainstorming session for 
 
 ## Brite:Bill
 
-*Software Developer*\
+*Software Developer*
+
 This project developed a machine learning proof of concept for personalised customer engagement workflows in telecom and utilities billing.
 
 - I developed a synthetic data generator to create customer journey datasets for model development and validation.
@@ -223,7 +239,8 @@ This project developed a machine learning proof of concept for personalised cust
 
 ## RTÉ General Election 2016 Coverage
 
-*Software Engineer*\
+*Software Engineer*
+
 This follow-on project used ADAPT NLP tools to analyse what people were discussing on Twitter during the general election.
 
 - I updated the Twitter harvesting scripts.
@@ -234,7 +251,8 @@ This follow-on project used ADAPT NLP tools to analyse what people were discussi
 
 ## Intel: Localisation Bus
 
-*Software Engineer*\
+*Software Engineer*
+
 The Enterprise Localisation Bus project built an integration architecture for multilingual content workflows using OASIS XLIFF and CMIS standards. The platform combined CMIS, MuleSoft, and Vue.js to support translation and content movement across systems.
 
 - I developed MuleSoft pipelines to call machine translation services.
