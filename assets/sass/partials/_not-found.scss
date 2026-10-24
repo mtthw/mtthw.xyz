@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/theme" as t;
+
 .not-found {
   flex: 1 0 auto;
   display: flex;
@@ -25,8 +28,15 @@
   width: 100%;
   height: auto;
   overflow: visible;
+  color: v.$blue-darker;
   fill: currentColor;
   font-family: "DT Getai Grotesk", "Inter", sans-serif;
   font-size: 290px;
   font-weight: 900;
+}
+
+@include t.dark {
+  .not-found__code {
+    color: v.$blue-lighter;
+  }
 }
