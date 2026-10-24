@@ -92,7 +92,11 @@ There are no Git submodules to initialize.
 - `assets/css/vendor/`: the existing Normalize defaults as plain CSS, with
   their [license and provenance](assets/css/vendor/README.md).
 - `static/`: self-hosted Inter 4.1 and default Commit Mono 1.143 variable fonts
-  (with their licenses) and images. Commit Mono's selected alternates and features
+  (with their licenses) and images. DT Getai Grotesk Display Black by Death of
+  Typography and Sylvester Tan is self-hosted as WOFF2 for page headings (`h1`)
+  and the 404 graphic, with
+  its OFL and conversion details in `static/fonts/dt-getai-grotesk/`.
+  Commit Mono's selected alternates and features
   are set in `assets/sass/base/_base.scss`.
 - `config.toml`: site settings and the existing HTML, JSON, and RSS outputs.
 

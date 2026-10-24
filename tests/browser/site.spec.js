@@ -2,10 +2,22 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("main page headings use DT Getai Grotesk while smaller headings retain Inter", async ({ page }) => {
+  await page.goto("/adapt/");
+  await expect(page.locator("main h1")).toHaveCSS("font-family", /^"DT Getai Grotesk", Inter, sans-serif$/i);
+  await expect(page.locator("main h1")).toHaveCSS("font-weight", "900");
+  await expect(page.locator("main h2").first()).toHaveCSS("font-family", /^Inter, sans-serif$/i);
+});
+
 test("404 graphic fills the content width and sits above the footer", async ({ page }) => {
   for (const viewport of [{ width: 1280, height: 900 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(viewport);
     await page.goto("/404.html");
+    expect(await page.evaluate(async () => {
+      const fonts = await document.fonts.load('900 100px "DT Getai Grotesk"', "404");
+      return fonts.length > 0 && fonts.every((font) => font.status === "loaded");
+    })).toBe(true);
+    await expect(page.locator(".not-found__code")).toHaveCSS("font-family", /^"DT Getai Grotesk", Inter, sans-serif$/i);
     const graphic = await page.locator(".not-found__code").boundingBox();
     const footer = await page.locator(".site-footer__frame").boundingBox();
     expect(Math.abs(graphic.width - footer.width)).toBeLessThan(1);
