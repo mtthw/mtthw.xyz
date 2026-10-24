@@ -100,6 +100,16 @@ if ROOT.joinpath("tags", "index.html") not in pages:
 if ROOT / "404.html" not in pages:
     ERRORS.append("Missing 404 page")
 
+robots_path = ROOT / "robots.txt"
+if not robots_path.exists():
+    ERRORS.append("Missing robots.txt")
+else:
+    robots = robots_path.read_text()
+    if "Sitemap: https://mtthw.xyz/sitemap.xml" not in robots:
+        ERRORS.append("robots.txt: missing sitemap URL")
+    if "User-agent: *" not in robots or "Allow: /" not in robots:
+        ERRORS.append("robots.txt: missing crawl permissions")
+
 for entry in ET.parse(ROOT / "sitemap.xml").iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc"):
     target, _ = target_for(ROOT / "index.html", entry.text)
     if target not in pages:

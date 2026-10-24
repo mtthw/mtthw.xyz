@@ -142,6 +142,8 @@ This lets their paths animate without JavaScript.
 
 ## Page navigation
 
+`/robots.txt` allows crawling and points to the sitemap.
+
 The site works with ordinary HTML links. In browsers with JavaScript, a plain
 click on an internal page link fetches that page's `index.json` and replaces the
 main content without reloading the shared layout, styles, or fonts. The page
