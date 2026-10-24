@@ -149,6 +149,8 @@ and are excluded from the sitemap.
 
 Social previews use the contact portrait with Open Graph image metadata.
 
+The homepage and sidebar SVG logos have an accessible name, “Matthew Nicholson logo”.
+
 The site works with ordinary HTML links. In browsers with JavaScript, a plain
 click on an internal page link fetches that page's `index.json` and replaces the
 main content without reloading the shared layout, styles, or fonts. The page

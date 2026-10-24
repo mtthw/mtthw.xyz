@@ -2,6 +2,15 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("homepage logo has an accessible name, including after JavaScript navigation", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("main").getByRole("img", { name: "Matthew Nicholson logo", exact: true })).toBeVisible();
+  await page.getByRole("link", { name: "ADAPT", exact: true }).first().click();
+  await expect(page.getByRole("heading", { name: "ADAPT", exact: true })).toBeVisible();
+  await page.locator('.header a[href="/"]').click();
+  await expect(page.locator("main").getByRole("img", { name: "Matthew Nicholson logo", exact: true })).toBeVisible();
+});
+
 test("Open Graph previews use the contact portrait and update during navigation", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", "https://mtthw.xyz/images/Matthew_Nicholson.jpg");

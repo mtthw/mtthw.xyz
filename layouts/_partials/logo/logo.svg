@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" class="logo {{ .id }}{{ with .class }} {{ . }}{{ end }}" id="{{ .id }}">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" class="logo {{ .id }}{{ with .class }} {{ . }}{{ end }}" id="{{ .id }}" role="img" aria-labelledby="{{ .id }}--title">
+  <title id="{{ .id }}--title">Matthew Nicholson logo</title>
   <defs>
     <radialGradient id="{{ .id }}--fill" cx="0" cy="0" r="1.41421"class="logo__{{ .id }}--fill" cx="0" cy="0" r="1.41421">
       <stop offset="0" stop-color="#04c5cc"/>
