@@ -100,6 +100,11 @@ if ROOT.joinpath("tags", "index.html") not in pages:
 if ROOT / "404.html" not in pages:
     ERRORS.append("Missing 404 page")
 
+for route in ("styleguide", "tags"):
+    page = pages.get(ROOT / route / "index.html")
+    if page is None or page.robots != "noindex":
+        ERRORS.append(f"{route}: missing noindex page")
+
 robots_path = ROOT / "robots.txt"
 if not robots_path.exists():
     ERRORS.append("Missing robots.txt")
@@ -114,6 +119,8 @@ for entry in ET.parse(ROOT / "sitemap.xml").iter("{http://www.sitemaps.org/schem
     target, _ = target_for(ROOT / "index.html", entry.text)
     if target not in pages:
         ERRORS.append(f"Sitemap entry has no HTML page: {entry.text}")
+    elif pages[target].robots == "noindex":
+        ERRORS.append(f"Sitemap includes noindex page: {entry.text}")
 
 if ERRORS:
     raise SystemExit("\n".join(ERRORS))

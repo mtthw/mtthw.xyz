@@ -144,6 +144,9 @@ This lets their paths animate without JavaScript.
 
 `/robots.txt` allows crawling and points to the sitemap.
 
+The style guide and tags index remain available to visitors but use `noindex`
+and are excluded from the sitemap.
+
 The site works with ordinary HTML links. In browsers with JavaScript, a plain
 click on an internal page link fetches that page's `index.json` and replaces the
 main content without reloading the shared layout, styles, or fonts. The page

@@ -2,6 +2,18 @@ const { test, expect, devices } = require("@playwright/test");
 const { readFileSync } = require("node:fs");
 const path = require("node:path");
 
+test("style guide and tags retain noindex during JavaScript navigation", async ({ page }) => {
+  await page.goto("/");
+  for (const href of ["/styleguide/", "/tags/"]) {
+    await page.locator(".sidebar__toggle").click();
+    await page.locator(`.sidebar__nav a[href="${href}"]`).click();
+    await expect(page).toHaveURL(`http://127.0.0.1:1314${href}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  }
+  await page.locator('.header a[href="/"]').click();
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+});
+
 test("missing pages render JSON 404s without reloading, including Back and Forward", async ({ page }) => {
   await page.route("**/missing/nested/page/index.json", (route) => route.fulfill({
     status: 404,
